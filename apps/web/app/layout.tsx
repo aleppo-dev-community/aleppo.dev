@@ -22,6 +22,13 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}>
         <Providers>{children}</Providers>
+        {process.env.NODE_ENV === "production" && (
+          <script
+            defer
+            src="/umami/script.js"
+            data-website-id={process.env.NEXT_PUBLIC_UMAMI_ID}
+          ></script>
+        )}
       </body>
     </html>
   );
