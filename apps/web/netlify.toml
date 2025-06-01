@@ -1,0 +1,7 @@
+[[redirects]]
+  from = "/umami/script.js"
+  to = "https://cloud.umami.is/script.js"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
+  signed = "API_SIGNATURE_TOKEN"
