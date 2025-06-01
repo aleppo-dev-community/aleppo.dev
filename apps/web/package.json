@@ -1,0 +1,32 @@
+{
+  "name": "@workspace/web",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --turbopack --port 3010",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@workspace/ui": "workspace:*",
+    "@workspace/api": "workspace:*",
+    "hono": "^4.7.10",
+    "lucide-react": "^0.475.0",
+    "next": "^15.2.3",
+    "next-themes": "^0.4.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@workspace/eslint-config": "workspace:^",
+    "@workspace/typescript-config": "workspace:*",
+    "typescript": "^5.7.3"
+  }
+}
