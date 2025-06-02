@@ -1,0 +1,16 @@
+---
+description:
+globs: apps/api/*
+alwaysApply: false
+---
+## rules
+- don't use `any` types
+
+
+## Backend Stack Summary
+- **Server Framework**: ElysiaJS https://elysiajs.com/
+- **ORM**: Drizzle ORM https://orm.drizzle.team/docs/
+- **Authentication**: better-auth http://better-auth.com/docs
+- **Database**: PostgreSQL
+- use snake_case for all columns (but camelCase for ORM)
+- use full name for forign keys: property_units.id -> forign key for this is property_unit_id
