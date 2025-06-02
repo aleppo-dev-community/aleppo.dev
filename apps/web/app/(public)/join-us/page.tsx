@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <main className="bg-[#050505] text-white min-h-screen w-full flex flex-col items-center py-20">
+    <main className="text-white min-h-screen w-full flex flex-col items-center py-20">
       <div className="max-w-2xl w-full bg-gradient-to-br from-[#232323] to-[#181818] rounded-2xl p-10 shadow-lg border border-[#232323]">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">انضم إلينا</h1>
         <p className="text-secondary-foreground text-lg mb-8 text-center">

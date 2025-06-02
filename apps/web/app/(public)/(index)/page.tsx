@@ -15,7 +15,7 @@ export default function Page() {
   ];
 
   return (
-    <main className="bg-[#050505] text-white min-h-screen w-full overflow-x-hidden">
+    <main className="bg-[#050505] -mb-6 pb-20 text-white min-h-screen w-full overflow-x-hidden">
       <section
         className="relative flex items-center min-h-[500px] md:min-h-[600px] w-full overflow-hidden text-right"
         style={{ direction: "rtl" }}
@@ -48,7 +48,7 @@ export default function Page() {
           </Button>
         </div>
       </section>
-      <section className="mt-32">
+      <section className="mt-32 px-3">
         <div className="max-w-5xl mx-auto flex flex-col items-center">
           <h2 className="text-[40px] font-semibold text-white mb-8">الفعاليات القادمة</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 justify-center gap-8 w-full">
@@ -88,7 +88,7 @@ export default function Page() {
           </Button>
         </div>
       </section>
-      <section className="mt-32 max-w-5xl mx-auto flex flex-col items-center">
+      <section className="mt-32 px-3 max-w-5xl mx-auto flex flex-col items-center">
         <h2 className="text-[38px] font-semibold text-white mb-6">
           لماذا تنضم إلى مجتمع مطوري حلب؟
         </h2>
@@ -100,7 +100,7 @@ export default function Page() {
           <li>دعم مستمر لنموك المهني وتطوير مهاراتك.</li>
         </ul>
       </section>
-      <section className="mt-32 max-w-4xl mx-auto flex flex-col items-center text-center">
+      <section className="mt-32 px-3 max-w-4xl mx-auto flex flex-col items-center text-center">
         <h2 className="text-[32px] font-semibold text-white mb-4">من نحن</h2>
         <div className="text-[#AFAFAF] text-[18px] mb-6">
           مجتمع مطوري حلب هو مبادرة تهدف إلى دعم وتمكين المطورين في مدينة حلب من خلال تنظيم فعاليات،
@@ -111,7 +111,7 @@ export default function Page() {
           <Link href="/about">تعرف على المزيد عنا</Link>
         </Button>
       </section>
-      <section className="mt-32 max-w-4xl mx-auto flex flex-col items-center text-center">
+      <section className="mt-32 px-3 max-w-4xl mx-auto flex flex-col items-center text-center">
         <h2 className="text-[32px] font-semibold text-white mb-4">انضم إلينا كمتطوع</h2>
         <div className="text-[#AFAFAF] text-[18px] mb-8">
           هل لديك شغف بالمساهمة في تطوير مجتمع مطوري حلب؟ إذا كنت ترغب في دعمنا في صيانة الموقع،
@@ -121,7 +121,7 @@ export default function Page() {
           <Link href="/join-us">انضم إلينا الآن</Link>
         </Button>
       </section>
-      <section className="mt-32 max-w-6xl mx-auto flex flex-col items-center">
+      <section className="mt-32 px-3 max-w-6xl mx-auto flex flex-col items-center">
         <h2 className="text-3xl font-bold text-white mb-10 text-center">تابع مجتمع مطوري حلب</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full">
           <a
@@ -174,56 +174,6 @@ export default function Page() {
           </a>
         </div>
       </section>
-
-      <footer className="mt-32 py-12 bg-[#111111] text-[#AFAFAF] text-center text-[17.3px] border-t border-[#232323]">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 px-4">
-          <div className="mb-4 md:mb-0">
-            <div className="font-bold text-white text-xl mb-2">مجتمع مطوري حلب</div>
-            <div className="text-[#AFAFAF] text-sm">
-              © {new Date().getFullYear()} جميع الحقوق محفوظة.
-            </div>
-          </div>
-          <div className="flex flex-col md:flex-row gap-6 items-center">
-            <a href="mailto:contact@aleppo.dev" className="hover:text-primary transition-colors">
-              contact@aleppo.dev
-            </a>
-          </div>
-          <div className="flex gap-4 items-center mt-4 md:mt-0">
-            <a
-              href="https://www.linkedin.com/company/aleppo-dev-community"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary"
-            >
-              <FaLinkedin className="text-2xl" />
-            </a>
-            <a
-              href="https://t.me/aleppo_dev_community"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary"
-            >
-              <FaTelegram className="text-2xl" />
-            </a>
-            <a
-              href="https://www.facebook.com/AleppoDevCommunity/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary"
-            >
-              <FaFacebook className="text-2xl" />
-            </a>
-            <a
-              href="https://www.instagram.com/aleppo_dev_community"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary"
-            >
-              <FaInstagram className="text-2xl" />
-            </a>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }

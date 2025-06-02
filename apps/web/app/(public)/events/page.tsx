@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const events = {
   upcoming: [
     {
@@ -32,11 +34,12 @@ function EventCard({ event }: { event: any }) {
   return (
     <div className="bg-gradient-to-br from-[#232323] to-[#181818] rounded-2xl shadow-lg border border-[#232323] flex flex-col overflow-hidden">
       <div className="h-40 w-full bg-[#181818] flex items-center justify-center">
-        <img
+        <Image
           src={event.image}
           alt={event.title}
           className="object-cover w-full h-full"
-          style={{ maxHeight: 160 }}
+          width={626}
+          height={470}
         />
       </div>
       <div className="p-6 flex flex-col flex-1">
@@ -53,7 +56,7 @@ function EventCard({ event }: { event: any }) {
         {event.cta && (
           <a
             href={event.cta.href}
-            className="mt-auto inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary/80 transition"
+            className="mt-auto inline-block bg-primary text-primary-foreground px-4 py-2 rounded hover:bg-primary/80 transition"
           >
             {event.cta.label}
           </a>
@@ -65,10 +68,7 @@ function EventCard({ event }: { event: any }) {
 
 export default function Page() {
   return (
-    <main
-      className="bg-[#050505] text-white min-h-screen w-full flex flex-col items-center py-20"
-      dir="rtl"
-    >
+    <main className="text-white min-h-screen w-full flex flex-col items-center py-20" dir="rtl">
       <div className="w-full md:max-w-6xl px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-8">الأحداث القادمة</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
