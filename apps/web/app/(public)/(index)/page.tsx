@@ -29,16 +29,27 @@ export default function Page() {
             priority
             unoptimized
           />
-          <div className="absolute inset-0 w-full h-full pointer-events-none bg-gradient-to-t md:bg-gradient-to-l from-black md:from-20% md:via-40% md:via-black/90 via-black/70 to-transparent z-10" />
+          <div className="absolute inset-0 w-full h-full pointer-events-none bg-gradient-to-t md:bg-gradient-to-l from-black md:from-20% md:via-40% md:via-black/90 via-black/80 to-transparent z-10" />
           <div className="absolute inset-0 w-full pointer-events-none bg-gradient-to-t  from-black via-7% via-transparent to-transparent z-10" />
         </div>
         <div className="relative z-20 flex flex-col items-start justify-center w-full md:w-[48%] p-8 mt-40 md:p-16 min-h-[320px] md:min-h-[500px] max-w-2xl">
-          <h1 className="text-4xl md:text-5xl leading-[60px] md:leading-[90px] font-bold tracking-tight text-foreground mb-4 text-right w-full">
-            مجتمع مطوري حلب
-          </h1>
-          <div className="mt-2 text-[#919191] text-[19px] max-w-xl leading-tight text-right w-full">
-            منصتك الأولى للفعاليات وورش العمل التقنية في حلب. انضم إلينا لتطوير مهاراتك، بناء علاقات
-            جديدة، والمساهمة في نمو مجتمع البرمجة المحلي.
+          <div className="flex flex-row-reverse items-center w-full gap-5 justify-end">
+            <div className="w-2 h-24 bg-gradient-to-b from-[#E89548] to-primary rounded-full" />
+            <div className="flex flex-col items-end text-right animate-fade-in">
+              <span className="inline-block bg-gradient-to-r from-[#E89548] to-primary text-white text-base font-semibold px-5 py-1 rounded-full mb-3 shadow">
+                حيث يجتمع المطورين
+              </span>
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-2 leading-tight drop-shadow">
+                مجتمع مطوري حلب
+              </h1>
+            </div>
+          </div>
+          <div className="mt-2 text-foreground/90 text-[19px] max-w-xl leading-tight text-right w-full">
+            إكتشف عالماً من الفرص في قلب حلب، حيث تُقام الفعاليات التقنية، ورش العمل، والملتقيات
+            التي تصنع الفارق. انضم إلى مجتمع من المبدعين والمطورين الطموحين، طوّر مهاراتك التقنية
+            المختلفة، وسّع شبكة علاقاتك، وكن جزءًا من نهضة رقمية تقودها العقول المحلية.
+            <br />
+            <span className="block mt-3">هنا، لا تُطوَّر المهارات فقط... بل تُبنى المسيرة.</span>
           </div>
           <Button
             asChild
@@ -51,7 +62,7 @@ export default function Page() {
       <section className="mt-32 px-3">
         <div className="max-w-5xl mx-auto flex flex-col items-center">
           <h2 className="text-[40px] font-semibold text-white mb-8">الفعاليات القادمة</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 justify-center gap-8 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
             {events.map((event, idx) => (
               <div
                 key={idx}
@@ -88,38 +99,54 @@ export default function Page() {
           </Button>
         </div>
       </section>
-      <section className="mt-32 px-3 max-w-5xl mx-auto flex flex-col items-center">
-        <h2 className="text-[38px] font-semibold text-white mb-6">
-          لماذا تنضم إلى مجتمع مطوري حلب؟
-        </h2>
-        <ul className="text-[#AFAFAF] text-[18px] space-y-4 w-full md:w-3/4 list-disc list-inside text-right">
-          <li>ورش عمل تقنية متخصصة وفرص تعلم مستمرة.</li>
-          <li>شبكة علاقات قوية مع مطوري ومهندسي البرمجيات في حلب.</li>
-          <li>تبادل الخبرات والمعرفة في بيئة محفزة وداعمة.</li>
-          <li>فرص التعاون على مشاريع تقنية محلية وعالمية.</li>
-          <li>دعم مستمر لنموك المهني وتطوير مهاراتك.</li>
-        </ul>
-      </section>
-      <section className="mt-32 px-3 max-w-4xl mx-auto flex flex-col items-center text-center">
-        <h2 className="text-[32px] font-semibold text-white mb-4">من نحن</h2>
-        <div className="text-[#AFAFAF] text-[18px] mb-6">
-          مجتمع مطوري حلب هو مبادرة تهدف إلى دعم وتمكين المطورين في مدينة حلب من خلال تنظيم فعاليات،
-          ورش عمل، وفرص تعليمية وتواصلية. رؤيتنا هي بناء مجتمع تقني متكامل يساهم في تطوير قطاع
-          التكنولوجيا محلياً وعالمياً.
+      <section className="mt-20 md:mt-28 px-3">
+        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center md:text-right">
+          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
+          <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">من نحن</h2>
+          <div className="text-[#AFAFAF] text-lg md:text-xl mb-6 leading-relaxed w-full">
+            نحن مجتمع من المطورين والمهندسين والمهتمين بمجال تكنولوجيا المعلومات من مختلف
+            الاختصاصات، نسعى لأن نصبح منصة رائدة في الإبداع والتعلّم التشاركي، حيث يجتمع المطورين،
+            ويلتقي المهندس بالمستثمر، ورائد الأعمال بالمطور، لتتلاقى الأفكار وتثمر مشاريعاً واقعية
+            ذات أثر حقيقي.
+          </div>
         </div>
-        <Button asChild size="lg">
-          <Link href="/about">تعرف على المزيد عنا</Link>
-        </Button>
       </section>
-      <section className="mt-32 px-3 max-w-4xl mx-auto flex flex-col items-center text-center">
-        <h2 className="text-[32px] font-semibold text-white mb-4">انضم إلينا كمتطوع</h2>
-        <div className="text-[#AFAFAF] text-[18px] mb-8">
-          هل لديك شغف بالمساهمة في تطوير مجتمع مطوري حلب؟ إذا كنت ترغب في دعمنا في صيانة الموقع،
-          المشاركة في الفعاليات، أو المساهمة في التصميم والتوثيق، يسعدنا انضمامك إلى فريقنا التطوعي.
+      <section className="mt-20 md:mt-28 px-3">
+        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center ">
+          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
+          <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">هدفنا ورؤيتنا</h2>
+          <div className="text-[#AFAFAF] text-lg md:text-xl mb-6 leading-relaxed w-full">
+            نهدف إلى تعزيز ودعم المطورين والمبرمجين في مدينة حلب من خلال تنظيم مختلف الفعاليات، من
+            ملتقيات دورية، ورش عمل، وفرص تعليمية وتواصلية، بهدف تمكين المطورين من الوصول إلى مصادر
+            التعلم، بناء شبكة علاقات مهنية، وتبادل الخبرات في بيئة محفزة وداعمة، مما يساهم بشكل مؤثر
+            في تطوير القطاع التقني المحلي ثم العالمي.
+          </div>
         </div>
-        <Button asChild size="lg">
-          <Link href="/join-us">انضم إلينا الآن</Link>
-        </Button>
+      </section>
+      <section className="mt-20 md:mt-28 px-3">
+        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center md:text-right">
+          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
+          <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">قيمنا</h2>
+          <ul className="text-[#AFAFAF] text-lg md:text-xl leading-relaxed space-y-4 w-full md:w-3/4 list-disc list-inside text-right">
+            <li>التعاون والمشاركة في المعرفة.</li>
+            <li>الابتكار والتطوير المستمر.</li>
+            <li>الاحتواء والتنوع.</li>
+            <li>دعم نمو المجتمع التقني المحلي.</li>
+          </ul>
+        </div>
+      </section>
+      <section className="mt-20 md:mt-28 px-3">
+        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center md:text-right">
+          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
+          <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">أنشطتنا</h2>
+          <div
+            className="text-[#AFAFAF] text-lg md:text-xl mb-6 leading-relaxed text-right w-full"
+            style={{ direction: "rtl" }}
+          >
+            نقوم بتنظيم فعاليات تقنية، ورش عمل، لقاءات دورية، وجلسات نقاشية تهدف إلى تطوير المهارات
+            التقنية وتعزيز التواصل بين المطورين أنفسهم أولاً، ثم مع أصحاب الأعمال ثانياً.
+          </div>
+        </div>
       </section>
       <section className="mt-32 px-3 max-w-6xl mx-auto flex flex-col items-center">
         <h2 className="text-3xl font-bold text-white mb-10 text-center">تابع مجتمع مطوري حلب</h2>
