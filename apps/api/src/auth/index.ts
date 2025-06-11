@@ -1,4 +1,4 @@
-import type { BetterAuthOptions } from "better-auth";
+import type { BetterAuthOptions, Path } from "better-auth";
 import { betterAuth } from "better-auth";
 import { openAPI } from "better-auth/plugins";
 
@@ -51,9 +51,9 @@ export const OpenAPI = {
 
       for (const path of Object.keys(paths)) {
         const key = prefix + path;
-        reference[key] = paths[path];
+        reference[key] = paths[path] as Path;
 
-        for (const method of Object.keys(paths[path])) {
+        for (const method of Object.keys(paths[path] as Path)) {
           const operation = (reference[key] as any)[method];
 
           operation.tags = ["Better Auth"];
