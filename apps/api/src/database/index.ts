@@ -5,12 +5,12 @@ import * as schema from "./schema";
 if (process.env.NODE_ENV !== "production") {
   import("dotenv/config");
 }
-const isNeon = process.env.DB_URL?.includes("neon");
+const isLocal = !process.env.DB_URL?.includes("neon");
 
-export const db = isNeon
-  ? neonDrizzle(process.env.DB_URL!, {
+export const db = isLocal
+  ? pgDrizzle(process.env.DB_URL!, {
       schema,
     })
-  : pgDrizzle(process.env.DB_URL!, {
+  : neonDrizzle(process.env.DB_URL!, {
       schema,
     });
