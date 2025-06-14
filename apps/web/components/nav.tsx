@@ -11,7 +11,7 @@ export function Nav() {
         <Image src="/logo.svg" alt="Logo" width={40} height={40} />
       </Link>
       <button
-        className="sm:hidden flex flex-col justify-center items-center w-10 h-10 z-20"
+        className="sm:hidden flex flex-col justify-center items-center w-10 h-10 z-[9999]"
         onClick={() => setOpen((v) => !v)}
         aria-label="Open menu"
       >
@@ -26,8 +26,13 @@ export function Nav() {
         ></span>
       </button>
       <ul
-        className={`flex-col sm:flex-row flex gap-8 sm:gap-10 text-lg font-medium fixed sm:static top-0 left-0 w-full sm:w-auto h-screen sm:h-auto sm:bg-transparent pt-24 sm:pt-0 px-8 sm:px-0 transition-all duration-300 z-10 ${open ? "flex" : "hidden sm:flex"}`}
+        className={`flex-col sm:flex-row flex gap-8 sm:gap-10 text-lg font-medium fixed sm:static top-0 left-0 w-full sm:w-auto h-screen sm:h-auto bg-background sm:bg-transparent pt-24 sm:pt-0 px-8 sm:px-0 transition-all duration-300 z-[999] ${open ? "flex" : "hidden sm:flex"}`}
       >
+        <li className="sm:hidden">
+          <Link href="/">
+            <Image src="/logo.svg" alt="Logo" width={40} height={40} />
+          </Link>
+        </li>
         <li className="sm:hidden">
           <Link href="/" onClick={() => setOpen(false)}>
             الرئيسية
