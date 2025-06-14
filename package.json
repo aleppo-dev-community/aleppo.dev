@@ -22,7 +22,9 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "core-js-pure",
-      "sharp"
+      "esbuild",
+      "sharp",
+      "workerd"
     ]
   }
 }

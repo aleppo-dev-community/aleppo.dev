@@ -3,7 +3,8 @@ const nextConfig = {
   transpilePackages: ["@workspace/ui"],
   images: {
     domains: ["uploads.aleppo.dev"],
-    unoptimized: true,
+    loader: "custom",
+    loaderFile: "./lib/image-loader.ts",
   },
 };
 
