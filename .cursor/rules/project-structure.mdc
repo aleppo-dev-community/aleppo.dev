@@ -1,0 +1,12 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Project Structure
+
+## Key Directories
+
+- `apps/`
+  - `apps/web/` Next.js web app
+  - `apps/api/` Hono API

@@ -5,3 +5,6 @@
   force = true
   headers = {X-From = "Netlify"}
   signed = "API_SIGNATURE_TOKEN"
+
+[images]
+  remote_images = ["https://uploads.aleppo.dev/*"]
