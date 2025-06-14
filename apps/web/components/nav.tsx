@@ -60,6 +60,22 @@ export function Nav() {
         </li>
       </ul>
       <div className="flex-1 hidden sm:block" />
+      <div className="flex items-center gap-4">
+        <Link
+          href="/login"
+          className="text-sm font-medium hover:text-primary transition-colors"
+          onClick={() => setOpen(false)}
+        >
+          تسجيل الدخول
+        </Link>
+        <Link
+          href="/signup"
+          className="text-sm font-medium bg-primary text-background px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
+          onClick={() => setOpen(false)}
+        >
+          إنشاء حساب
+        </Link>
+      </div>
     </nav>
   );
 }

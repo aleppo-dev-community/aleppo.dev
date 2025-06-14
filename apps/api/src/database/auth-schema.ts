@@ -1,19 +1,22 @@
-import { boolean, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { boolean, integer, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 
 export const user = pgTable("user", {
   id: text("id").primaryKey(),
-  name: text("name").notNull(),
-  email: text("email").notNull().unique(),
-  emailVerified: boolean("email_verified")
-    .$defaultFn(() => false)
-    .notNull(),
-  image: text("image"),
-  createdAt: timestamp("created_at")
-    .$defaultFn(() => /* @__PURE__ */ new Date())
-    .notNull(),
-  updatedAt: timestamp("updated_at")
-    .$defaultFn(() => /* @__PURE__ */ new Date())
-    .notNull(),
+  fullName: text("full_name").notNull(),
+  phone: text("phone").notNull(),
+  telegram: text("telegram"),
+  age: integer("age"),
+  university: text("university"),
+  faculty: text("faculty"),
+  academicYear: text("academic_year"),
+  specialization: text("specialization"),
+  yearsOfExperience: integer("years_of_experience"),
+  linkedin: text("linkedin"),
+  cvUrl: text("cv_url"),
+  portfolioUrl: text("portfolio_url"),
+  shareData: boolean("share_data").default(false),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
 });
 
 export const session = pgTable("session", {
