@@ -58,11 +58,6 @@ export function Nav() {
             التطوع
           </Link>
         </li>
-        <li>
-          <Link href="/about" onClick={() => setOpen(false)}>
-            من نحن
-          </Link>
-        </li>
       </ul>
       <div className="flex-1 hidden sm:block" />
     </nav>

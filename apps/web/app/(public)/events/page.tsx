@@ -4,7 +4,7 @@ const events = {
   upcoming: [
     {
       title: "ملتقى الذكاء الصنعي",
-      date: "سيحدد قريباً",
+      date: "الموعد سيحدد قريباً",
       description: "تعرف على الذكاء الصنعي وكيف يمكنك استخدامه في تطبيقاتك.",
       tags: ["#AI", "#Meetup"],
       image: "https://uploads.aleppo.dev/AI-meetup.png",
