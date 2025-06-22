@@ -34,7 +34,7 @@ export default function Page() {
             </div>
           </div>
           <div className="mt-2 text-foreground/90 text-[19px] max-w-xl leading-tight text-right w-full">
-            إنضم إلى مجتمع من المبدعين والمطورين الطموحين، طوّر مهاراتك التقنية المختلفة، وسّع شبكة
+            انضم إلى مجتمع من المبدعين والمطورين الطموحين، طوّر مهاراتك التقنية المختلفة، وسّع شبكة
             علاقاتك، وكن جزءًا من نهضة رقمية تقودها العقول المحلية.
             <br />
             <span className="block mt-3">هنا، لا تُطوَّر المهارات فقط ... بل تُبنى المسيرة.</span>
@@ -43,7 +43,7 @@ export default function Page() {
             asChild
             className="mt-8 bg-gradient-to-r from-[#E89548] to-primary text-primary-foreground rounded-[7px] px-10 py-6  font-medium text-lg shadow-lg hover:scale-105 transition-transform"
           >
-            <Link href="/participate/attend">انضم لنا</Link>
+            <Link href="/participate/attend">انضم إلينا</Link>
           </Button>
         </div>
       </section>
@@ -66,8 +66,8 @@ export default function Page() {
         <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center md:text-right">
           <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
           <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">من نحن</h2>
-          <div className="text-[#AFAFAF] text-lg md:text-xl mb-6 leading-relaxed w-full">
-            نحن مجتمع من المطورين والمهندسين والمهتمين بمجال تكنولوجيا المعلومات من مختلف
+          <div className="text-[#AFAFAF] text-lg md:text-xl mb-6 w-full">
+            نحن مجتمع من المطورين والمهندسين والشغوفين بمجال تكنولوجيا المعلومات من مختلف
             الاختصاصات، نسعى لأن نصبح منصة رائدة في الإبداع والتعلّم التشاركي، حيث يجتمع المطورين،
             ويلتقي المهندس بالمستثمر، ورائد الأعمال بالمطور، لتتلاقى الأفكار وتثمر مشاريعاً واقعية
             ذات أثر حقيقي.
@@ -80,11 +80,10 @@ export default function Page() {
           <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">
             أهدافنا ورؤيتنا
           </h2>
-          <div className="text-[#AFAFAF] text-lg md:text-xl mb-6 leading-relaxed w-full">
-            نهدف إلى تعزيز ودعم المطورين والمبرمجين في مدينة حلب من خلال تنظيم فعاليات مختلفة،
-            وملتقيات دورية وورش عمل وفرص تعليمية تواصلية تهدف إلى تمكين المطورين من الوصول إلى مصادر
-            التعلم، بناء شبكة علاقات مهنية، وتبادل الخبرات في بيئة محفزة وداعمة، مما يساهم بشكل
-            مؤثّر في تطوير القطاع التقني المحلّي ثم العالمي.
+          <div className="text-[#AFAFAF] text-lg md:text-xl mb-6 w-full">
+            نطمح إلى بناء مجتمع تقني متكامل في مدينة حلب، يكون مركزًا للإبداع والابتكار، ومحفزًا
+            لتحولات رقمية محلية وعالمية. نؤمن أن المطورين والمبرمجين يمتلكون القدرة على حل أكبر
+            التحديات وتحقيق قفزات نوعية في مختلف المجالات من خلال التكنولوجيا
           </div>
         </div>
       </section>
@@ -92,7 +91,7 @@ export default function Page() {
         <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center md:text-right">
           <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
           <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">قيمنا</h2>
-          <ul className="text-[#AFAFAF] text-lg md:text-xl leading-relaxed space-y-4 w-full md:w-3/4 list-disc list-inside text-right">
+          <ul className="text-[#AFAFAF] text-lg md:text-xl space-y-4 w-full md:w-3/4 list-disc list-inside text-right">
             <li>التعاون والمشاركة في المعرفة.</li>
             <li>الابتكار والتطوير المستمر.</li>
             <li>الاحتواء والتنوع.</li>

@@ -14,7 +14,7 @@ export default function GiveATalkPage() {
         style={{ direction: "rtl" }}
       >
         <h1 className="text-4xl font-bold mb-6 text-white">لكلّ منا تجربة تستحق أن تُسمع</h1>
-        <ul className="text-[#AFAFAF] [&_*]:text-base md:text-xl leading-relaxed space-y-3 mb-8 list-disc text-start">
+        <ul className="text-[#AFAFAF] [&_*]:text-lg leading-relaxed space-y-3 mb-8 list-disc text-start">
           <li>
             هل لديك فكرة مبتكرة، أو مشروع تفخر به، أو تجربة جديدة مررت بها في عالم البرمجة والتطوير؟
             شاركنا قصتك!

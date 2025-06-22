@@ -15,14 +15,14 @@ export default function VolunteerPage() {
       >
         <h1 className="text-4xl font-bold mb-6 text-white">انضم للفريق التطوعي</h1>
         <div className="text-[#AFAFAF] text-[19px] mb-8 leading-relaxed">
-          كن جزءاً من مجتمع مطوري حلب وساهم في تنظيم الفعاليات، إنتاج المحتوى، ودعم نمو المجتمع
+          كن جزءً من مجتمع مطوري حلب وساهم في تنظيم الفعاليات، إنتاج المحتوى، ودعم نمو المجتمع
           التقني في مدينتنا.
         </div>
         <h2 className="text-2xl font-semibold text-white mb-4">لماذا تتطوع معنا؟</h2>
         <ul className="text-[#AFAFAF] text-[17px] space-y-3 mb-8 list-disc list-inside text-right w-full md:w-3/4 mx-auto">
           <li>تطوير مهاراتك القيادية والتنظيمية من خلال العمل على فعاليات حقيقية.</li>
           <li>توسيع شبكة علاقاتك مع مطورين محترفين وشركات تقنية.</li>
-          <li>المساهمة في بناء مجتمع تقني مزدهر في حلب.</li>
+          <li>المساهمة في بناء مجتمع تقني مزدهر في مدينة حلب.</li>
           <li>الحصول على شهادات تقدير وفرص تميّز داخل المجتمع.</li>
         </ul>
         <div className="text-[#AFAFAF] text-[17px] mb-8">

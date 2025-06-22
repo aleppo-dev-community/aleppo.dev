@@ -64,7 +64,7 @@ export function Nav() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button className="text-lg font-medium inline-flex items-center gap-1">
-                إنضم لنا
+                انضم إلينا
                 <ChevronDown className="w-4 h-4" />
               </button>
             </DropdownMenuTrigger>
@@ -80,7 +80,7 @@ export function Nav() {
               </DropdownMenuItem>
 
               <DropdownMenuItem asChild>
-                <Link href="/participate/sponsor-a-meetup">ارعى لقاء</Link>
+                <Link href="/participate/sponsor-a-meetup">ارع لقاء</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

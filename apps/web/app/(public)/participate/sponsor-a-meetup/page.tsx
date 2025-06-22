@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "ارعى لقاء",
+  title: "أرع لقاء",
 };
 
 export default function SponsorPage() {
@@ -13,7 +13,7 @@ export default function SponsorPage() {
         className="mt-32 max-w-3xl mx-auto flex flex-col items-center text-center p-6"
         style={{ direction: "rtl" }}
       >
-        <h1 className="text-4xl font-bold mb-6 text-white">أرعى لقاء</h1>
+        <h1 className="text-4xl font-bold mb-6 text-white">أرع لقاء</h1>
         <div className="text-[#AFAFAF] text-[19px] mb-8 leading-relaxed">
           نحن نعتمد على دعم الشركات والأفراد لتنظيم فعالياتنا وتوفير بيئة مناسبة للمطورين. رعايتك
           تساعدنا في تغطية تكاليف المكان، المرطبات، وغيرها من المصاريف.
@@ -22,7 +22,7 @@ export default function SponsorPage() {
         <ul className="text-[#AFAFAF] text-[17px] space-y-3 mb-8 list-disc list-inside text-right w-full md:w-3/4 mx-auto">
           <li>الوصول إلى مجتمع من المطورين الموهوبين.</li>
           <li>زيادة الوعي بعلامتك التجارية.</li>
-          <li>دعم نمو المجتمع التقني في حلب.</li>
+          <li>دعم نمو المجتمع التقني في مدينة حلب.</li>
         </ul>
         <div className="text-[#AFAFAF] text-[17px] mb-8">
           إذا كنت مهتمًا برعاية أحد لقاءاتنا، يرجى التواصل معنا لمناقشة التفاصيل.

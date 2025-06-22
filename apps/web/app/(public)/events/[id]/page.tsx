@@ -4,7 +4,6 @@ import { cn } from "@workspace/ui/lib/utils";
 import { CalendarDays, HeartHandshake, HelpCircle, ImageIcon, MapPin, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 export async function generateMetadata({ params }: PageProps<{ id: string }>) {
   const eventId = (await params).id;
   const event = events.find((e) => e.id.toString() === eventId);
@@ -17,7 +16,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
   const event = events.find((e) => e.id.toString() === eventId);
 
   if (!event) {
-    notFound();
+    return <div className="text-center h-[60vh] pt-10 text-lg">لم يتم العثور على الفعالية...</div>;
   }
 
   const isUpcoming = !event.date || new Date(event.date) > new Date();
@@ -74,7 +73,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
               </div>
             ))}
             {event.talks.length === 0 && (
-              <div className="bg-[#1f1f1f] p-6 rounded-lg flex flex-col items-center text-center">
+              <div className="p-6 rounded-lg flex flex-col items-center text-center">
                 <h3 className="text-2xl font-bold text-primary">لم يتم تحديد المحاضرات بعد</h3>
               </div>
             )}
