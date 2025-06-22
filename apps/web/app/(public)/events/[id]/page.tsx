@@ -1,17 +1,20 @@
 import { events } from "@/lib/events";
+import { PageProps } from "@/types/next";
 import { cn } from "@workspace/ui/lib/utils";
 import { CalendarDays, HeartHandshake, HelpCircle, ImageIcon, MapPin, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-export function generateMetadata({ params }: { params: { id: string } }) {
-  const event = events.find((e) => e.id.toString() === params.id);
+export async function generateMetadata({ params }: PageProps<{ id: string }>) {
+  const eventId = (await params).id;
+  const event = events.find((e) => e.id.toString() === eventId);
   return {
     title: event?.title,
   };
 }
-export default function EventPage({ params }: { params: { id: string } }) {
-  const event = events.find((e) => e.id.toString() === params.id);
+export default async function EventPage({ params }: PageProps<{ id: string }>) {
+  const eventId = (await params).id;
+  const event = events.find((e) => e.id.toString() === eventId);
 
   if (!event) {
     notFound();
