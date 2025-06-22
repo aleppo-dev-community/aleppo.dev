@@ -1,5 +1,6 @@
 import { events } from "@/lib/events";
 import { PageProps } from "@/types/next";
+import { Button } from "@workspace/ui/components/button";
 import { cn } from "@workspace/ui/lib/utils";
 import { CalendarDays, HeartHandshake, HelpCircle, ImageIcon, MapPin, Users } from "lucide-react";
 import Image from "next/image";
@@ -48,12 +49,9 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
           )}
 
           {event.cta && event.cta.href && (
-            <Link
-              href={event.cta.href}
-              className="mt-4 text-base inline-block bg-primary text-primary-foreground px-5 py-2 rounded-lg hover:bg-primary/80 transition text-md font-semibold"
-            >
-              {event.cta.label}
-            </Link>
+            <Button asChild size="lg">
+              <Link href={event.cta.href}>{event.cta.label}</Link>
+            </Button>
           )}
         </div>
 
@@ -73,8 +71,8 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
               </div>
             ))}
             {event.talks.length === 0 && (
-              <div className="p-6 rounded-lg flex flex-col items-center text-center">
-                <h3 className="text-2xl font-bold text-primary">لم يتم تحديد المحاضرات بعد</h3>
+              <div className="p-6 rounded-lg flex flex-col">
+                <h3 className="text-2xl font-bold text-primary">لم يتم تحديد الفقرات بعد</h3>
               </div>
             )}
           </div>
@@ -125,17 +123,14 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
                   </div>
                   <h3 className="text-2xl font-bold text-primary">إدعم الحدث</h3>
                   <p className="text-secondary-foreground mt-2 flex-1">
-                    نحن نبحث عن داعمين لتغطية المرطبات والوجبات الخفيفة. يرجى التواصل معنا على{" "}
-                    <Link href="mailto:contact@aleppo.dev" className="text-primary hover:underline">
-                      contact@aleppo.dev
-                    </Link>{" "}
-                    أو على تليجرام{" "}
+                    شاركنا في الفعالية{" "}
                     <Link
-                      href="https://t.me/aleppp_developers_community"
+                      href="/participate/sponsor-a-meetup"
                       className="text-primary hover:underline"
                     >
-                      @aleppp_developers_community
+                      وقم برعايتها
                     </Link>
+                    .
                   </p>
                 </div>
               )}

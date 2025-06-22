@@ -63,8 +63,8 @@ export default function Page() {
         </div>
       </section>
       <section className="mt-20 md:mt-28 px-3">
-        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center md:text-right">
-          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
+        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-start md:text-right">
+          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4" />
           <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">من نحن</h2>
           <div className="text-[#AFAFAF] text-lg md:text-xl mb-6 w-full">
             نحن مجتمع من المطورين والمهندسين والشغوفين بمجال تكنولوجيا المعلومات من مختلف
@@ -75,8 +75,8 @@ export default function Page() {
         </div>
       </section>
       <section className="mt-20 md:mt-28 px-3">
-        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center ">
-          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
+        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-start ">
+          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4" />
           <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">
             أهدافنا ورؤيتنا
           </h2>
@@ -88,8 +88,8 @@ export default function Page() {
         </div>
       </section>
       <section className="mt-20 md:mt-28 px-3">
-        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center md:text-right">
-          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
+        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-start ">
+          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4" />
           <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">قيمنا</h2>
           <ul className="text-[#AFAFAF] text-lg md:text-xl space-y-4 w-full md:w-3/4 list-disc list-inside text-right">
             <li>التعاون والمشاركة في المعرفة.</li>
@@ -100,8 +100,8 @@ export default function Page() {
         </div>
       </section>
       <section className="mt-20 md:mt-28 px-3">
-        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center md:text-right">
-          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
+        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-start">
+          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4" />
           <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">أنشطتنا</h2>
           <div
             className="text-[#AFAFAF] text-lg md:text-xl mb-6 leading-relaxed text-right w-full"
