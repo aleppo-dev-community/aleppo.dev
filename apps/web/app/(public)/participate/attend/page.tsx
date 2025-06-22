@@ -1,5 +1,9 @@
 import { EventCard } from "@/components/event-card";
 import { events } from "@/lib/events";
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "شاركنا في الفعاليات",
+};
 
 export default function AttendPage() {
   const upcomingEvents = events.filter((e) => !e.date || new Date(e.date) > new Date());

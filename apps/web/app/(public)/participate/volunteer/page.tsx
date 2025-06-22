@@ -1,5 +1,10 @@
 import { Button } from "@workspace/ui/components/button";
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "انضم للفريق التطوعي",
+};
 
 export default function VolunteerPage() {
   return (

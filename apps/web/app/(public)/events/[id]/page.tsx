@@ -4,7 +4,12 @@ import { CalendarDays, HeartHandshake, HelpCircle, ImageIcon, MapPin, Users } fr
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-
+export function generateMetadata({ params }: { params: { id: string } }) {
+  const event = events.find((e) => e.id.toString() === params.id);
+  return {
+    title: event?.title,
+  };
+}
 export default function EventPage({ params }: { params: { id: string } }) {
   const event = events.find((e) => e.id.toString() === params.id);
 

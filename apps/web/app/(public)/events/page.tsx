@@ -1,5 +1,10 @@
 import { EventCard } from "@/components/event-card";
 import { events } from "@/lib/events";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "الفعاليات",
+};
 
 export default function Page() {
   const now = new Date();

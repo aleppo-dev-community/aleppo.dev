@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "التعلّم",
+};
+
 export default function Page() {
   return (
     <main className="text-white min-h-screen w-full flex flex-col items-center justify-start py-20 px-4">
