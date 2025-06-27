@@ -1,4 +1,7 @@
 "use client";
+
+import { authClient } from "@/lib/auth-client";
+import { Button } from "@workspace/ui/components/button";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -61,21 +64,61 @@ export function Nav() {
       </ul>
       <div className="flex-1 hidden sm:block" />
       <div className="flex items-center gap-4">
-        <Link
-          href="/login"
-          className="text-sm font-medium hover:text-primary transition-colors"
-          onClick={() => setOpen(false)}
-        >
-          تسجيل الدخول
-        </Link>
-        <Link
-          href="/signup"
-          className="text-sm font-medium bg-primary text-background px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
-          onClick={() => setOpen(false)}
-        >
-          إنشاء حساب
-        </Link>
+        <AuthSection onLinkClick={() => setOpen(false)} />
       </div>
     </nav>
+  );
+}
+
+function AuthSection({ onLinkClick }: { onLinkClick: () => void }) {
+  const { data: session, isPending: isLoading } = authClient.useSession();
+
+  const handleSignOut = async () => {
+    try {
+      await authClient.signOut({
+        fetchOptions: {
+          onSuccess: () => {
+            window.location.href = "/";
+          },
+        },
+      });
+      onLinkClick();
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  };
+
+  if (isLoading) {
+    return null;
+  }
+
+  if (session?.user) {
+    return (
+      <div className="flex items-center gap-3">
+        <span className="text-sm font-medium">مرحباً، {session.user.name}</span>
+        <Button variant="outline" size="sm" onClick={handleSignOut}>
+          تسجيل الخروج
+        </Button>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <Link
+        href="/login"
+        className="text-sm font-medium hover:text-primary transition-colors"
+        onClick={onLinkClick}
+      >
+        تسجيل الدخول
+      </Link>
+      <Link
+        href="/signup"
+        className="text-sm font-medium bg-primary text-background px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
+        onClick={onLinkClick}
+      >
+        إنشاء حساب
+      </Link>
+    </>
   );
 }

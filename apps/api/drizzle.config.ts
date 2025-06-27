@@ -7,7 +7,7 @@ export default defineConfig({
   dialect: "postgresql",
   dbCredentials: {
     ssl: isNeon ? "require" : false,
-    database: "adc",
+    database: process.env.DB_NAME!,
     host: process.env.DB_HOST!,
     port: process.env.DB_PORT ? Number(process.env.DB_PORT) : undefined,
     user: process.env.DB_USER!,
