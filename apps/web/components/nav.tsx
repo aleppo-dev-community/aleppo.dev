@@ -1,4 +1,11 @@
 "use client";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@workspace/ui/components/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,7 +18,7 @@ export function Nav() {
         <Image src="/logo.svg" alt="Logo" width={40} height={40} />
       </Link>
       <button
-        className="sm:hidden flex flex-col justify-center items-center w-10 h-10 z-[9999]"
+        className="sm:hidden flex flex-col justify-center items-center w-10 h-10 z-40"
         onClick={() => setOpen((v) => !v)}
         aria-label="Open menu"
       >
@@ -26,7 +33,7 @@ export function Nav() {
         ></span>
       </button>
       <ul
-        className={`flex-col sm:flex-row flex gap-8 sm:gap-10 text-lg font-medium fixed sm:static top-0 left-0 w-full sm:w-auto h-screen sm:h-auto bg-background sm:bg-transparent pt-24 sm:pt-0 px-8 sm:px-0 transition-all duration-300 z-[999] ${open ? "flex" : "hidden sm:flex"}`}
+        className={`flex-col sm:flex-row flex gap-8 sm:gap-10 text-lg font-medium fixed sm:static inset-0 w-full sm:w-auto h-screen sm:h-auto bg-background sm:bg-transparent pt-24 sm:pt-0 px-8 sm:px-0 transition-all duration-300 z-30 ${open ? "flex" : "hidden sm:flex"}`}
       >
         <li className="sm:hidden">
           <Link href="/">
@@ -40,7 +47,7 @@ export function Nav() {
         </li>
         <li>
           <Link href="/events" onClick={() => setOpen(false)}>
-            الأحداث
+            الفعاليات
           </Link>
         </li>
         <li>
@@ -53,10 +60,30 @@ export function Nav() {
             المدونة
           </Link>
         </li>
-        <li>
-          <Link href="/join-us" onClick={() => setOpen(false)}>
-            التطوع
-          </Link>
+        <li className=" ">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="text-lg font-medium inline-flex items-center gap-1">
+                انضم إلينا
+                <ChevronDown className="w-4 h-4" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-48">
+              <DropdownMenuItem asChild>
+                <Link href="/participate/attend">شاركنا في الفعاليات</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/participate/volunteer">انضم للفريق التطوعي</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/participate/give-a-talk">ألق كلمة</Link>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem asChild>
+                <Link href="/participate/sponsor-a-meetup">ارع لقاء</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </li>
       </ul>
       <div className="flex-1 hidden sm:block" />
