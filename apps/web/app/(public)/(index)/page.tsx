@@ -1,19 +1,11 @@
+import { EventCard } from "@/components/event-card";
+import { events } from "@/lib/events";
 import { Button } from "@workspace/ui/components/button";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTelegram } from "react-icons/fa6";
 
 export default function Page() {
-  const events = [
-    {
-      cover: "https://uploads.aleppo.dev/AI-meetup.png",
-      title: "ملتقى الذكاء الصنعي",
-      description: "تعرف على أحدث التقنيات في المجال والتقي بإبرز مطوري الذكاء الصنعي في حلب",
-      date: null,
-      type: "ملتقى",
-    },
-  ];
-
   return (
     <main className="bg-[#050505] -mb-6 pb-20 text-white min-h-screen w-full overflow-x-hidden">
       <section
@@ -36,62 +28,34 @@ export default function Page() {
           <div className="flex flex-row-reverse items-center w-full gap-5 justify-end">
             <div className="w-2 h-24 bg-gradient-to-b from-[#E89548] to-primary rounded-full" />
             <div className="flex flex-col items-end text-right animate-fade-in">
-              <span className="inline-block bg-gradient-to-r from-[#E89548] to-primary text-white text-base font-semibold px-5 py-1 rounded-full mb-3 shadow">
-                حيث يجتمع المطورين
-              </span>
               <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground mb-2 leading-tight drop-shadow">
                 مجتمع مطوري حلب
               </h1>
             </div>
           </div>
           <div className="mt-2 text-foreground/90 text-[19px] max-w-xl leading-tight text-right w-full">
-            إنضم إلى مجتمع من المبدعين والمطورين الطموحين، طوّر مهاراتك التقنية المختلفة، وسّع شبكة
+            انضم إلى مجتمع من المبدعين والمطورين الطموحين، طوّر مهاراتك التقنية المختلفة، وسّع شبكة
             علاقاتك، وكن جزءًا من نهضة رقمية تقودها العقول المحلية.
             <br />
-            <span className="block mt-3">هنا، لا تُطوَّر المهارات فقط... بل تُبنى المسيرة.</span>
+            <span className="block mt-3">هنا، لا تُطوَّر المهارات فقط ... بل تُبنى المسيرة.</span>
           </div>
           <Button
             asChild
-            className="mt-8 bg-gradient-to-r from-[#E89548] to-primary text-primary-foreground rounded-[7px] px-10 py-6 text-white font-medium text-lg shadow-lg hover:scale-105 transition-transform"
+            className="mt-8 bg-gradient-to-r from-[#E89548] to-primary text-primary-foreground rounded-[7px] px-10 py-6  font-medium text-lg shadow-lg hover:scale-105 transition-transform"
           >
-            <Link href="/events">الفعاليات القادمة</Link>
+            <Link href="/participate/attend">انضم إلينا</Link>
           </Button>
         </div>
       </section>
       <section className="mt-32 px-3">
         <div className="max-w-5xl mx-auto flex flex-col items-center">
           <h2 className="text-[40px] font-semibold text-white mb-8">الفعاليات القادمة</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-            {events.map((event, idx) => (
-              <div
-                key={idx}
-                className="bg-gradient-to-br from-[#232323] to-[#181818] rounded-2xl p-0 flex flex-col items-start shadow-lg w-full border border-[#232323] transition-transform duration-200 hover:scale-[1.025] hover:shadow-2xl group"
-              >
-                <div className="relative w-full rounded-t-2xl overflow-hidden aspect-[4/2.2] bg-[#181818] border-b border-[#232323]">
-                  <Image
-                    src={event.cover}
-                    alt={event.title}
-                    width={626}
-                    height={470}
-                    className="object-cover w-full h-full rounded-t-2xl transition-transform duration-200 group-hover:scale-105"
-                  />
-                  <span className="absolute top-3 right-3 bg-purple-800 text-white text-xs px-3 py-1 rounded shadow-md z-10 border border-purple-900">
-                    {event.type}
-                  </span>
-                </div>
-                <div className="flex flex-col gap-1 px-7 py-6 w-full">
-                  <div className="text-[22px] font-bold text-[#fff] mb-1">{event.title}</div>
-                  {event.date ? (
-                    <div className="text-[#E89548] text-[15px] mb-1">{event.date}</div>
-                  ) : (
-                    <div className="inline-block bg-[#E89548] text-white text-xs font-semibold px-4 py-1 rounded mb-1 w-fit">
-                      قريباً
-                    </div>
-                  )}
-                  <div className="text-[#AFAFAF] text-[16px] mb-2">{event.description}</div>
-                </div>
-              </div>
-            ))}
+          <div className="flex flex-col gap-8 w-full">
+            {events
+              .filter((event) => !event.date || new Date(event.date) > new Date())
+              .map((event) => (
+                <EventCard key={event.id} event={event} />
+              ))}
           </div>
           <Button asChild className="mt-10" size="lg">
             <Link href="/events">عرض جميع الفعاليات</Link>
@@ -99,11 +63,11 @@ export default function Page() {
         </div>
       </section>
       <section className="mt-20 md:mt-28 px-3">
-        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center md:text-right">
-          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
+        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-start md:text-right">
+          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4" />
           <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">من نحن</h2>
-          <div className="text-[#AFAFAF] text-lg md:text-xl mb-6 leading-relaxed w-full">
-            نحن مجتمع من المطورين والمهندسين والمهتمين بمجال تكنولوجيا المعلومات من مختلف
+          <div className="text-[#AFAFAF] text-lg md:text-xl mb-6 w-full">
+            نحن مجتمع من المطورين والمهندسين والشغوفين بمجال تكنولوجيا المعلومات من مختلف
             الاختصاصات، نسعى لأن نصبح منصة رائدة في الإبداع والتعلّم التشاركي، حيث يجتمع المطورين،
             ويلتقي المهندس بالمستثمر، ورائد الأعمال بالمطور، لتتلاقى الأفكار وتثمر مشاريعاً واقعية
             ذات أثر حقيقي.
@@ -111,22 +75,23 @@ export default function Page() {
         </div>
       </section>
       <section className="mt-20 md:mt-28 px-3">
-        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center ">
-          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
-          <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">هدفنا ورؤيتنا</h2>
-          <div className="text-[#AFAFAF] text-lg md:text-xl mb-6 leading-relaxed w-full">
-            نهدف إلى تعزيز ودعم المطورين والمبرمجين في مدينة حلب من خلال تنظيم مختلف الفعاليات، من
-            ملتقيات دورية، ورش عمل، وفرص تعليمية وتواصلية، بهدف تمكين المطورين من الوصول إلى مصادر
-            التعلم، بناء شبكة علاقات مهنية، وتبادل الخبرات في بيئة محفزة وداعمة، مما يساهم بشكل مؤثر
-            في تطوير القطاع التقني المحلي ثم العالمي.
+        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-start ">
+          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4" />
+          <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">
+            أهدافنا ورؤيتنا
+          </h2>
+          <div className="text-[#AFAFAF] text-lg md:text-xl mb-6 w-full">
+            نطمح إلى بناء مجتمع تقني متكامل في مدينة حلب، يكون مركزًا للإبداع والابتكار، ومحفزًا
+            لتحولات رقمية محلية وعالمية. نؤمن أن المطورين والمبرمجين يمتلكون القدرة على حل أكبر
+            التحديات وتحقيق قفزات نوعية في مختلف المجالات من خلال التكنولوجيا
           </div>
         </div>
       </section>
       <section className="mt-20 md:mt-28 px-3">
-        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center md:text-right">
-          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
+        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-start ">
+          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4" />
           <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">قيمنا</h2>
-          <ul className="text-[#AFAFAF] text-lg md:text-xl leading-relaxed space-y-4 w-full md:w-3/4 list-disc list-inside text-right">
+          <ul className="text-[#AFAFAF] text-lg md:text-xl space-y-4 w-full md:w-3/4 list-disc list-inside text-right">
             <li>التعاون والمشاركة في المعرفة.</li>
             <li>الابتكار والتطوير المستمر.</li>
             <li>الاحتواء والتنوع.</li>
@@ -135,8 +100,8 @@ export default function Page() {
         </div>
       </section>
       <section className="mt-20 md:mt-28 px-3">
-        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-center md:items-start text-center md:text-right">
-          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4 self-center md:self-start" />
+        <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-start">
+          <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4" />
           <h2 className="text-[2rem] md:text-[2.5rem] font-bold text-white mb-4">أنشطتنا</h2>
           <div
             className="text-[#AFAFAF] text-lg md:text-xl mb-6 leading-relaxed text-right w-full"
