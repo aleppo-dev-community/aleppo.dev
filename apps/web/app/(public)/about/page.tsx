@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="text-white min-h-screen w-full overflow-x-hidden flex flex-col items-center">
+    <main className="text-white w-full overflow-x-hidden flex flex-col items-center">
       <section className="mt-20 max-w-4xl mx-auto flex flex-col p-6" style={{ direction: "rtl" }}>
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white text-center">من نحن</h1>
         <p className="text-[#AFAFAF] text-lg md:text-xl mb-8 leading-relaxed text-center">

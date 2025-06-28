@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 export default function SponsorPage() {
   return (
-    <main className="text-white min-h-screen w-full overflow-x-hidden flex flex-col items-center">
+    <main className="text-white w-full overflow-x-hidden flex flex-col items-center">
       <section
-        className="mt-32 max-w-3xl mx-auto flex flex-col items-center text-center p-6"
+        className="mt-8 max-w-3xl mx-auto flex flex-col items-center text-center p-6"
         style={{ direction: "rtl" }}
       >
         <h1 className="text-4xl font-bold mb-6 text-white">أرع لقاء</h1>

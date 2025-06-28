@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 export default function VolunteerPage() {
   return (
-    <main className="text-white min-h-screen w-full overflow-x-hidden flex flex-col items-center">
+    <main className="text-white w-full overflow-x-hidden flex flex-col items-center">
       <section
-        className="mt-32 max-w-4xl mx-auto flex flex-col items-center text-center p-6"
+        className="mt-8 max-w-4xl mx-auto flex flex-col items-center text-center p-6"
         style={{ direction: "rtl" }}
       >
         <h1 className="text-4xl font-bold mb-6 text-white">انضم للفريق التطوعي</h1>
@@ -19,7 +19,7 @@ export default function VolunteerPage() {
           التقني في مدينتنا.
         </div>
         <h2 className="text-2xl font-semibold text-white mb-4">لماذا تتطوع معنا؟</h2>
-        <ul className="text-[#AFAFAF] text-[17px] space-y-3 mb-8 list-disc list-inside text-right w-full md:w-3/4 mx-auto">
+        <ul className="text-[#AFAFAF] text-[17px] space-y-3 mb-8 list-disc list-inside text-right w-full md:w-3/4 mx-auto px-5">
           <li>تطوير مهاراتك القيادية والتنظيمية من خلال العمل على فعاليات حقيقية.</li>
           <li>توسيع شبكة علاقاتك مع مطورين محترفين وشركات تقنية.</li>
           <li>المساهمة في بناء مجتمع تقني مزدهر في مدينة حلب.</li>

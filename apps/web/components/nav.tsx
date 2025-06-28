@@ -60,26 +60,25 @@ export function Nav() {
             المدونة
           </Link>
         </li>
-        <li className=" ">
+        <li className="">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="text-lg font-medium inline-flex items-center gap-1">
+              <button className="text-lg font-medium inline-flex items-center gap-1 w-full">
                 انضم إلينا
                 <ChevronDown className="w-4 h-4" />
               </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-48">
-              <DropdownMenuItem asChild>
+            <DropdownMenuContent className="w-[80vw] md:w-48" align="start">
+              <DropdownMenuItem asChild onClick={() => setOpen(false)}>
                 <Link href="/participate/attend">شاركنا في الفعاليات</Link>
               </DropdownMenuItem>
-              <DropdownMenuItem asChild>
+              <DropdownMenuItem asChild onClick={() => setOpen(false)}>
                 <Link href="/participate/volunteer">انضم للفريق التطوعي</Link>
               </DropdownMenuItem>
-              <DropdownMenuItem asChild>
+              <DropdownMenuItem asChild onClick={() => setOpen(false)}>
                 <Link href="/participate/give-a-talk">ألق كلمة</Link>
               </DropdownMenuItem>
-
-              <DropdownMenuItem asChild>
+              <DropdownMenuItem asChild onClick={() => setOpen(false)}>
                 <Link href="/participate/sponsor-a-meetup">ارع لقاء</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>

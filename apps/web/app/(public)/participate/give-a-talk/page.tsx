@@ -8,13 +8,13 @@ export const metadata: Metadata = {
 
 export default function GiveATalkPage() {
   return (
-    <main className="text-white min-h-screen w-full overflow-x-hidden flex flex-col items-center">
+    <main className="text-white w-full overflow-x-hidden flex flex-col items-center">
       <section
-        className="mt-32 max-w-4xl mx-auto flex flex-col items-center text-center p-6"
+        className="mt-8 max-w-4xl mx-auto flex flex-col items-center text-center p-6"
         style={{ direction: "rtl" }}
       >
         <h1 className="text-4xl font-bold mb-6 text-white">لكلّ منا تجربة تستحق أن تُسمع</h1>
-        <ul className="text-[#AFAFAF] [&_*]:text-lg leading-relaxed space-y-3 mb-8 list-disc text-start">
+        <ul className="text-[#AFAFAF] [&_*]:text-lg space-y-3 mb-8 list-disc text-start px-5">
           <li>
             هل لديك فكرة مبتكرة، أو مشروع تفخر به، أو تجربة جديدة مررت بها في عالم البرمجة والتطوير؟
             شاركنا قصتك!
@@ -37,7 +37,7 @@ export default function GiveATalkPage() {
           </Link>
         </p>
         <Button asChild size="lg" className="mt-8">
-          <Link href="mailto:contact@aleppo.dev">تواصل معنا</Link>
+          <Link href="https://forms.gle/cTAWAhbd1sA4jTLC6">أريد إلقاء كلمة</Link>
         </Button>
       </section>
     </main>
