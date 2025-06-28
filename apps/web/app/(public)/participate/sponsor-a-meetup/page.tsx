@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "أرع لقاء",
+  title: "ارع لقاء",
 };
 
 export default function SponsorPage() {
@@ -13,7 +13,7 @@ export default function SponsorPage() {
         className="mt-8 max-w-3xl mx-auto flex flex-col items-center text-center p-6"
         style={{ direction: "rtl" }}
       >
-        <h1 className="text-4xl font-bold mb-6 text-white">أرع لقاء</h1>
+        <h1 className="text-4xl font-bold mb-6 text-white">ارع لقاء</h1>
         <div className="text-[#AFAFAF] text-[19px] mb-8 leading-relaxed">
           نحن نعتمد على دعم الشركات والأفراد لتنظيم فعالياتنا وتوفير بيئة مناسبة للمطورين. رعايتك
           تساعدنا في تغطية تكاليف المكان، المرطبات، وغيرها من المصاريف.
