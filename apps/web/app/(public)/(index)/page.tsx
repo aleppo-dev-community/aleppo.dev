@@ -7,7 +7,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTelegram } from "react-icons/fa6
 
 export default function Page() {
   return (
-    <main className="bg-[#050505] -mb-6 pb-20 text-white min-h-screen w-full overflow-x-hidden">
+    <main className="bg-[#050505] -mb-6 pb-20 text-white w-full overflow-x-hidden">
       <section
         className="relative flex items-center min-h-[500px] md:min-h-[600px] w-full overflow-hidden text-right"
         style={{ direction: "rtl" }}

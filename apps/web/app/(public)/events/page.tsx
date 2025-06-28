@@ -12,7 +12,7 @@ export default function Page() {
   const pastEvents = events.filter((e) => e.date && new Date(e.date) <= now);
 
   return (
-    <main className="text-white min-h-screen w-full flex flex-col items-center py-20" dir="rtl">
+    <main className="text-white w-full flex flex-col items-center pt-8" dir="rtl">
       <div className="w-full md:max-w-6xl px-4">
         <h2 className="text-2xl md:text-3xl font-bold mb-8">الفعاليات القادمة</h2>
         <div className="grid grid-cols-1 gap-8 mb-16">

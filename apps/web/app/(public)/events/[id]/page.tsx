@@ -24,7 +24,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
   const showSponsorPrompt = isUpcoming && event.sponsors.length <= 1;
 
   return (
-    <main className="text-white min-h-screen w-full flex flex-col items-center py-20" dir="rtl">
+    <main className="text-white w-full flex flex-col items-center py-20" dir="rtl">
       <div className="w-full md:max-w-4xl px-4 flex flex-col items-start">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary">{event.title}</h1>
         <p className="text-lg leading-relaxed text-secondary-foreground mb-8">
