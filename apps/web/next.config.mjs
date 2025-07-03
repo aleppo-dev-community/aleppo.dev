@@ -5,6 +5,7 @@ const nextConfig = {
     domains: ["uploads.aleppo.dev"],
     loader: "custom",
     loaderFile: "./lib/image-loader.ts",
+    unoptimized: true,
   },
 };
 
