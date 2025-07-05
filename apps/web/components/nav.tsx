@@ -112,13 +112,6 @@ function AuthSection({ onLinkClick }: { onLinkClick: () => void }) {
       >
         تسجيل الدخول
       </Link>
-      <Link
-        href="/signup"
-        className="text-sm font-medium bg-primary text-background px-4 py-2 rounded-md hover:bg-primary/90 transition-colors"
-        onClick={onLinkClick}
-      >
-        إنشاء حساب
-      </Link>
     </>
   );
 }

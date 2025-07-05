@@ -9,6 +9,7 @@
   },
   "module": "src/index.ts",
   "dependencies": {
+    "@hono/swagger-ui": "^0.5.2",
     "@neondatabase/serverless": "^1.0.1",
     "better-auth": "^1.2.8",
     "dotenv": "^16.5.0",

@@ -1,3 +1,5 @@
+// apps/api/src/auth/index.ts
+
 import type { BetterAuthOptions, Path } from "better-auth";
 import { betterAuth } from "better-auth";
 import { openAPI } from "better-auth/plugins";
@@ -18,14 +20,12 @@ const options = {
       trustedProviders: ["google"],
     },
   },
-  emailAndPassword: {
-    enabled: true,
-  },
   socialProviders: {
     google: {
       prompt: "select_account",
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+      redirectURI: `${process.env.NEXT_PUBLIC_SERVER_URL}/api/auth/callback/google`,
     },
     // facebook: {
     //   prompt: "select_account",

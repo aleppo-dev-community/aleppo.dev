@@ -15,6 +15,20 @@
       "when": 1751059757186,
       "tag": "0001_large_blink",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1751181779183,
+      "tag": "0002_tidy_shotgun",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1751716046539,
+      "tag": "0003_confused_ben_urich",
+      "breakpoints": true
     }
   ]
 }

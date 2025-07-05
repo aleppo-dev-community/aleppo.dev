@@ -1,3 +1,5 @@
+// apps/web/app/(public)/(index)/page.tsx
+
 import { Button } from "@workspace/ui/components/button";
 import Image from "next/image";
 import Link from "next/link";

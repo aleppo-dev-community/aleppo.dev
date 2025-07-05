@@ -5,18 +5,19 @@ import { Button } from "@workspace/ui/components/button";
 import Image from "next/image";
 import { useState } from "react";
 
-export function SignUpButton() {
+export function SocialAuthButton() {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleGoogleSignIn = async () => {
+  const handleGoogleAuth = async () => {
     try {
       setIsLoading(true);
       await authClient.signIn.social({
         provider: "google",
         callbackURL: "/",
+        errorCallbackURL: "/error"
       });
     } catch (error) {
-      console.error("Error signing in with Google:", error);
+      console.error(`Error signing in with Google:`, error);
     } finally {
       setIsLoading(false);
     }
@@ -26,7 +27,7 @@ export function SignUpButton() {
     <Button
       variant="outline"
       className="w-full flex items-center justify-center gap-2"
-      onClick={handleGoogleSignIn}
+      onClick={handleGoogleAuth}
       disabled={isLoading}
     >
       {isLoading ? (
@@ -34,7 +35,7 @@ export function SignUpButton() {
       ) : (
         <>
           <Image src="/google.svg" alt="Google" width={20} height={20} className="h-5 w-5" />
-          <span>تسجيل الدخول باستخدام Google</span>
+          <span>التسجيل باستخدام Google</span>
         </>
       )}
     </Button>
