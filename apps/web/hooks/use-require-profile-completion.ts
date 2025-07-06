@@ -23,6 +23,10 @@ export function useRequireProfileCompletion() {
           router.replace("/complete-profile");
           return;
         }
+        if (data.profileComplete && pathname === "/complete-profile") {
+          router.replace("/");
+          return;
+        }
       } catch (error) {
         console.error("Profile completion check failed:", error);
         // Optional: redirect or show an error page

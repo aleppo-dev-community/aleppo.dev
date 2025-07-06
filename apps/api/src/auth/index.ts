@@ -27,15 +27,21 @@ const options = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
       redirectURI: `${process.env.NEXT_PUBLIC_SERVER_URL}/api/auth/callback/google`,
     },
-    // facebook: {
-    //   prompt: "select_account",
-    //   clientId: process.env.FACEBOOK_CLIENT_ID as string,
-    //   clientSecret: process.env.FACEBOOK_CLIENT_SECRET as string,
-    // },
   },
   plugins: [openAPI()],
   trustedOrigins: [process.env.NEXT_PUBLIC_SERVER_URL!],
+  user: {
+    additionalFields: {
+      role: {
+        type: "string",
+        required: false,
+        defaultValue: "user",
+        input: false,     
+      }
+    }
+  }
 } satisfies BetterAuthOptions;
+
 
 export const auth = betterAuth({
   ...options,

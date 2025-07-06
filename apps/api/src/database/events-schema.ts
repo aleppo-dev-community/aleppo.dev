@@ -1,9 +1,9 @@
 // apps/api/src/database/events-schema.ts
 
-import { pgTable, text, timestamp, integer} from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, uuid} from "drizzle-orm/pg-core";
 
 export const event = pgTable("event", {
-  id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
+  id: uuid("id").primaryKey().defaultRandom(),
   title: text("title").notNull(),
   description: text("description").notNull(),
   date: timestamp("date").notNull(),

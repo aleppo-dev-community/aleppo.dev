@@ -4,10 +4,11 @@ import { Hono } from "hono";
 import type { SessionUser } from "./auth";
 import { auth } from "./auth";
 import { db } from './database';
-import { userDetails, event, registration } from './database/schema'
+import { userDetails, event, registration, zodUserDetails } from './database/schema'
 import { and, eq } from "drizzle-orm";
 import { swaggerUI } from "@hono/swagger-ui";
-import { openApiDoc } from './constants/open-api-doc';
+import { user } from './database/auth-schema';
+import { openApiDoc } from "./constants/open-api-doc";
 
 interface SessionResponse {
   user: SessionUser;
@@ -27,27 +28,41 @@ const route = app
     const userId = session?.user.id;
 
     try {
+      const now = new Date(); // Get the current date and time
+
+      // Fetch all events
       const allEvents = await db.select().from(event);
 
+      // Separate events into upcoming and recent
+      const upcomingEvents = allEvents.filter((e) => new Date(e.date) > now);
+      const recentEvents = allEvents.filter((e) => new Date(e.date) <= now);
+
+      // If no user is logged in, mark all upcoming events as unregistered
       if (!userId) {
-        return c.json({ events: allEvents.map(e => ({ ...e, registered: false })) });
+        return c.json({
+          upcomingEvents: upcomingEvents.map((e) => ({ ...e, registered: false })),
+          recentEvents: recentEvents,
+        });
       }
 
-      // Otherwise fetch registrations for this user
+      // Otherwise, fetch registrations for the user, only for upcoming events
       const regs = await db
         .select({ eventId: registration.eventId })
         .from(registration)
         .where(eq(registration.userId, userId));
 
-      const registeredIds = new Set(regs.map(r => r.eventId));
+      const registeredIds = new Set(regs.map((r) => r.eventId));
 
-      // Annotate each event
-      const annotated = allEvents.map((e) => ({
+      // Annotate only the upcoming events
+      const annotatedUpcoming = upcomingEvents.map((e) => ({
         ...e,
         registered: registeredIds.has(e.id),
       }));
 
-      return c.json({ events: annotated });
+      return c.json({
+        upcomingEvents: annotatedUpcoming,
+        recentEvents: recentEvents,
+      });
     } catch (error) {
       console.error("Error fetching events:", error);
       return c.json({ error: "Failed to fetch events" }, 500);
@@ -82,6 +97,12 @@ const route = app
 
       const body = await c.req.json();
 
+      const parsed = zodUserDetails.safeParse(body);
+      if (!parsed.success) {
+        const errors = parsed.error.flatten().fieldErrors;
+        return c.json({ error: 'Validation failed', details: errors }, 400);
+      }
+
       // Create or update user details
       await db.insert(userDetails)
         .values({
@@ -106,6 +127,14 @@ const route = app
         return c.json({ error: 'Unauthorized' }, 401);
       }
 
+      // Check if the user has an admin role
+      const userId = session.user.id;
+      const curUser = await db.select().from(user).where(eq(user.id, userId)).limit(1).execute();
+
+      if (!curUser || curUser[0].role !== 'admin') {
+        return c.json({ error: 'Forbidden: You must be an admin to create events' }, 403);
+      }
+
       const { title, description, date, image } = await c.req.json();
 
       const newEvent = await db.insert(event).values({
@@ -126,6 +155,15 @@ const route = app
       const session = await auth.api.getSession(c.req.raw);
       if (!session) {
         return c.json({ error: 'Unauthorized' }, 401);
+      }
+
+      const [details] = await db
+        .select()
+        .from(userDetails)
+        .where(eq(userDetails.userId, session.user.id));
+
+      if (!details) {
+        return c.json({ error: 'Complete your profile' }, 401);
       }
 
       const body = await c.req.json();

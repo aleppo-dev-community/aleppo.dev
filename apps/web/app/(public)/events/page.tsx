@@ -27,25 +27,10 @@ export default function Page() {
           method: "GET",
           credentials: "include",
         });
-        const { events } = await res.json() as { events: Event[] };
-        const now = new Date();
-
-        // Split by date
-        const up: Event[] = [];
-        const past: Event[] = [];
-
-        for (const e of events) {
-          if (!e.date) {
-            // no date → treat as upcoming
-            up.push(e);
-          } else {
-            const d = new Date(e.date);
-            if (d >= now) up.push(e);
-            else past.push(e);
-          }
-        }
-        setUpcoming(up);
-        setRecent(past);
+        const { upcomingEvents, recentEvents } = await res.json() as { upcomingEvents: Event[], recentEvents: Event[] };
+        
+        setUpcoming(upcomingEvents);
+        setRecent(recentEvents);
       } catch (err) {
         console.error("Failed to fetch events", err);
       } finally {
