@@ -45,7 +45,13 @@ export function EventRegister() {
   ]);
 
   const handleRegister = () => {
-    if (eventQuery.error || !eventQuery.data?.isProfileComplete) {
+    if (eventQuery.error?.status === 401) {
+      router.push(
+        `/auth?redirect=${encodeURIComponent(`/dashboard/profile/edit?redirect=${encodeURIComponent(`/events/${eventId}?autoSubmit=true`)}`)}`,
+      );
+      return;
+    }
+    if (!eventQuery.data?.isProfileComplete) {
       router.push(
         `/dashboard/profile/edit?redirect=${encodeURIComponent(`/events/${eventId}?autoSubmit=true`)}`,
       );
@@ -65,7 +71,7 @@ export function EventRegister() {
       size="lg"
       className="w-full sm:w-auto"
     >
-      {eventQuery.data?.isRegistered ? "!أنت مسجل في الفعالية" : "أحجز مقعدك"}
+      {eventQuery.data?.isRegistered ? "أنت مسجل في الفعالية!" : "أحجز مقعدك"}
     </Button>
   );
 }
