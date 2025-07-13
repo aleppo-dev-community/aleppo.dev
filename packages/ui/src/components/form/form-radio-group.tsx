@@ -1,5 +1,5 @@
-import { cn } from "@/lib/utils";
 import type { RadioGroupProps } from "@radix-ui/react-radio-group";
+import { cn } from "../../lib/utils";
 import { FormControl, FormItem, FormLabel } from "../form";
 import { RadioGroup, RadioGroupItem } from "../radio-group";
 import type { FormFieldItemProps } from "./form-field-item";

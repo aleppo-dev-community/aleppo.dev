@@ -6,7 +6,7 @@ export interface PageProps<
   TSeach extends object = Promise<SearchParams>,
 > {
   params: Promise<TParams>;
-  searchParams: TSeach;
+  searchParams: Promise<TSeach>;
 }
 export interface LayoutProps<
   TParams extends object = object,

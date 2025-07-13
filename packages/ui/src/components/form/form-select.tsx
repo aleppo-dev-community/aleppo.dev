@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../select";
 import type { FormFieldItemProps } from "./form-field-item";
 import { FormFieldItem } from "./form-field-item";

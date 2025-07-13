@@ -12,7 +12,7 @@ export default async function CompleteProfilePage({
   });
 
   if (profileStatus.isProfileComplete) {
-    return redirect(searchParams.redirect ?? "/dashboard");
+    return redirect((await searchParams).redirect ?? "/dashboard");
   }
   return (
     <div className="container max-w-2xl mx-auto py-10">
