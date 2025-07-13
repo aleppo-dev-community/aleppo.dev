@@ -2,8 +2,8 @@ import { type VariantProps, cva } from "class-variance-authority";
 import * as React from "react";
 import type { Control, ControllerRenderProps, Path } from "react-hook-form";
 
-import { cn } from "@/lib/utils";
 import { Info } from "lucide-react";
+import { cn } from "../../lib/utils";
 import { Button } from "../button";
 import type { FormDescription } from "../form";
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../form";
