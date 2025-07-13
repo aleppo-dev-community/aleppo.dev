@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm";
-import { date, integer, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { integer, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 import { user } from ".";
 
 export const userDetails = pgTable("user_details", {
@@ -8,7 +8,7 @@ export const userDetails = pgTable("user_details", {
     .references(() => user.id, { onDelete: "cascade" }),
   fullName: text("full_name").notNull(),
   phone: text("phone").notNull(),
-  dateOfBirth: date("date_of_birth").notNull(),
+  yearOfBirth: integer("year_of_birth").notNull(),
   faculty: text("faculty"),
   specialization: text("specialization"),
   yearsOfExperience: integer("years_of_experience"),

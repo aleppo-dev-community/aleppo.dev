@@ -65,7 +65,7 @@ export function ProfileForm() {
       fullName: "",
       phone: "",
       telegramId: "",
-      dateOfBirth: new Date(),
+      yearOfBirth: new Date().getFullYear() - 25,
       specialization: "",
       faculty: "",
       customSpecialization: "",
@@ -82,7 +82,6 @@ export function ProfileForm() {
 
   const mutation = useMutation({
     mutationFn: async (data: UserDetailsFormData) => {
-      // Process the data before sending
       const processedData = {
         ...data,
         specialization:
@@ -90,7 +89,6 @@ export function ProfileForm() {
         faculty: (data.faculty === "أخرى" ? data.customFaculty : data.faculty) ?? "",
       };
 
-      // Remove the custom fields from the final data
       const { customSpecialization, customFaculty, acceptsDataSharing, ...finalData } =
         processedData;
 
@@ -107,7 +105,6 @@ export function ProfileForm() {
     await mutation.mutateAsync(data);
   };
 
-  // Create options for selects
   const specializationOptions = VALID_SPECIALIZATIONS.map((spec) => ({
     value: spec,
     label: spec,
@@ -127,7 +124,6 @@ export function ProfileForm() {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          {/* Personal Information Section */}
           <Card>
             <CardHeader>
               <CardTitle className="text-xl font-semibold">المعلومات الشخصية</CardTitle>
@@ -145,11 +141,16 @@ export function ProfileForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FormInput name="telegramId" label="معرف التليجرام" placeholder="@username" />
                 <FormInput
-                  name="dateOfBirth"
-                  label="تاريخ الميلاد"
-                  type="date"
+                  name="yearOfBirth"
+                  label="سنة الميلاد"
+                  type="tel"
                   required
-                  inputClassName="justify-end"
+                  placeholder="1995"
+                  InputProps={{
+                    dir: "rtl",
+                    inputMode: "numeric",
+                  }}
+                  description="أدخل سنة الميلاد"
                 />
               </div>
             </CardContent>
@@ -258,7 +259,6 @@ export function ProfileForm() {
             </CardContent>
           </Card>
 
-          {/* Submit Section */}
           <div className="flex justify-center pt-6">
             <FormSubmit
               className="w-full max-w-md px-8 py-3 text-lg font-semibold"

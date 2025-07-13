@@ -25,14 +25,10 @@ export const profileRoutes = new Hono()
       .values({
         userId: c.get("user").id,
         ...body,
-        dateOfBirth: new Date(body.dateOfBirth).toISOString(),
       })
       .onConflictDoUpdate({
         target: userDetails.userId,
-        set: {
-          ...body,
-          dateOfBirth: new Date(body.dateOfBirth).toISOString(),
-        },
+        set: body,
       });
 
     return c.json({ message: "تم تحديث الملف الشخصي بنجاح" }, 201);
