@@ -13,6 +13,6 @@
     "jsxImportSource": "hono/jsx",
     "outDir": "dist"
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "../web/app/api/[[...route]]/google"],
   "exclude": ["node_modules"]
 }

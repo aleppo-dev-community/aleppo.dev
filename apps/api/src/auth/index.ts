@@ -5,7 +5,7 @@ import { openAPI } from "better-auth/plugins";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "../database";
 
-import * as schema from "../database/auth-schema";
+import * as schema from "../database/schema/auth";
 
 const options = {
   database: drizzleAdapter(db, {
@@ -18,23 +18,25 @@ const options = {
       trustedProviders: ["google"],
     },
   },
-  emailAndPassword: {
-    enabled: true,
-  },
   socialProviders: {
     google: {
       prompt: "select_account",
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     },
-    facebook: {
-      prompt: "select_account",
-      clientId: process.env.FACEBOOK_CLIENT_ID as string,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET as string,
-    },
   },
   plugins: [openAPI()],
   trustedOrigins: [process.env.NEXT_PUBLIC_SERVER_URL!],
+  user: {
+    additionalFields: {
+      role: {
+        type: "string",
+        required: true,
+        defaultValue: "user",
+        input: false,
+      },
+    },
+  },
 } satisfies BetterAuthOptions;
 
 export const auth = betterAuth({
