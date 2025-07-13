@@ -5,21 +5,23 @@
     "db:gen": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
     "db:seed": "bun run src/database/seeds/index.ts",
-    "auth:gen": "bunx @better-auth/cli generate --config ./src/auth/index.ts --output ./src/database/auth-schema.ts"
+    "auth:gen": "bunx @better-auth/cli generate --config ./src/auth/index.ts --output ./src/database/schema/auth.ts"
   },
   "module": "src/index.ts",
   "dependencies": {
-    "@neondatabase/serverless": "^1.0.0",
+    "@hono/swagger-ui": "^0.5.2",
+    "@hono/zod-validator": "^0.7.0",
+    "@neondatabase/serverless": "^1.0.1",
     "better-auth": "^1.2.8",
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.44.1",
     "hono": "^4.7.10",
-    "pg": "^8.16.0"
+    "pg": "^8.16.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/pg": "^8.15.4",
-    "drizzle-kit": "^0.31.1",
-    "tsx": "^4.19.4"
+    "drizzle-kit": "^0.31.1"
   }
 }

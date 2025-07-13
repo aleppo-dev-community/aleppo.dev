@@ -1,4 +1,5 @@
 "use client";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -86,6 +87,9 @@ export function Nav() {
         </li>
       </ul>
       <div className="flex-1 hidden sm:block" />
+      <Link href="/dashboard" onClick={() => setOpen(false)}>
+        الملف الشخصي
+      </Link>
     </nav>
   );
 }
