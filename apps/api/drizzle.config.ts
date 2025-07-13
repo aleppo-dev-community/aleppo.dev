@@ -3,7 +3,7 @@ const isNeon = process.env.DB_URL?.includes("neon");
 
 export default defineConfig({
   out: "./drizzle",
-  schema: "./src/database/schema.ts",
+  schema: "./src/database/schema/index.ts",
   dialect: "postgresql",
   dbCredentials: {
     ssl: isNeon ? "require" : false,

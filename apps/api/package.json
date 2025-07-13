@@ -5,11 +5,12 @@
     "db:gen": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
     "db:seed": "bun run src/database/seeds/index.ts",
-    "auth:gen": "bunx @better-auth/cli generate --config ./src/auth/index.ts --output ./src/database/auth-schema.ts"
+    "auth:gen": "bunx @better-auth/cli generate --config ./src/auth/index.ts --output ./src/database/schema/auth.ts"
   },
   "module": "src/index.ts",
   "dependencies": {
     "@hono/swagger-ui": "^0.5.2",
+    "@hono/zod-validator": "^0.7.0",
     "@neondatabase/serverless": "^1.0.1",
     "better-auth": "^1.2.8",
     "dotenv": "^16.5.0",
