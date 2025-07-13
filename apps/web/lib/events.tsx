@@ -1,3 +1,4 @@
+import { EventRegister } from "@/app/(public)/events/[id]/event-register";
 import Link from "next/link";
 
 export const events = [
@@ -9,10 +10,7 @@ export const events = [
     description: "تعرف على الذكاء الصنعي وكيف يمكنك استخدامه في تطبيقاتك.",
     tags: ["ملتقى", "AI"],
     image: "https://uploads.aleppo.dev/AI-meetup.png",
-    cta: {
-      label: "تابعنا على تيليجرام لتصلك التفاصيل فور إعلانها",
-      href: "https://t.me/aleppo_dev_community",
-    },
+    cta: { button: <EventRegister />, href: null },
     talks: [],
     sponsors: [],
   },

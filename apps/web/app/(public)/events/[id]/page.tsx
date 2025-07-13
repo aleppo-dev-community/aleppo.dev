@@ -5,6 +5,7 @@ import { cn } from "@workspace/ui/lib/utils";
 import { CalendarDays, HeartHandshake, HelpCircle, ImageIcon, MapPin, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
 export async function generateMetadata({ params }: PageProps<{ id: string }>) {
   const eventId = (await params).id;
   const event = events.find((e) => e.id.toString() === eventId);
@@ -48,11 +49,14 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
             </>
           )}
 
-          {event.cta && event.cta.href && (
-            <Button asChild size="lg">
-              <Link href={event.cta.href}>{event.cta.label}</Link>
-            </Button>
-          )}
+          <div className="flex flex-col sm:flex-row gap-4 items-start">
+            {event.cta && event.cta.button}
+            {event.cta && event.cta.href && (
+              <Button asChild size="lg">
+                <Link href={event.cta.href}>{event.cta.label}</Link>
+              </Button>
+            )}
+          </div>
         </div>
 
         <section className="mb-12 w-full">
@@ -106,7 +110,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
                       href={sponsor.website}
                       className={cn(
                         "w-full text-2xl font-bold text-primary",
-                        sponsor.website ? "underline" : "no-underline"
+                        sponsor.website ? "underline" : "no-underline",
                       )}
                       target="_blank"
                     >

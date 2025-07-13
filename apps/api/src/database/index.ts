@@ -1,5 +1,3 @@
-// apps/api/src/database/index.ts
-
 import "dotenv/config";
 import { drizzle as neonDrizzle } from "drizzle-orm/neon-serverless";
 import { drizzle as pgDrizzle } from "drizzle-orm/node-postgres";

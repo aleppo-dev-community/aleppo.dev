@@ -1,7 +1,5 @@
 "use client";
 
-import { authClient } from "@/lib/auth-client";
-import { Button } from "@workspace/ui/components/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -89,55 +87,9 @@ export function Nav() {
         </li>
       </ul>
       <div className="flex-1 hidden sm:block" />
-      <div className="flex items-center gap-4">
-        <AuthSection onLinkClick={() => setOpen(false)} />
-      </div>
-    </nav>
-  );
-}
-
-function AuthSection({ onLinkClick }: { onLinkClick: () => void }) {
-  const { data: session, isPending: isLoading } = authClient.useSession();
-
-  const handleSignOut = async () => {
-    try {
-      await authClient.signOut({
-        fetchOptions: {
-          onSuccess: () => {
-            window.location.href = "/";
-          },
-        },
-      });
-      onLinkClick();
-    } catch (error) {
-      console.error("Error signing out:", error);
-    }
-  };
-
-  if (isLoading) {
-    return null;
-  }
-
-  if (session?.user) {
-    return (
-      <div className="flex items-center gap-3">
-        <span className="text-sm font-medium">مرحباً، {session.user.name}</span>
-        <Button variant="outline" size="sm" onClick={handleSignOut}>
-          تسجيل الخروج
-        </Button>
-      </div>
-    );
-  }
-
-  return (
-    <>
-      <Link
-        href="/login"
-        className="text-sm font-medium hover:text-primary transition-colors"
-        onClick={onLinkClick}
-      >
-        تسجيل الدخول
+      <Link href="/dashboard" onClick={() => setOpen(false)}>
+        الملف الشخصي
       </Link>
-    </>
+    </nav>
   );
 }

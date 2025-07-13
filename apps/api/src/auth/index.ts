@@ -1,5 +1,3 @@
-// apps/api/src/auth/index.ts
-
 import type { BetterAuthOptions, Path } from "better-auth";
 import { betterAuth } from "better-auth";
 import { openAPI } from "better-auth/plugins";
@@ -7,7 +5,7 @@ import { openAPI } from "better-auth/plugins";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { db } from "../database";
 
-import * as schema from "../database/auth-schema";
+import * as schema from "../database/schema/auth";
 
 const options = {
   database: drizzleAdapter(db, {
@@ -25,7 +23,6 @@ const options = {
       prompt: "select_account",
       clientId: process.env.GOOGLE_CLIENT_ID as string,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
-      redirectURI: `${process.env.NEXT_PUBLIC_SERVER_URL}/api/auth/callback/google`,
     },
   },
   plugins: [openAPI()],
@@ -34,14 +31,13 @@ const options = {
     additionalFields: {
       role: {
         type: "string",
-        required: false,
+        required: true,
         defaultValue: "user",
-        input: false,     
-      }
-    }
-  }
+        input: false,
+      },
+    },
+  },
 } satisfies BetterAuthOptions;
-
 
 export const auth = betterAuth({
   ...options,

@@ -36,6 +36,13 @@
       "when": 1751740399899,
       "tag": "0004_nasty_martin_li",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1752431358417,
+      "tag": "0005_petite_mandroid",
+      "breakpoints": true
     }
   ]
 }
