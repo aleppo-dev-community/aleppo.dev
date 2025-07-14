@@ -19,6 +19,9 @@ export default function Page() {
           {upcomingEvents.map((event) => (
             <EventCard event={event} key={event.id} />
           ))}
+          {upcomingEvents.length === 0 && (
+            <p className="col-span-full text-center">لا توجد فعاليات قادمة حالياً.</p>
+          )}
         </div>
         <h2 className="text-2xl md:text-3xl font-bold mb-8">الفعاليات السابقة</h2>
         <div className="grid grid-cols-1 gap-8">

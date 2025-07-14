@@ -43,7 +43,7 @@ export default function Page() {
             asChild
             className="mt-8 bg-gradient-to-r from-[#E89548] to-primary text-primary-foreground rounded-[7px] px-10 py-6  font-medium text-lg shadow-lg hover:scale-105 transition-transform"
           >
-            <Link href="/participate/attend">انضم إلينا</Link>
+            <Link href="/participate/attend">الفعاليات القادمة</Link>
           </Button>
         </div>
       </section>

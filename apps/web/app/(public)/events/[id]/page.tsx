@@ -5,6 +5,7 @@ import { cn } from "@workspace/ui/lib/utils";
 import { CalendarDays, HeartHandshake, HelpCircle, ImageIcon, MapPin, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
 export async function generateMetadata({ params }: PageProps<{ id: string }>) {
   const eventId = (await params).id;
   const event = events.find((e) => e.id.toString() === eventId);
@@ -48,11 +49,14 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
             </>
           )}
 
-          {event.cta && event.cta.href && (
-            <Button asChild size="lg">
-              <Link href={event.cta.href}>{event.cta.label}</Link>
-            </Button>
-          )}
+          <div className="flex flex-col sm:flex-row gap-4 items-start">
+            {event.cta && event.cta.button}
+            {event.cta && event.cta.href && (
+              <Button asChild size="lg">
+                <Link href={event.cta.href}>{event.cta.label}</Link>
+              </Button>
+            )}
+          </div>
         </div>
 
         <section className="mb-12 w-full">
@@ -60,13 +64,29 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
             <Users />
             الفقرات
           </h2>
-          <div className="space-y-8">
+          <div className="space-y-8 max-w-xl">
             {event.talks.map((talk, i) => (
               <div key={i} className="bg-[#1f1f1f] p-6 rounded-lg">
                 <h3 className="text-2xl font-bold text-primary mb-2">{talk.title}</h3>
-                <p className="text-lg font-semibold text-white mb-3image.png [&_a]:underline">
-                  المتحدث: {talk.speaker}
-                </p>
+                <div className="flex items-center gap-4 mb-4">
+                  {talk.speaker.image && (
+                    <img
+                      src={talk.speaker.image}
+                      alt={`صورة المتحدث`}
+                      className="w-16 h-16 rounded-full object-cover"
+                    />
+                  )}
+                  <div>
+                    <p className="text-lg font-semibold text-white [&_a]:underline">
+                      {talk.speaker.name}
+                    </p>
+                    {talk.speaker.description && (
+                      <p className="text-sm text-secondary-foreground">
+                        {talk.speaker.description}
+                      </p>
+                    )}
+                  </div>
+                </div>
                 <div className="text-secondary-foreground">{talk.description}</div>
               </div>
             ))}
@@ -106,7 +126,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
                       href={sponsor.website}
                       className={cn(
                         "w-full text-2xl font-bold text-primary",
-                        sponsor.website ? "underline" : "no-underline"
+                        sponsor.website ? "underline" : "no-underline",
                       )}
                       target="_blank"
                     >
@@ -124,10 +144,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
                   <h3 className="text-2xl font-bold text-primary">إدعم الحدث</h3>
                   <p className="text-secondary-foreground mt-2 flex-1">
                     شاركنا في الفعالية{" "}
-                    <Link
-                      href="/participate/sponsor-a-meetup"
-                      className="text-primary hover:underline"
-                    >
+                    <Link href="/participate/sponsor-a-meetup" className="text-primary underline">
                       وقم برعايتها
                     </Link>
                     .
