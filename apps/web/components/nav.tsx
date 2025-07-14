@@ -1,11 +1,12 @@
 "use client";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@workspace/ui/components/dropdown-menu";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -84,8 +85,25 @@ export function Nav() {
             </DropdownMenuContent>
           </DropdownMenu>
         </li>
+        <li>
+          <Link
+            href="/dashboard"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-2"
+          >
+            الملف الشخصي
+          </Link>
+        </li>
       </ul>
       <div className="flex-1 hidden sm:block" />
+      <Link
+        href="/dashboard"
+        onClick={() => setOpen(false)}
+        className="items-center hidden sm:flex gap-2"
+      >
+        <User className="w-5 h-5" />
+        الملف الشخصي
+      </Link>
     </nav>
   );
 }

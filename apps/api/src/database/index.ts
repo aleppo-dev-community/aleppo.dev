@@ -1,12 +1,14 @@
+import "dotenv/config";
 import { drizzle as neonDrizzle } from "drizzle-orm/neon-serverless";
+import { drizzle as pgDrizzle } from "drizzle-orm/node-postgres";
 import * as schema from "./schema";
-let driver = neonDrizzle;
-if (process.env.NODE_ENV !== "production") {
-  import("dotenv/config");
-}
-if (process.env.NODE_ENV !== "production" && process.env.DB_URL?.includes("localhost")) {
-  driver = await import("drizzle-orm/node-postgres").then((module) => module.drizzle);
-}
-export const db = driver(process.env.DB_URL!, {
-  schema,
-});
+
+const isNeon = process.env.DB_URL?.includes("neon");
+
+export const db = isNeon
+  ? neonDrizzle(process.env.DB_URL!, {
+      schema,
+    })
+  : pgDrizzle(process.env.DB_URL!, {
+      schema,
+    });
