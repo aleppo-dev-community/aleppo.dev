@@ -41,7 +41,28 @@ export const events = [
           description: "AI Engineer, Data Scientist",
           image: "https://uploads.aleppo.dev/speakers/abd-ulfatah-esper.jpg",
         },
-        description: null,
+        description: (
+          <div className="text-sm">
+            <p className="mb-4">
+              هل يمكن للذكاء الاصطناعي أن يصمم نفسه؟ استكشف SEAL: نموذج يُعيد بناء نفسه ذاتيًا دون
+              إشراف مباشر، خطوة ثورية في عالم AutoML.
+            </p>
+            <ul className="list-disc list-inside space-y-2">
+              <li>
+                من الإلهام البيولوجي إلى الابتكار التقني: تعرّف على كيف تستلهم Sakana AI من الطبيعة
+                لتطوير DGM ، نماذج تنمو وتتطور كما تفعل الكائنات الحية.
+              </li>
+              <li>
+                وداعًا للتدريب المكلف! كيف تمكّن SEAL من تحقيق أداء مذهل من دون Fine-tuning تقليدي
+                أو تعليم مضبوط (Supervised Learning).
+              </li>
+              <li>
+                التطبيقات المستقبلية في الصناعة والبحث: كيف ستؤثر SEAL وDGM على أدوات الذكاء
+                الاصطناعي التي نعتمد عليها؟
+              </li>
+            </ul>
+          </div>
+        ),
       },
     ],
     sponsors: [],
