@@ -64,7 +64,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
             <Users />
             الفقرات
           </h2>
-          <div className="space-y-8">
+          <div className="space-y-8 max-w-xl">
             {event.talks.map((talk, i) => (
               <div key={i} className="bg-[#1f1f1f] p-6 rounded-lg">
                 <h3 className="text-2xl font-bold text-primary mb-2">{talk.title}</h3>
