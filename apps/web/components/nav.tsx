@@ -85,7 +85,7 @@ export function Nav() {
             </DropdownMenuContent>
           </DropdownMenu>
         </li>
-        <li>
+        <li className="block sm:hidden">
           <Link
             href="/dashboard"
             onClick={() => setOpen(false)}
