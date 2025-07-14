@@ -21,22 +21,22 @@ export default function Page() {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#050505] via-[#0a0a0a] to-[#181818] text-white p-6">
+    <div className="min-h-screen bg-gradient-to-br from-[#050505] via-[#0a0a0a] to-[#181818] text-white p-4 sm:p-6">
       <div className="max-w-4xl mx-auto">
-        <div className="flex justify-between items-center mb-12">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8 sm:mb-12">
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-r from-[#E89548] to-primary flex items-center justify-center">
-              <User className="w-6 h-6 text-white" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-[#E89548] to-primary flex items-center justify-center">
+              <User className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-semibold">مرحباً {session?.user.name}</h1>
-              <p className="text-[#AFAFAF] text-sm">مجتمع مطوري حلب</p>
+              <h1 className="text-lg sm:text-xl font-semibold">مرحباً {session?.user.name}</h1>
+              <p className="text-[#AFAFAF] text-xs sm:text-sm">مجتمع مطوري حلب</p>
             </div>
           </div>
-          <div className="flex gap-3">
-            <Button asChild variant="ghost" size="sm" className="gap-2">
+          <div className="flex gap-2 sm:gap-3 ms-auto">
+            <Button asChild variant="ghost" size="sm" className="gap-1 sm:gap-2 text-xs sm:text-sm">
               <Link href="/">
-                <Home className="w-4 h-4" />
+                <Home className="w-3 h-3 sm:w-4 sm:h-4" />
                 الرئيسية
               </Link>
             </Button>
@@ -45,61 +45,65 @@ export default function Page() {
               size="sm"
               onClick={() => logout.mutate()}
               isLoading={logout.isPending}
-              className="gap-2"
+              className="gap-1 sm:gap-2 text-xs sm:text-sm"
             >
-              <LogOutIcon className="w-4 h-4" />
+              <LogOutIcon className="w-3 h-3 sm:w-4 sm:h-4" />
               تسجيل الخروج
             </Button>
           </div>
         </div>
 
-        <div className="text-center mb-12">
-          <div className="relative inline-block mb-6">
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="relative inline-block mb-4 sm:mb-6">
             <div className="absolute inset-0 bg-gradient-to-r from-[#E89548] to-primary blur-xl opacity-20 rounded-full"></div>
-            <div className="relative w-20 h-20 mx-auto bg-gradient-to-r from-[#E89548] to-primary rounded-full flex items-center justify-center">
-              <Clock className="w-10 h-10 text-white" />
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-gradient-to-r from-[#E89548] to-primary rounded-full flex items-center justify-center">
+              <Clock className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
             </div>
           </div>
 
-          <h2 className="text-5xl md:text-6xl h-16 font-bold mb-6 bg-gradient-to-r from-[#E89548] to-primary bg-clip-text text-transparent">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl h-12 sm:h-16 font-bold mb-4 sm:mb-6 bg-gradient-to-r from-[#E89548] to-primary bg-clip-text text-transparent">
             قريباً جداً
           </h2>
 
-          <p className="text-xl md:text-2xl text-[#AFAFAF] mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-[#AFAFAF] mb-6 sm:mb-8 max-w-2xl mx-auto leading-relaxed px-4 sm:px-0">
             نحن نعمل على إطلاق لوحة تحكم مميزة لأعضاء مجتمع مطوري حلب
           </p>
 
-          <div className="w-24 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mx-auto mb-8"></div>
+          <div className="w-16 sm:w-24 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mx-auto mb-6 sm:mb-8"></div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-6 px-2 sm:px-0">
           <Card className="bg-gradient-to-br from-[#232323] to-[#181818] border-[#333] hover:border-[#E89548]/50 transition-all duration-300">
-            <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-[#E89548] to-primary rounded-lg flex items-center justify-center">
-                <User className="w-6 h-6 text-white" />
+            <CardContent className="p-4 sm:p-6 text-center">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 bg-gradient-to-r from-[#E89548] to-primary rounded-lg flex items-center justify-center">
+                <User className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">الملف الشخصي</h3>
-              <p className="text-[#AFAFAF] text-sm">إدارة بياناتك الشخصية ومعلومات التواصل</p>
+              <h3 className="text-base sm:text-lg font-semibold mb-2">الملف الشخصي</h3>
+              <p className="text-[#AFAFAF] text-xs sm:text-sm">
+                إدارة بياناتك الشخصية ومعلومات التواصل
+              </p>
             </CardContent>
           </Card>
 
           <Card className="bg-gradient-to-br from-[#232323] to-[#181818] border-[#333] hover:border-[#E89548]/50 transition-all duration-300">
-            <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-[#E89548] to-primary rounded-lg flex items-center justify-center">
-                <Bell className="w-6 h-6 text-white" />
+            <CardContent className="p-4 sm:p-6 text-center">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 bg-gradient-to-r from-[#E89548] to-primary rounded-lg flex items-center justify-center">
+                <Bell className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">الإشعارات</h3>
-              <p className="text-[#AFAFAF] text-sm">تلقي آخر الأخبار والفعاليات القادمة</p>
+              <h3 className="text-base sm:text-lg font-semibold mb-2">الإشعارات</h3>
+              <p className="text-[#AFAFAF] text-xs sm:text-sm">
+                تلقي آخر الأخبار والفعاليات القادمة
+              </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-[#232323] to-[#181818] border-[#333] hover:border-[#E89548]/50 transition-all duration-300">
-            <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 mx-auto mb-4 bg-gradient-to-r from-[#E89548] to-primary rounded-lg flex items-center justify-center">
-                <Settings className="w-6 h-6 text-white" />
+          <Card className="bg-gradient-to-br from-[#232323] to-[#181818] border-[#333] hover:border-[#E89548]/50 transition-all duration-300 sm:col-span-2 md:col-span-1">
+            <CardContent className="p-4 sm:p-6 text-center">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 bg-gradient-to-r from-[#E89548] to-primary rounded-lg flex items-center justify-center">
+                <Settings className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">الإعدادات</h3>
-              <p className="text-[#AFAFAF] text-sm">تخصيص تجربتك وتفضيلاتك الشخصية</p>
+              <h3 className="text-base sm:text-lg font-semibold mb-2">الإعدادات</h3>
+              <p className="text-[#AFAFAF] text-xs sm:text-sm">تخصيص تجربتك وتفضيلاتك الشخصية</p>
             </CardContent>
           </Card>
         </div>
