@@ -68,9 +68,25 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
             {event.talks.map((talk, i) => (
               <div key={i} className="bg-[#1f1f1f] p-6 rounded-lg">
                 <h3 className="text-2xl font-bold text-primary mb-2">{talk.title}</h3>
-                <p className="text-lg font-semibold text-white mb-3image.png [&_a]:underline">
-                  المتحدث: {talk.speaker}
-                </p>
+                <div className="flex items-center gap-4 mb-4">
+                  {talk.speaker.image && (
+                    <img
+                      src={talk.speaker.image}
+                      alt={`صورة المتحدث`}
+                      className="w-16 h-16 rounded-full object-cover"
+                    />
+                  )}
+                  <div>
+                    <p className="text-lg font-semibold text-white [&_a]:underline">
+                      {talk.speaker.name}
+                    </p>
+                    {talk.speaker.description && (
+                      <p className="text-sm text-secondary-foreground">
+                        {talk.speaker.description}
+                      </p>
+                    )}
+                  </div>
+                </div>
                 <div className="text-secondary-foreground">{talk.description}</div>
               </div>
             ))}
@@ -128,10 +144,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
                   <h3 className="text-2xl font-bold text-primary">إدعم الحدث</h3>
                   <p className="text-secondary-foreground mt-2 flex-1">
                     شاركنا في الفعالية{" "}
-                    <Link
-                      href="/participate/sponsor-a-meetup"
-                      className="text-primary hover:underline"
-                    >
+                    <Link href="/participate/sponsor-a-meetup" className="text-primary underline">
                       وقم برعايتها
                     </Link>
                     .

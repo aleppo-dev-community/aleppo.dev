@@ -4,14 +4,46 @@ import Link from "next/link";
 export const events = [
   {
     id: "AI-meetup-2025-Q3",
-    title: "ملتقى الذكاء الصنعي",
-    date: null,
-    location: null,
-    description: "تعرف على الذكاء الصنعي وكيف يمكنك استخدامه في تطبيقاتك.",
+    title: "ملتقى الذكاء الصنعي - آب 2025",
+    date: "2025/8/9 5:00 PM",
+    location: "حلب",
+    description: "",
     tags: ["ملتقى", "AI"],
     image: "https://uploads.aleppo.dev/AI-meetup.png",
     cta: { button: <EventRegister />, href: null },
-    talks: [],
+    talks: [
+      {
+        title: "Crafting AI Solutions with Real Business Value",
+        speaker: {
+          name: (
+            <Link href="https://www.linkedin.com/in/alaa-aldin-hajjar-18b0621a6/">
+              علاء الدين حجّار
+            </Link>
+          ),
+          description: "PhD Mathematical modeling & Software systems",
+          image: "https://uploads.aleppo.dev/speakers/alaa-aldin-hajjar.jpg",
+        },
+        speakerDescription: "PhD Mathematical modeling & Software systems",
+        description: (
+          <ul className="list-disc list-inside">
+            <li>فهم الهدف التجاري (Business Understanding)</li>
+            <li>فهم البيانات (Data Understanding)</li>
+            <li>تجهيز البيانات (Data Preparation)</li>
+            <li>اختيار وبناء النموذج (Modeling)</li>
+            <li>تقييم النموذج (Evaluation)</li>
+          </ul>
+        ),
+      },
+      {
+        title: "Self-Adapting Language Models",
+        speaker: {
+          name: <Link href="https://www.linkedin.com/in/abd-ulfatah-esper/">عبد الفتاح إسبر</Link>,
+          description: "AI Engineer, Data Scientist",
+          image: "https://uploads.aleppo.dev/speakers/abd-ulfatah-esper.jpg",
+        },
+        description: null,
+      },
+    ],
     sponsors: [],
   },
   {
@@ -30,19 +62,27 @@ export const events = [
     talks: [
       {
         title: "إدارة اسرار بيئة المشروع!",
-        speaker: <Link href="https://www.linkedin.com/in/haithamalnaeb/">هيثم النائب</Link>,
+        speaker: {
+          name: <Link href="https://www.linkedin.com/in/haithamalnaeb/">هيثم النائب</Link>,
+          description: "Software Engineer",
+          image: "https://uploads.aleppo.dev/speakers/haitham-alnaeb.jpg",
+        },
         description:
           "كيفية التعامل مع مفاتيح وأسرار المشاريع البرمجية بشكل آمن ومنظم، لضمان عدم ضياعها أو تسريبها.",
       },
       {
         title: "نقاشات مفتوحة",
-        speaker: (
-          <>
-            <Link href="https://www.linkedin.com/in/osama-rida/">أسامة رضا</Link>،{" "}
-            <Link href="https://www.linkedin.com/in/islam-nassani/">إسلام نعساني</Link>،{" "}
-            <Link href="https://www.linkedin.com/in/abdo-ka/">عبد الرحمن قنواتي</Link>
-          </>
-        ),
+        speaker: {
+          name: (
+            <>
+              <Link href="https://www.linkedin.com/in/osama-rida/">أسامة رضا</Link>،{" "}
+              <Link href="https://www.linkedin.com/in/islam-nassani/">إسلام نعساني</Link>،{" "}
+              <Link href="https://www.linkedin.com/in/abdo-ka/">عبد الرحمن قنواتي</Link>
+            </>
+          ),
+          description: "",
+          image: "https://uploads.aleppo.dev/speakers/discussion.png",
+        },
         description: (
           <ul className="list-disc list-inside">
             <li>Vibe Coding</li>
