@@ -1,4 +1,4 @@
-import { FaFacebook, FaInstagram, FaLinkedin, FaTelegram } from "react-icons/fa6";
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTelegram } from "react-icons/fa6";
 
 export function Footer() {
   return (
@@ -16,6 +16,14 @@ export function Footer() {
           </a>
         </div>
         <div className="flex gap-4 items-center mt-4 md:mt-0">
+          <a
+            href="https://github.com/aleppo-dev-community/aleppo.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary"
+          >
+            <FaGithub className="text-2xl" />
+          </a>
           <a
             href="https://www.linkedin.com/company/aleppo-dev-community"
             target="_blank"
