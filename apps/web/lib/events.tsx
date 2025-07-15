@@ -5,7 +5,7 @@ export const events = [
   {
     id: "AI-meetup-2025-Q3",
     title: "ملتقى الذكاء الصنعي - آب 2025",
-    date: "2025/8/9 5:00 PM",
+    date: "2025/8/9",
     location: "حلب",
     description: "",
     tags: ["ملتقى", "AI"],
