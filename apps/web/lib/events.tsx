@@ -85,7 +85,7 @@ export const events = [
         title: "إدارة اسرار بيئة المشروع!",
         speaker: {
           name: <Link href="https://www.linkedin.com/in/haithamalnaeb/">هيثم النائب</Link>,
-          description: "Software Engineer",
+          description: "CEO & Founder @ Architweb",
           image: "https://uploads.aleppo.dev/speakers/haitham-alnaeb.jpg",
         },
         description:
