@@ -32,7 +32,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
           {event.description}
         </p>
 
-        <div className="mb-12 text-2xl">
+        <div className="mb-12 text-2xl w-full">
           <div className="flex items-center gap-2">
             <CalendarDays className="w-5 h-5" />
             <span className="font-bold">التاريخ</span>
@@ -49,7 +49,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
             </>
           )}
 
-          <div className="flex flex-col sm:flex-row gap-4 items-start">
+          <div className="flex flex-col sm:flex-row gap-4 items-start w-full ">
             {event.cta && event.cta.button}
             {event.cta && event.cta.href && (
               <Button asChild size="lg">
