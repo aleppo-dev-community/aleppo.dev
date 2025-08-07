@@ -30,10 +30,9 @@ export const eventRoutes = new Hono()
       isRegistered: !!existingRegistration?.eventRegistrationId,
       isProfileComplete: !!profile,
       isRegistrationClosed,
-      eventRegistrationId:
-        existingRegistration?.isAccepted && isRegistrationClosed
-          ? existingRegistration?.eventRegistrationId
-          : null,
+      eventRegistrationId: existingRegistration?.isAccepted
+        ? existingRegistration?.eventRegistrationId
+        : null,
     });
   })
   .post("/:eventSlug", async (c) => {
