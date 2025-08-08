@@ -18,12 +18,12 @@ export function EventCard({ event }: { event: Event }) {
   return (
     <div className="bg-gradient-to-br from-[#232323] to-[#181818] rounded-2xl relative shadow-lg border border-[#232323] flex flex-col md:flex-row overflow-hidden">
       <Link href={`/events/${event.id}`} className="w-full h-full absolute top-0 left-0 " />
-
-      {isUpcoming() && (
+      {/* TODO: should follow close date */}
+      {/* {isUpcoming() && (
         <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-bold z-10 shadow-lg">
           سجل الآن
         </div>
-      )}
+      )} */}
 
       <div className="md:w-40  bg-[#181818] flex items-center justify-center">
         <Image
