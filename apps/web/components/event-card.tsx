@@ -25,11 +25,11 @@ export function EventCard({ event }: { event: Event }) {
         </div>
       )} */}
 
-      <div className="md:w-40  bg-[#181818] flex items-center justify-center">
+      <div className="md:w-72 bg-[#181818] flex items-center justify-center">
         <Image
           src={event.image}
           alt={event.title}
-          className="object-cover w-full h-full"
+          className="object-cover aspect-video w-full h-full"
           width={626}
           height={470}
         />
