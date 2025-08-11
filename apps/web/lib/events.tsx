@@ -1,4 +1,3 @@
-import { EventRegister } from "@/app/(public)/events/[id]/event-register";
 import Link from "next/link";
 
 export const events = [
@@ -9,8 +8,21 @@ export const events = [
     location: "مدرج الخوارزمي، كلية الهندسة المعلوماتية، جامعة حلب، حلب",
     description: "",
     tags: ["ملتقى", "AI"],
-    image: "https://uploads.aleppo.dev/AI-meetup.png",
-    cta: { button: <EventRegister />, href: null },
+    image: "https://uploads.aleppo.dev/AI-meetup-2025-08/cover.png",
+    cta: {
+      button: (
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/I_M554OKAos"
+          title="مجتمع مطوري حلب - ملتقى الذكاء الصنعي آب 2025 | Aleppo Dev Community - AI Meetup 2025 Aug"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          className="rounded-lg shadow-lg"
+        />
+      ),
+      href: null,
+    },
     talks: [
       {
         title: "Crafting AI Solutions with Real Business Value",
@@ -66,6 +78,21 @@ export const events = [
       },
     ],
     sponsors: [],
+    gallery: [
+      "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_1.jpg",
+      "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_2.jpg",
+      "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_5.jpg",
+      "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_3.jpg",
+      "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_4.jpg",
+      "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_7.jpg",
+      "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_8.jpg",
+      "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_9.jpg",
+      "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_11.jpg",
+      "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_10.jpg",
+      "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_13.jpg",
+      "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_6.jpg",
+      "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_12.jpg",
+    ],
   },
   {
     id: "dev-meetup-2025-Q2",
