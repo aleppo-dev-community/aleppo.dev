@@ -77,7 +77,13 @@ export const events = [
         ),
       },
     ],
-    sponsors: [],
+    sponsors: [
+      {
+        name: "مكتب شؤون الشباب - جامعة حلب",
+        website: "https://www.facebook.com/profile.php?id=61573542687856",
+        logo: "https://uploads.aleppo.dev/sponsors/youth-affairs-office.jpg",
+      },
+    ],
     gallery: [
       "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_1.jpg",
       "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_2.jpg",
