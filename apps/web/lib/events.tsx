@@ -18,7 +18,7 @@ export const events = [
           title="مجتمع مطوري حلب - ملتقى الذكاء الصنعي آب 2025 | Aleppo Dev Community - AI Meetup 2025 Aug"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          className="rounded-lg shadow-lg"
+          className="rounded-lg shadow-lg max-w-full"
         />
       ),
       href: null,
