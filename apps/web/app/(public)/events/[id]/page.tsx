@@ -13,6 +13,9 @@ export async function generateMetadata({ params }: PageProps<{ id: string }>) {
     title: event?.title,
   };
 }
+export async function generateStaticParams() {
+  return events.map((e) => ({ id: e.id.toString() }));
+}
 export default async function EventPage({ params }: PageProps<{ id: string }>) {
   const eventId = (await params).id;
   const event = events.find((e) => e.id.toString() === eventId);
