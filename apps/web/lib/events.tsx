@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const events = [
   {
-    id: "aleppojs-sep-2025",
+    id: "aleppojs-2025-09",
     title: "AleppoJS - أيلول 2025",
     date: null,
     location: null,
@@ -14,6 +14,7 @@ export const events = [
     description: "",
     talks: [],
     tags: ["ملتقى", "AleppoJS"],
+    sponsors: [],
   },
   {
     id: "AI-meetup-2025-Q3",
