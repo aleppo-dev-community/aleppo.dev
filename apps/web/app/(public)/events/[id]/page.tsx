@@ -5,6 +5,7 @@ import { cn } from "@workspace/ui/lib/utils";
 import { CalendarDays, HeartHandshake, HelpCircle, ImageIcon, MapPin, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { FaLinkedin } from "react-icons/fa6";
 
 export async function generateMetadata({ params }: PageProps<{ id: string }>) {
   const eventId = (await params).id;
@@ -52,11 +53,24 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
             </>
           )}
 
-          <div className="flex flex-col sm:flex-row gap-4 items-start w-full ">
-            {event.cta && event.cta.button}
-            {event.cta && event.cta.href && (
-              <Button asChild size="lg">
-                <Link href={event.cta.href}>{event.cta.label}</Link>
+          <div className="flex flex-col gap-4 items-start w-full ">
+            {event.social.youtube && (
+              <iframe
+                width="560"
+                height="315"
+                src={event.social.youtube}
+                title={`${event.title} | Aleppo Dev Community`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="rounded-lg shadow-lg max-w-full"
+              />
+            )}
+            {event.social.linkedin && (
+              <Button asChild size="lg" className="text-lg gap-2">
+                <Link href={event.social.linkedin} target="_blank">
+                  <span>شارك على LinkedIn</span>
+                  <FaLinkedin className="text-2xl" />
+                </Link>
               </Button>
             )}
           </div>

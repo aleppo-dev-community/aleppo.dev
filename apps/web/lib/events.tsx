@@ -9,19 +9,9 @@ export const events = [
     description: "",
     tags: ["ملتقى", "AI"],
     image: "https://uploads.aleppo.dev/AI-meetup-2025-08/cover.png",
-    cta: {
-      button: (
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/I_M554OKAos"
-          title="مجتمع مطوري حلب - ملتقى الذكاء الصنعي آب 2025 | Aleppo Dev Community - AI Meetup 2025 Aug"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          className="rounded-lg shadow-lg max-w-full"
-        />
-      ),
-      href: null,
+    social: {
+      youtube: "https://www.youtube.com/embed/I_M554OKAos",
+      linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7360292528346099713",
     },
     talks: [
       {
@@ -103,15 +93,15 @@ export const events = [
   },
   {
     id: "dev-meetup-2025-Q2",
-    title: "ملتقى مطوري حلب 2025 Q2",
+    title: "ملتقى مطوري حلب - 2025 Q2",
     date: "2025/05/24 1:30 PM",
     location: "دار الكتب الوطنية، ساحة باب الفرج، حلب",
     description:
       "جمع المتقى نخبة من المطورين من مختلف الاختصاصات، إلى جانب حضور لافت من الأساتذة الأكاديميين وممثلين عن بعض أبرز الشركات المحلية. كان يومًا مميزًا زاخراً بالتفاعل وتبادل المعرفة، وبناء العلاقات بين أفراد المجتمع التقني.",
     tags: ["ملتقى", "All-Dev"],
-    cta: {
-      label: "شارك على لينكدإن",
-      href: "https://www.linkedin.com/feed/update/urn:li:activity:7332327903168249856",
+    social: {
+      youtube: "https://www.youtube.com/embed/MDtGeVc3WCo",
+      linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7332327903168249856",
     },
     image: "https://uploads.aleppo.dev/dev-meetup-Q2/IMG_7211.JPG",
     talks: [
