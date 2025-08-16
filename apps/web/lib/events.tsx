@@ -2,6 +2,20 @@ import Link from "next/link";
 
 export const events = [
   {
+    id: "aleppojs-sep-2025",
+    title: "AleppoJS - أيلول 2025",
+    date: null,
+    location: null,
+    social: {
+      youtube: null,
+      linkedin: null,
+    },
+    image: "https://uploads.aleppo.dev/coming-soon.png",
+    description: "",
+    talks: [],
+    tags: ["ملتقى", "AleppoJS"],
+  },
+  {
     id: "AI-meetup-2025-Q3",
     title: "ملتقى الذكاء الصنعي - آب 2025",
     date: "2025/8/9 12:00 PM",
