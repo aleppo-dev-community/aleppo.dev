@@ -70,7 +70,7 @@ export function EventRegister() {
   }, [autoSubmit, eventQuery.data?.status, registerMutation]);
 
   const handleRegister = () => {
-    if (eventQuery.error?.status === 401) {
+    if (eventQuery.data?.status === "NOT_AUTHENTICATED") {
       router.push(
         `/auth?redirect=${encodeURIComponent(`/dashboard/profile/edit?redirect=${encodeURIComponent(`/events/${eventId}?autoSubmit=true`)}`)}`,
       );
@@ -109,11 +109,13 @@ export function EventRegister() {
   if (eventQuery.isLoading) {
     return <Loading size="sm" className="my-3 mx-14" />;
   }
-  if (eventQuery.error) {
+  if (eventQuery.error && eventQuery.error.status !== 401) {
     return (
       <div className="flex flex-col items-center justify-center space-y-4">
         <div className="text-center">
-          <h3 className="text-lg font-semibold text-red-600 mb-2">حدث خطأ</h3>
+          <h3 className="text-lg font-semibold text-red-600 mb-2">
+            {eventQuery.error.error.message}
+          </h3>
         </div>
       </div>
     );
