@@ -5,6 +5,7 @@ import { cn } from "@workspace/ui/lib/utils";
 import { CalendarDays, HeartHandshake, HelpCircle, ImageIcon, MapPin, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import { FaLinkedin } from "react-icons/fa6";
 import { EventRegister } from "./event-register";
 
@@ -54,7 +55,9 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
             </>
           )}
           <div className="flex items-center gap-2">
-            <EventRegister />
+            <Suspense>
+              <EventRegister />
+            </Suspense>
           </div>
 
           <div className="flex flex-col gap-4 items-start w-full">

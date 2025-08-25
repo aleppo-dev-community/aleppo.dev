@@ -23,11 +23,12 @@ export function EventRegister() {
   const [autoSubmit, setAutoSubmit] = useState(searchParams.get("autoSubmit") === "true");
   const [showCancelDialog, setShowCancelDialog] = useState(false);
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
-
+  const isEventDatePassed = event?.date && dayjs().isAfter(dayjs(event.date), "date");
   const eventQuery = useQuery({
     queryKey: ["event", "status", eventId],
     queryFn: () => rpc.events[":eventSlug"].status.$get({ param: { eventSlug: eventId } }),
     refetchOnMount: true,
+    enabled: !isEventDatePassed,
   });
 
   const registerMutation = useMutation({
@@ -101,6 +102,10 @@ export function EventRegister() {
     setShowRegistrationForm(false);
   };
 
+  if (isEventDatePassed) {
+    return null;
+  }
+
   if (eventQuery.isLoading) {
     return <Loading size="sm" className="my-3 mx-14" />;
   }
@@ -114,9 +119,7 @@ export function EventRegister() {
     );
   }
   const status = eventQuery.data?.status;
-  if (event?.date && dayjs().isAfter(dayjs(event.date), "date")) {
-    return null;
-  }
+
   if (status === "ACCEPTED") {
     return (
       <div className="flex flex-col items-center justify-center space-y-4 mx-auto">
