@@ -60,19 +60,26 @@ export const events = [
             <ul className="list-disc list-inside space-y-2">
               <li>
                 <strong>
-                  <Link href="https://www.linkedin.com/in/nour-samman/">محمد نور سمان</Link>
+                  <Link href="https://www.linkedin.com/in/nour-samman/" className="underline">
+                    محمد نور سمان
+                  </Link>
                 </strong>{" "}
                 - Knip: Declutter your JavaScript projects
               </li>
               <li>
                 <strong>
-                  <Link href="https://www.linkedin.com/in/alaasufi00">آلاء صوفي</Link>
+                  <Link href="https://www.linkedin.com/in/alaasufi00" className="underline">
+                    آلاء صوفي
+                  </Link>
                 </strong>{" "}
                 - Documenting Your JavaScript
               </li>
               <li>
                 <strong>
-                  <Link href="https://www.linkedin.com/in/abdulrahman-alshahin">
+                  <Link
+                    href="https://www.linkedin.com/in/abdulrahman-alshahin"
+                    className="underline"
+                  >
                     عبد الرحمن الشاهين
                   </Link>
                 </strong>{" "}
@@ -80,13 +87,20 @@ export const events = [
               </li>
               <li>
                 <strong>
-                  <Link href="https://www.linkedin.com/in/amir-battal/">أمير بطال</Link>
+                  <Link href="https://www.linkedin.com/in/amir-battal/" className="underline">
+                    أمير بطال
+                  </Link>
                 </strong>{" "}
                 - Creative Coding
               </li>
               <li>
                 <strong>
-                  <Link href="https://www.linkedin.com/in/muzan-ghazy-54217a37b">مُزن غازي</Link>
+                  <Link
+                    href="https://www.linkedin.com/in/muzan-ghazy-54217a37b"
+                    className="underline"
+                  >
+                    مُزن غازي
+                  </Link>
                 </strong>{" "}
                 - The Risk of NPM Packages
               </li>
