@@ -12,9 +12,89 @@ export const events = [
     },
     image: "https://uploads.aleppo.dev/coming-soon.png",
     description: "",
-    talks: [],
+    talks: [
+      {
+        title: "Modern Frontend Projects: A practical guide & tips",
+        speaker: {
+          name: <Link href="https://www.linkedin.com/in/mtg-softwares-dev/">محمد طاهر غزال</Link>,
+          description: "Senior Frontend Engineer @ Grafbase",
+          image: "https://uploads.aleppo.dev/speakers/mohammed-taher-ghazal.jpeg",
+        },
+        description: (
+          <div className="text-sm">
+            <p className="mb-4">دليل عملي ونصائح قيمة لتطوير مشاريع Frontend حديثة ومتطورة</p>
+            <ul className="list-disc list-inside space-y-2">
+              <li>
+                اختيار ال (Tech Stack) الأمثل: معايير تحديد الأدوات والتقنيات التي تناسب متطلبات
+                مشروعك
+              </li>
+              <li>أهمية فصل الاهتمامات (Separation of Concerns) لضمان بنية قوية وسهلة الصيانة</li>
+              <li>
+                توظيف أدوات الأتمتة مثل ESLint و Prettier لضمان جودة الكود واتساق العمل بين أعضاء
+                الفريق
+              </li>
+              <li>توظيف الذكاء الاصطناعي (AI) بذكاء: أين ومتى يمكن أن تستفيد منه كمطور Frontend</li>
+              <li>استخدام ال Monorepos في المشاريع الضخمة</li>
+            </ul>
+          </div>
+        ),
+      },
+      {
+        title: "Lightning Talks",
+        speaker: {
+          name: null,
+          description: null,
+          image: "https://uploads.aleppo.dev/speakers/lighting-talk.png",
+        },
+        description: (
+          <div>
+            <ul className="list-disc list-inside space-y-2">
+              <li>
+                <strong>
+                  <Link href="https://www.linkedin.com/in/nour-samman/">محمد نور سمان</Link>
+                </strong>{" "}
+                - Knip: Declutter your JavaScript projects
+              </li>
+              <li>
+                <strong>
+                  <Link href="https://www.linkedin.com/in/alaasufi00">آلاء صوفي</Link>
+                </strong>{" "}
+                - Documenting Your JavaScript
+              </li>
+              <li>
+                <strong>
+                  <Link href="https://www.linkedin.com/in/abdulrahman-alshahin">
+                    عبد الرحمن الشاهين
+                  </Link>
+                </strong>{" "}
+                - Streams in JavaScript
+              </li>
+              <li>
+                <strong>
+                  <Link href="https://www.linkedin.com/in/amir-battal/">أمير بطال</Link>
+                </strong>{" "}
+                - Creative Coding
+              </li>
+              <li>
+                <strong>
+                  <Link href="https://www.linkedin.com/in/muzan-ghazy-54217a37b">مُزن غازي</Link>
+                </strong>{" "}
+                - The Risk of NPM Packages
+              </li>
+            </ul>
+          </div>
+        ),
+      },
+    ],
     tags: ["ملتقى", "AleppoJS"],
-    sponsors: [],
+    sponsors: [
+      {
+        name: "إتحاد الطلبة - جامعة حلب",
+        website: "https://www.facebook.com/profile.php?id=61573542687856",
+        logo: "https://uploads.aleppo.dev/sponsors/students-union-aleppo-uni.png",
+        description: "",
+      },
+    ],
   },
   {
     id: "AI-meetup-2025-Q3",
@@ -84,9 +164,9 @@ export const events = [
     ],
     sponsors: [
       {
-        name: "مكتب شؤون الشباب - جامعة حلب",
+        name: "إتحاد الطلبة - جامعة حلب",
         website: "https://www.facebook.com/profile.php?id=61573542687856",
-        logo: "https://uploads.aleppo.dev/sponsors/youth-affairs-office.jpg",
+        logo: "https://uploads.aleppo.dev/sponsors/students-union-aleppo-uni.png",
         description: "",
       },
     ],
