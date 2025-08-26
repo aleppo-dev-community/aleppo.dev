@@ -40,11 +40,20 @@ export const events = [
         ),
       },
       {
-        title: "Lightning Talks",
+        title: (
+          <div className="flex items-center">
+            <img
+              src="https://uploads.aleppo.dev/speakers/lighting-talk.png"
+              className="w-16 h-16"
+              alt="Lightning Talks"
+            />
+            <span>Lightning Talks</span>
+          </div>
+        ),
         speaker: {
           name: null,
           description: null,
-          image: "https://uploads.aleppo.dev/speakers/lighting-talk.png",
+          image: null,
         },
         description: (
           <div>
