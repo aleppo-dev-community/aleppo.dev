@@ -16,7 +16,11 @@ export const events = [
       {
         title: "Modern Frontend Projects: A practical guide & tips",
         speaker: {
-          name: <Link href="https://www.linkedin.com/in/mtg-softwares-dev/">محمد طاهر غزال</Link>,
+          name: (
+            <Link href="https://www.linkedin.com/in/mtg-softwares-dev/" target="_blank">
+              محمد طاهر غزال
+            </Link>
+          ),
           description: "Senior Frontend Engineer @ Grafbase",
           image: "https://uploads.aleppo.dev/speakers/mohammed-taher-ghazal.jpeg",
         },
@@ -60,7 +64,11 @@ export const events = [
             <ul className="list-disc list-inside space-y-2">
               <li>
                 <strong>
-                  <Link href="https://www.linkedin.com/in/nour-samman/" className="underline">
+                  <Link
+                    href="https://www.linkedin.com/in/nour-samman/"
+                    target="_blank"
+                    className="underline"
+                  >
                     محمد نور سمان
                   </Link>
                 </strong>{" "}
@@ -68,7 +76,11 @@ export const events = [
               </li>
               <li>
                 <strong>
-                  <Link href="https://www.linkedin.com/in/alaasufi00" className="underline">
+                  <Link
+                    href="https://www.linkedin.com/in/alaasufi00"
+                    target="_blank"
+                    className="underline"
+                  >
                     آلاء صوفي
                   </Link>
                 </strong>{" "}
@@ -78,6 +90,7 @@ export const events = [
                 <strong>
                   <Link
                     href="https://www.linkedin.com/in/abdulrahman-alshahin"
+                    target="_blank"
                     className="underline"
                   >
                     عبد الرحمن الشاهين
@@ -87,7 +100,11 @@ export const events = [
               </li>
               <li>
                 <strong>
-                  <Link href="https://www.linkedin.com/in/amir-battal/" className="underline">
+                  <Link
+                    href="https://www.linkedin.com/in/amir-battal/"
+                    target="_blank"
+                    className="underline"
+                  >
                     أمير بطال
                   </Link>
                 </strong>{" "}
@@ -97,6 +114,7 @@ export const events = [
                 <strong>
                   <Link
                     href="https://www.linkedin.com/in/muzan-ghazy-54217a37b"
+                    target="_blank"
                     className="underline"
                   >
                     مُزن غازي
@@ -136,7 +154,7 @@ export const events = [
         title: "Crafting AI Solutions with Real Business Value",
         speaker: {
           name: (
-            <Link href="https://www.linkedin.com/in/alaa-aldin-hajjar-18b0621a6/">
+            <Link href="https://www.linkedin.com/in/alaa-aldin-hajjar-18b0621a6/" target="_blank">
               علاء الدين حجّار
             </Link>
           ),
@@ -157,7 +175,11 @@ export const events = [
       {
         title: "Self-Adapting Language Models",
         speaker: {
-          name: <Link href="https://www.linkedin.com/in/abd-ulfatah-esper/">عبد الفتاح إسبر</Link>,
+          name: (
+            <Link href="https://www.linkedin.com/in/abd-ulfatah-esper/" target="_blank">
+              عبد الفتاح إسبر
+            </Link>
+          ),
           description: "AI Engineer, Data Scientist",
           image: "https://uploads.aleppo.dev/speakers/abd-ulfatah-esper.jpg",
         },
@@ -226,7 +248,11 @@ export const events = [
       {
         title: "إدارة اسرار بيئة المشروع!",
         speaker: {
-          name: <Link href="https://www.linkedin.com/in/haithamalnaeb/">هيثم النائب</Link>,
+          name: (
+            <Link href="https://www.linkedin.com/in/haithamalnaeb/" target="_blank">
+              هيثم النائب
+            </Link>
+          ),
           description: "CEO & Founder @ Architweb",
           image: "https://uploads.aleppo.dev/speakers/haitham-alnaeb.jpg",
         },
@@ -238,9 +264,15 @@ export const events = [
         speaker: {
           name: (
             <>
-              <Link href="https://www.linkedin.com/in/osama-rida/">أسامة رضا</Link>،{" "}
-              <Link href="https://www.linkedin.com/in/islam-nassani/">إسلام نعساني</Link>،{" "}
-              <Link href="https://www.linkedin.com/in/abdo-ka/">عبد الرحمن قنواتي</Link>
+              <Link href="https://www.linkedin.com/in/osama-rida/" target="_blank">
+                أسامة رضا
+              </Link>
+              <Link href="https://www.linkedin.com/in/islam-nassani/" target="_blank">
+                إسلام نعساني
+              </Link>
+              <Link href="https://www.linkedin.com/in/abdo-ka/" target="_blank">
+                عبد الرحمن قنواتي
+              </Link>
             </>
           ),
           description: "",
