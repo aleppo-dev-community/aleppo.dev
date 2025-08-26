@@ -54,7 +54,7 @@ export function EventCard({ event }: { event: Event }) {
               {event.talks.map((talk, idx) => (
                 <li key={idx} className="text-sm">
                   {talk.title}
-                  {talk.speaker && <> تقديم {talk.speaker.name}</>}
+                  {talk.speaker.name && <> تقديم {talk.speaker.name}</>}
                 </li>
               ))}
             </ul>
