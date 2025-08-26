@@ -10,7 +10,7 @@ export const events = [
       youtube: null,
       linkedin: null,
     },
-    image: "https://uploads.aleppo.dev/coming-soon.png",
+    image: "https://uploads.aleppo.dev/aleppojs-2025-09/cover.png",
     description: "",
     talks: [
       {
