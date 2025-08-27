@@ -52,7 +52,7 @@ export function EventCard({ event }: { event: Event }) {
             </div>
             <ul className="list-disc list-inside text-xs space-y-1">
               {event.talks.map((talk, idx) => (
-                <li key={idx} className="text-sm">
+                <li key={idx} className="text-sm [&_img]:hidden">
                   {talk.title}
                   {talk.speaker.name && <> تقديم {talk.speaker.name}</>}
                 </li>
