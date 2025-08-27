@@ -45,7 +45,7 @@ export const events = [
       },
       {
         title: (
-          <div className="flex items-center">
+          <div className="inline-flex items-center ">
             <img
               src="https://uploads.aleppo.dev/speakers/lighting-talk.png"
               className="w-16 h-16"
@@ -128,15 +128,7 @@ export const events = [
       },
     ],
     tags: ["ملتقى", "AleppoJS"],
-    sponsors: [
-      {
-        name: "إتحاد الطلبة - جامعة حلب",
-        website: "https://www.facebook.com/profile.php?id=61573542687856",
-        logo: "https://uploads.aleppo.dev/sponsors/students-union-aleppo-uni.png",
-        description:
-          "اتحاد الطلبة في جامعة حلب يعزز التواصل بين الطلاب وأعضاء الهيئة التدريسية والإدارة الجامعية. يقدم الاتحاد الدعم الأكاديمي والمساعدة في الدراسة، وينظم الفعاليات الثقافية والرياضية والاجتماعية. يهدف الاتحاد إلى تقديم المشورة والتوجيه للطلاب في المسائل الأكاديمية والمهنية، ودعم المشاريع الطلابية المبتكرة. يساهم الاتحاد في خلق بيئة جامعية محفزة ومتطورة للطلاب.",
-      },
-    ],
+    sponsors: [],
   },
   {
     id: "AI-meetup-2025-Q3",
