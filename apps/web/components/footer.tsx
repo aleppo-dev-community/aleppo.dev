@@ -1,4 +1,11 @@
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTelegram } from "react-icons/fa6";
+import {
+  FaFacebook,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaTelegram,
+  FaYoutube,
+} from "react-icons/fa6";
 
 export function Footer() {
   return (
@@ -39,6 +46,14 @@ export function Footer() {
             className="hover:text-primary"
           >
             <FaTelegram className="text-2xl" />
+          </a>
+          <a
+            href="https://www.youtube.com/@aleppo_dev_community"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary"
+          >
+            <FaYoutube className="text-2xl" />
           </a>
           <a
             href="https://www.facebook.com/AleppoDevCommunity/"
