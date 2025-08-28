@@ -5,7 +5,9 @@ import { cn } from "@workspace/ui/lib/utils";
 import { CalendarDays, HeartHandshake, HelpCircle, ImageIcon, MapPin, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 import { FaLinkedin } from "react-icons/fa6";
+import { EventRegister } from "./event-register";
 
 export async function generateMetadata({ params }: PageProps<{ id: string }>) {
   const eventId = (await params).id;
@@ -52,8 +54,13 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
               <p className="mt-1 mb-4 text-secondary-foreground">{event.location}</p>
             </>
           )}
+          <div className="flex items-center gap-2">
+            <Suspense>
+              <EventRegister />
+            </Suspense>
+          </div>
 
-          <div className="flex flex-col gap-4 items-start w-full ">
+          <div className="flex flex-col gap-4 items-start w-full">
             {event.social.youtube && (
               <iframe
                 width="560"

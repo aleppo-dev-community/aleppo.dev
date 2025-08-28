@@ -13,6 +13,7 @@
     "@hono/zod-validator": "^0.7.0",
     "@neondatabase/serverless": "^1.0.1",
     "better-auth": "^1.2.8",
+    "dayjs": "^1.11.13",
     "dotenv": "^16.5.0",
     "drizzle-orm": "^0.44.1",
     "hono": "^4.7.10",
