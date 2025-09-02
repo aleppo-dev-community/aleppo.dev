@@ -269,29 +269,44 @@ export const events = [
           "كيفية التعامل مع مفاتيح وأسرار المشاريع البرمجية بشكل آمن ومنظم، لضمان عدم ضياعها أو تسريبها.",
       },
       {
-        title: "نقاشات مفتوحة",
+        title: (
+          <div className="inline-flex items-center gap-3">
+            <img
+              src="https://uploads.aleppo.dev/speakers/discussion.png"
+              className="w-16 h-16"
+              alt="Lightning Talks"
+            />
+            <span>نقاشات مفتوحة</span>
+          </div>
+        ),
         speaker: {
-          name: (
-            <>
-              <Link href="https://www.linkedin.com/in/osama-rida/" target="_blank">
-                أسامة رضا
-              </Link>
-              <Link href="https://www.linkedin.com/in/islam-nassani/" target="_blank">
-                إسلام نعساني
-              </Link>
-              <Link href="https://www.linkedin.com/in/abdo-ka/" target="_blank">
-                عبد الرحمن قنواتي
-              </Link>
-            </>
-          ),
+          name: null,
           description: "",
-          image: "https://uploads.aleppo.dev/speakers/discussion.png",
+          image: null,
         },
         description: (
           <ul className="list-disc list-inside">
-            <li>Vibe Coding</li>
-            <li>Blogging For Developers</li>
-            <li>CI/CD</li>
+            <li>
+              <Link href="https://www.linkedin.com/in/osama-rida/" className="font-bold underline">
+                أسامة رضا
+              </Link>{" "}
+              - Vibe Coding
+            </li>
+            <li>
+              <Link
+                href="https://www.linkedin.com/in/islam-nassani/"
+                className="font-bold underline"
+              >
+                إسلام نعساني
+              </Link>{" "}
+              - Blogging For Developers
+            </li>
+            <li>
+              <Link href="https://www.linkedin.com/in/abdo-ka/" className="font-bold underline">
+                عبد الرحمن قنواتي
+              </Link>{" "}
+              - CI/CD
+            </li>
           </ul>
         ),
       },
