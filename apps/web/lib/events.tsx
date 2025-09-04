@@ -4,8 +4,8 @@ export const events = [
   {
     id: "aleppojs-2025-09",
     title: "AleppoJS - أيلول 2025",
-    date: "2025/09/06",
-    location: null,
+    date: "2025/09/06 1:30 PM",
+    location: "كلية التربية، جامعة حلب، حلب",
     social: {
       youtube: null,
       linkedin: null,
