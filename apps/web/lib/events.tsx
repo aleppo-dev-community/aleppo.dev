@@ -8,7 +8,7 @@ export const events = [
     location: "كلية التربية، جامعة حلب، حلب",
     social: {
       youtube: null,
-      linkedin: null,
+      linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7370458952062640128",
     },
     image: "https://uploads.aleppo.dev/aleppojs-2025-09/cover.png",
     description: "",
@@ -143,6 +143,23 @@ export const events = [
         description:
           "اتحاد الطلبة في جامعة حلب يعزز التواصل بين الطلاب وأعضاء الهيئة التدريسية والإدارة الجامعية. يقدم الاتحاد الدعم الأكاديمي والمساعدة في الدراسة، وينظم الفعاليات الثقافية والرياضية والاجتماعية. يهدف الاتحاد إلى تقديم المشورة والتوجيه للطلاب في المسائل الأكاديمية والمهنية، ودعم المشاريع الطلابية المبتكرة. يساهم الاتحاد في خلق بيئة جامعية محفزة ومتطورة للطلاب.",
       },
+    ],
+    gallery: [
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_15_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_1_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_9_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_3_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_5_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_4_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_6_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_2_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_7_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_8_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_10_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_11_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_13_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_14_2025-09-09_22-08-01.jpg",
+      "https://uploads.aleppo.dev/aleppojs-2025-09/photo_12_2025-09-09_22-08-01.jpg",
     ],
   },
   {
