@@ -187,7 +187,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {event.gallery.map((photo, i) => (
-                <div key={i} className="rounded-sm overflow-hidden">
+                <a key={i} className="rounded-sm overflow-hidden" href={photo} target="_blank">
                   <Image
                     src={photo}
                     alt={`Event photo ${i + 1}`}
@@ -195,7 +195,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
                     height={400}
                     className="object-cover w-full h-full"
                   />
-                </div>
+                </a>
               ))}
             </div>
           </section>
