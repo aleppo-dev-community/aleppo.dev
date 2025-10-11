@@ -1,5 +1,7 @@
 import { EventCard } from "@/components/event-card";
+import { LectureCard } from "@/components/lecture-card";
 import { events } from "@/lib/events";
+import { lectures } from "@/lib/lectures";
 import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "شاركنا في الفعاليات",
@@ -7,6 +9,9 @@ export const metadata: Metadata = {
 
 export default function AttendPage() {
   const upcomingEvents = events.filter((e) => !e.date || new Date(e.date) > new Date());
+  const upcomingLectures = lectures.filter(
+    (e) => !e.startDate || new Date(e.startDate) > new Date(),
+  );
   return (
     <main className="text-white w-full overflow-x-hidden flex flex-col items-center">
       <section
@@ -25,7 +30,10 @@ export default function AttendPage() {
           {upcomingEvents.map((event) => (
             <EventCard key={event.id} event={event} />
           ))}
-          {upcomingEvents.length === 0 && (
+          {upcomingLectures.map((lecture) => (
+            <LectureCard key={lecture.id} lecture={lecture} />
+          ))}
+          {upcomingEvents.length === 0 && upcomingLectures.length === 0 && (
             <p className="text-secondary-foreground">لا توجد فعاليات قادمة حالياً.</p>
           )}
         </div>
