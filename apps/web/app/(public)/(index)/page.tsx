@@ -1,11 +1,17 @@
 import { EventCard } from "@/components/event-card";
+import { LectureCard } from "@/components/lecture-card";
 import { events } from "@/lib/events";
+import { lectures } from "@/lib/lectures";
 import { Button } from "@workspace/ui/components/button";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTelegram } from "react-icons/fa6";
 
 export default function Page() {
+  const upcomingLectures = lectures.filter(
+    (lecture) => !lecture.startDate || new Date(lecture.startDate) > new Date(),
+  );
+  const upcomingEvents = events.filter((event) => !event.date || new Date(event.date) > new Date());
   return (
     <main className="bg-[#050505] -mb-6 pb-20 text-white w-full overflow-x-hidden">
       <section
@@ -51,15 +57,21 @@ export default function Page() {
         <div className="max-w-5xl mx-auto flex flex-col items-center">
           <h2 className="text-[40px] font-semibold text-white mb-8">الفعاليات القادمة</h2>
           <div className="flex flex-col gap-8 w-full">
-            {events
-              .filter((event) => !event.date || new Date(event.date) > new Date())
-              .map((event) => (
-                <EventCard key={event.id} event={event} />
-              ))}
+            {upcomingEvents.map((event) => (
+              <EventCard key={event.id} event={event} />
+            ))}
+            {upcomingLectures.map((lecture) => (
+              <LectureCard key={lecture.id} lecture={lecture} />
+            ))}
           </div>
-          <Button asChild className="mt-10" size="lg">
-            <Link href="/events">عرض جميع الفعاليات</Link>
-          </Button>
+          <div className="flex gap-4">
+            <Button asChild className="mt-10" size="lg">
+              <Link href="/events">عرض جميع الفعاليات</Link>
+            </Button>
+            <Button asChild className="mt-10" size="lg">
+              <Link href="/learn">عرض جميع المحاضرات</Link>
+            </Button>
+          </div>
         </div>
       </section>
       <section className="mt-20 md:mt-28 px-3">

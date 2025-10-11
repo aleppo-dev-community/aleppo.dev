@@ -1,3 +1,5 @@
+import { LectureCard } from "@/components/lecture-card";
+import { lectures } from "@/lib/lectures";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,12 +8,14 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="text-white w-full flex flex-col items-center justify-start py-20 px-4">
-      <div className="max-w-xl w-full bg-gradient-to-br from-[#232323] to-[#181818] rounded-2xl p-10 shadow-lg border border-[#232323] flex flex-col items-center">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">قريباً</h1>
-        <p className="text-secondary-foreground text-lg mb-2 text-center">
-          قسم التعلم سيتوفر قريباً
-        </p>
+    <main className="text-white w-full flex flex-col items-center pt-8" dir="rtl">
+      <div className="w-full md:max-w-6xl px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-8">المحاضرات</h2>
+        <div className="grid grid-cols-1 gap-8">
+          {lectures.map((lecture) => (
+            <LectureCard lecture={lecture} key={lecture.id} />
+          ))}
+        </div>
       </div>
     </main>
   );
