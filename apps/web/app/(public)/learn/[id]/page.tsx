@@ -1,8 +1,12 @@
 import { lectures } from "@/lib/lectures";
 import { PageProps } from "@/types/next";
 import dayjs from "dayjs";
+import "dayjs/locale/ar";
 import { BookOpen, CalendarDays, Clock, ExternalLink, User, Users } from "lucide-react";
 import Link from "next/link";
+
+// Configure dayjs to use Arabic locale
+dayjs.locale("ar");
 
 export async function generateMetadata({ params }: PageProps<{ id: string }>) {
   const lectureId = (await params).id;
@@ -36,7 +40,7 @@ export default async function LecturePage({ params }: PageProps<{ id: string }>)
             <span className="font-bold">التاريخ</span>
           </div>
           <p className="mt-1 mb-4 text-secondary-foreground">
-            {dayjs(lecture.startDate).format("DD/MM/YYYY") || "سيحدد قريباً"}
+            {dayjs(lecture.startDate).format("dddd، YYYY/MM/DD") || "سيحدد قريباً"}
           </p>
 
           <div className="flex items-center gap-2">
