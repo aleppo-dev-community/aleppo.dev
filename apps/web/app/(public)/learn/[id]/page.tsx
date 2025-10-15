@@ -2,7 +2,7 @@ import { lectures } from "@/lib/lectures";
 import { PageProps } from "@/types/next";
 import dayjs from "dayjs";
 import "dayjs/locale/ar";
-import { BookOpen, CalendarDays, Clock, ExternalLink, User, Users } from "lucide-react";
+import { BookOpen, CalendarDays, Clock, ExternalLink, MapPin, User, Users } from "lucide-react";
 import Link from "next/link";
 
 // Configure dayjs to use Arabic locale
@@ -51,6 +51,12 @@ export default async function LecturePage({ params }: PageProps<{ id: string }>)
             {dayjs(lecture.startDate).format("A hh:mm")} -{" "}
             {dayjs(lecture.endDate).format("A hh:mm")}
           </p>
+
+          <div className="flex items-center gap-2">
+            <MapPin className="w-5 h-5" />
+            <span className="font-bold">الموقع</span>
+          </div>
+          <p className="mt-1 mb-4 text-secondary-foreground">{lecture.location}</p>
 
           <div className="flex items-center gap-2">
             <User className="w-5 h-5" />

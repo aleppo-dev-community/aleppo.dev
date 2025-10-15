@@ -4,7 +4,7 @@ export const lectures = [
     title: "Prompt Engineering",
     startDate: "2025/10/18 3:00 PM",
     endDate: "2025/10/18 4:30 PM",
-    location: null,
+    location: "مدرج الدكتور علي فارس، كلية الهندسة المكانيكية، جامعة حلب، حلب",
     instructor: {
       name: "محمد بابلي",
       url: "https://www.linkedin.com/in/mohammedbabelly",
