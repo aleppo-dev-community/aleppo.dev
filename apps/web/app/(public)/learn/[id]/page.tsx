@@ -78,7 +78,7 @@ export default async function LecturePage({ params }: PageProps<{ id: string }>)
               </div>
             </div>
           </Link>
-          {isUpcoming && (
+          {isUpcoming && lecture.registrationOpen && (
             <section className="w-full relative overflow-hidden bg-gradient-to-r from-primary via-primary/90 to-primary/80 rounded-2xl p-8 my-4 shadow-2xl">
               <div className="absolute inset-0 opacity-50">
                 <div

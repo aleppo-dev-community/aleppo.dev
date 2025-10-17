@@ -13,6 +13,7 @@ export const lectures = [
     },
     registrationUrl:
       "https://docs.google.com/forms/d/e/1FAIpQLSdSV9FonZYJM27RURechfNNugnmkZa9uVM1IAN8jSB4-i4VSw/viewform?usp=dialog",
+    registrationOpen: false,
     image: "https://uploads.aleppo.dev/coming-soon.png",
     topics: [
       "Saving time & tokens using better prompts",
