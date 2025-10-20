@@ -4,29 +4,30 @@ import { BookOpen, CalendarDays, Clock, User } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+function calculateIsUpcoming(startDate: string) {
+  if (!startDate || startDate.trim() === "") return false;
+
+  const lectureDate = new Date(startDate);
+  const now = new Date();
+
+  if (isNaN(lectureDate.getTime())) return false;
+
+  return lectureDate > now;
+}
 export function LectureCard({ lecture }: { lecture: Lecture }) {
-  const isUpcoming = () => {
-    if (!lecture.startDate || lecture.startDate.trim() === "") return false;
-
-    const lectureDate = new Date(lecture.startDate);
-    const now = new Date();
-
-    if (isNaN(lectureDate.getTime())) return false;
-
-    return lectureDate > now;
-  };
+  const isUpcoming = calculateIsUpcoming(lecture.startDate);
 
   return (
-    <div className="bg-gradient-to-br from-[#232323] to-[#181818] rounded-2xl relative shadow-lg border border-[#232323] flex flex-col md:flex-row overflow-hidden">
+    <div className="bg-gradient-to-br from-[#232323] to-[#181818] rounded-2xl relative shadow-lg border border-[#232323] flex flex-col overflow-hidden">
       <Link href={`/learn/${lecture.id}`} className="w-full h-full absolute top-0 left-0 " />
 
-      {isUpcoming() && (
+      {isUpcoming && (
         <div className="absolute top-3 right-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-bold z-10 shadow-lg">
           سجل الآن
         </div>
       )}
 
-      <div className="md:w-72 bg-[#181818] flex items-center justify-center">
+      <div className="bg-[#181818] flex items-center justify-center">
         <Image
           src={lecture.image}
           alt={lecture.title}
@@ -38,20 +39,23 @@ export function LectureCard({ lecture }: { lecture: Lecture }) {
       <div className="p-6 flex flex-col flex-1">
         <h3 className="text-xl font-bold mb-2 text-white">{lecture.title}</h3>
 
-        <div className="flex items-center gap-1 text-secondary-foreground text-sm mb-1">
-          <CalendarDays className="w-4 h-4" />
-          <span className="font-bold">التاريخ:</span>
-          <span>{dayjs(lecture.startDate).format("DD/MM/YYYY") || "سيحدد قريباً"}</span>
-        </div>
-
-        <div className="flex items-center gap-1 text-secondary-foreground text-sm mb-1">
-          <Clock className="w-4 h-4" />
-          <span className="font-bold">الوقت:</span>
-          <span>
-            {dayjs(lecture.startDate).format("A hh:mm")} -{" "}
-            {dayjs(lecture.endDate).format("A hh:mm")}
-          </span>
-        </div>
+        {isUpcoming && (
+          <>
+            <div className="flex items-center gap-1 text-secondary-foreground text-sm mb-1">
+              <CalendarDays className="w-4 h-4" />
+              <span className="font-bold">التاريخ:</span>
+              <span>{dayjs(lecture.startDate).format("DD/MM/YYYY") || "سيحدد قريباً"}</span>
+            </div>
+            <div className="flex items-center gap-1 text-secondary-foreground text-sm mb-1">
+              <Clock className="w-4 h-4" />
+              <span className="font-bold">الوقت:</span>
+              <span>
+                {dayjs(lecture.startDate).format("A hh:mm")} -{" "}
+                {dayjs(lecture.endDate).format("A hh:mm")}
+              </span>
+            </div>
+          </>
+        )}
 
         <div className="flex items-center gap-1 text-secondary-foreground text-sm mb-1">
           <User className="w-4 h-4" />
