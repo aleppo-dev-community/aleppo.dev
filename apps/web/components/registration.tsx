@@ -1,6 +1,6 @@
 "use client";
 
-import { events } from "@/lib/events";
+import { RegistrationFormDialog } from "@/app/(public)/events/[id]/registration-form-dialog";
 import { rpc } from "@/lib/rpc";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { registerEventSchema } from "@workspace/api/src/routes/events/dto/event-registration";
@@ -8,42 +8,48 @@ import { Button } from "@workspace/ui/components/button";
 import { ConfirmDialog } from "@workspace/ui/components/confirm-dialog";
 import { Loading } from "@workspace/ui/components/loading";
 import dayjs from "dayjs";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import { toast } from "sonner";
 import { z } from "zod";
-import { RegistrationFormDialog } from "./registration-form-dialog";
 
-export function EventRegister() {
+interface RegistrationProps {
+  slug: string;
+  date?: string;
+  eventType: "event" | "lecture";
+}
+
+export function Registration({ slug, date, eventType = "event" }: RegistrationProps) {
+  const basePath = eventType === "event" ? "/events" : "/learn";
+  const itemName = eventType === "event" ? "الفعالية" : "المحاضرة";
   const router = useRouter();
   const searchParams = useSearchParams();
-  const eventId = useParams().id as string;
-  const event = events.find((event) => event.id === eventId);
   const [autoSubmit, setAutoSubmit] = useState(searchParams.get("autoSubmit") === "true");
   const [showCancelDialog, setShowCancelDialog] = useState(false);
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
-  const isEventDatePassed = event?.date && dayjs().isAfter(dayjs(event.date), "date");
-  const eventQuery = useQuery({
-    queryKey: ["event", "status", eventId],
-    queryFn: () => rpc.events[":eventSlug"].status.$get({ param: { eventSlug: eventId } }),
+  const isDatePassed = date && dayjs().isAfter(dayjs(date), "date");
+
+  const query = useQuery({
+    queryKey: ["event", "status", slug],
+    queryFn: () => rpc.events[":eventSlug"].status.$get({ param: { eventSlug: slug } }),
     refetchOnMount: true,
-    enabled: !isEventDatePassed,
+    enabled: !isDatePassed,
   });
 
   const registerMutation = useMutation({
     mutationFn: (data: z.infer<typeof registerEventSchema>) => {
       setAutoSubmit(false);
-      router.replace(`/events/${eventId}`);
+      router.replace(`${basePath}/${slug}`);
       return rpc.events[":eventSlug"].$post({
-        param: { eventSlug: eventId },
+        param: { eventSlug: slug },
         json: data,
       });
     },
     onSuccess: () => {
       setShowRegistrationForm(false);
-      toast.success("تم تسجيلك في الفعالية بنجاح!");
-      eventQuery.refetch();
+      toast.success(`تم تسجيلك في ${itemName} بنجاح!`);
+      query.refetch();
     },
     onError: (error) => {
       toast.error(error.error.message);
@@ -52,11 +58,11 @@ export function EventRegister() {
 
   const cancelMutation = useMutation({
     mutationFn: () => {
-      return rpc.events[":eventSlug"].$delete({ param: { eventSlug: eventId } });
+      return rpc.events[":eventSlug"].$delete({ param: { eventSlug: slug } });
     },
     onSuccess: () => {
       toast.success("تم إلغاء التسجيل بنجاح!");
-      eventQuery.refetch();
+      query.refetch();
     },
     onError: (error) => {
       toast.error(error.error.message);
@@ -64,21 +70,21 @@ export function EventRegister() {
   });
 
   useEffect(() => {
-    if (autoSubmit && eventQuery.data?.status === "NOT_REGISTERED") {
+    if (autoSubmit && query.data?.status === "NOT_REGISTERED") {
       setShowRegistrationForm(true);
     }
-  }, [autoSubmit, eventQuery.data?.status, registerMutation]);
+  }, [autoSubmit, query.data?.status, registerMutation]);
 
   const handleRegister = () => {
-    if (eventQuery.data?.status === "NOT_AUTHENTICATED") {
+    if (query.data?.status === "NOT_AUTHENTICATED") {
       router.push(
-        `/auth?redirect=${encodeURIComponent(`/dashboard/profile/edit?redirect=${encodeURIComponent(`/events/${eventId}?autoSubmit=true`)}`)}`,
+        `/auth?redirect=${encodeURIComponent(`/dashboard/profile/edit?redirect=${encodeURIComponent(`${basePath}/${slug}?autoSubmit=true`)}`)}`,
       );
       return;
     }
-    if (eventQuery.data?.status === "PROFILE_INCOMPLETE") {
+    if (query.data?.status === "PROFILE_INCOMPLETE") {
       router.push(
-        `/dashboard/profile/edit?redirect=${encodeURIComponent(`/events/${eventId}?autoSubmit=true`)}`,
+        `/dashboard/profile/edit?redirect=${encodeURIComponent(`${basePath}/${slug}?autoSubmit=true`)}`,
       );
       return;
     }
@@ -102,42 +108,36 @@ export function EventRegister() {
     setShowRegistrationForm(false);
   };
 
-  if (isEventDatePassed) {
+  if (isDatePassed) {
     return null;
   }
 
-  if (eventQuery.isLoading) {
+  if (query.isLoading) {
     return <Loading size="sm" className="my-3 mx-14" />;
   }
-  if (eventQuery.error && eventQuery.error.status !== 401) {
+  if (query.error && query.error.status !== 401) {
     return (
       <div className="flex flex-col items-center justify-center space-y-4">
         <div className="text-center">
-          <h3 className="text-lg font-semibold text-red-600 mb-2">
-            {eventQuery.error.error.message}
-          </h3>
+          <h3 className="text-lg font-semibold text-red-600 mb-2">{query.error.error.message}</h3>
         </div>
       </div>
     );
   }
-  const status = eventQuery.data?.status;
+  const status = query.data?.status;
 
   if (status === "ACCEPTED") {
     return (
       <div className="flex flex-col items-center justify-center space-y-4 mx-auto">
         <div className="text-center">
-          <h3 className="text-lg font-semibold text-green-600 mb-2">تم قبولك في الفعالية!</h3>
+          <h3 className="text-lg font-semibold text-green-600 mb-2">تم قبولك!</h3>
           <p className="text-sm text-muted-foreground mb-4">يرجى عرض هذا الرمز عند الوصول </p>
         </div>
         <div className="bg-white p-4 rounded-lg shadow-md">
-          <QRCode
-            value={eventQuery.data?.eventRegistrationId || ""}
-            size={200}
-            className="mx-auto"
-          />
+          <QRCode value={query.data?.eventRegistrationId || ""} size={200} className="mx-auto" />
         </div>
         <p className="text-xs text-muted-foreground text-center">
-          رمز التسجيل: {eventQuery.data?.eventRegistrationId || ""}
+          رمز التسجيل: {query.data?.eventRegistrationId || ""}
         </p>
       </div>
     );
@@ -178,7 +178,7 @@ export function EventRegister() {
   if (status === "REGISTRATION_CLOSED") {
     return (
       <div className="flex flex-col items-center justify-center">
-        <p className="text-sm">انتهى التسجيل لهذه الفعالية</p>
+        <p className="text-sm">انتهى التسجيل</p>
       </div>
     );
   }
@@ -193,7 +193,7 @@ export function EventRegister() {
           size="lg"
           className="w-full sm:w-auto"
         >
-          {status === "REGISTERED" ? "أنت مسجل في الفعالية!" : "أحجز مقعدك"}
+          {status === "REGISTERED" ? `أنت مسجل في ${itemName}!` : "أحجز مقعدك"}
         </Button>
         {status === "REGISTERED" && (
           <>
@@ -204,7 +204,7 @@ export function EventRegister() {
               open={showCancelDialog}
               onOpenChange={setShowCancelDialog}
               title="تأكيد إلغاء التسجيل"
-              description="هل أنت متأكد من أنك تريد إلغاء تسجيلك في هذه الفعالية؟ لا يمكن التراجع عن هذا الإجراء."
+              description={`هل أنت متأكد من أنك تريد إلغاء تسجيلك في ${itemName}؟ لا يمكن التراجع عن هذا الإجراء.`}
               confirmText="نعم، ألغ التسجيل"
               cancelText="إبقاء التسجيل"
               onConfirm={confirmCancel}

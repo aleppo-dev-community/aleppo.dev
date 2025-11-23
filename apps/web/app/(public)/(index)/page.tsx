@@ -53,27 +53,29 @@ export default function Page() {
           </Button>
         </div>
       </section>
-      <section className="mt-32 px-3">
-        <div className="max-w-5xl mx-auto flex flex-col items-center">
-          <h2 className="text-[40px] font-semibold text-white mb-8">الفعاليات القادمة</h2>
-          <div className="flex flex-col gap-8 w-full">
-            {upcomingEvents.map((event) => (
-              <EventCard key={event.id} event={event} />
-            ))}
-            {upcomingLectures.map((lecture) => (
-              <LectureCard key={lecture.id} lecture={lecture} />
-            ))}
+      {(upcomingEvents.length > 0 || upcomingLectures.length > 0) && (
+        <section className="mt-32 px-3">
+          <div className="max-w-5xl mx-auto flex flex-col items-center">
+            <h2 className="text-[40px] font-semibold text-white mb-8">الفعاليات القادمة</h2>
+            <div className="flex flex-col gap-8 w-full max-w-3xl">
+              {upcomingEvents.map((event) => (
+                <EventCard key={event.id} event={event} />
+              ))}
+              {upcomingLectures.map((lecture) => (
+                <LectureCard key={lecture.id} lecture={lecture} />
+              ))}
+            </div>
+            <div className="flex gap-4">
+              <Button asChild className="mt-10" size="lg">
+                <Link href="/events">عرض جميع الفعاليات</Link>
+              </Button>
+              <Button asChild className="mt-10" size="lg">
+                <Link href="/learn">عرض جميع المحاضرات</Link>
+              </Button>
+            </div>
           </div>
-          <div className="flex gap-4">
-            <Button asChild className="mt-10" size="lg">
-              <Link href="/events">عرض جميع الفعاليات</Link>
-            </Button>
-            <Button asChild className="mt-10" size="lg">
-              <Link href="/learn">عرض جميع المحاضرات</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
       <section className="mt-20 md:mt-28 px-3">
         <div className="max-w-3xl mx-auto bg-[#181818]/80 rounded-2xl shadow-lg p-8 md:p-12 border border-[#232323] flex flex-col items-start md:text-right">
           <div className="w-12 h-1 bg-gradient-to-r from-[#E89548] to-primary rounded-full mb-4" />
