@@ -68,7 +68,7 @@ export default function AttendPage() {
           )}
         </div>
       </section>
-      <section className="w-full max-w-3xl px-4 mt-3" style={{ direction: "rtl" }}>
+      <section className="w-full max-w-3xl px-4 mt-10" style={{ direction: "rtl" }}>
         <h2 className="text-2xl font-semibold mb-6 text-white">الفعاليات السابقة</h2>
         <div className="flex flex-col gap-6">
           {pastItems.map(({ type, item }) =>
