@@ -1,11 +1,12 @@
 import { EventCard } from "@/components/event-card";
 import { LectureCard } from "@/components/lecture-card";
+import { SocialCard } from "@/components/social-card";
 import { events } from "@/lib/events";
 import { lectures } from "@/lib/lectures";
+import { socialLinks } from "@/lib/social";
 import { Button } from "@workspace/ui/components/button";
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebook, FaInstagram, FaLinkedin, FaTelegram } from "react-icons/fa6";
 
 export default function Page() {
   const upcomingLectures = lectures.filter(
@@ -127,54 +128,13 @@ export default function Page() {
       <section className="mt-32 px-3 max-w-6xl mx-auto flex flex-col items-center">
         <h2 className="text-3xl font-bold text-white mb-10 text-center">تابع مجتمع مطوري حلب</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 w-full">
-          <a
-            href="https://www.linkedin.com/company/aleppo-dev-community"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group bg-[#181818] border border-[#232323] rounded-2xl p-8 flex flex-col items-center text-center transition-all duration-300 hover:bg-[#232323] hover:shadow-lg cursor-pointer"
-          >
-            <FaLinkedin className="text-4xl mb-4 text-[#0A66C2] group-hover:text-primary transition-colors" />
-            <div className="text-xl font-semibold text-white mb-2">LinkedIn</div>
-            <div className="text-[#AFAFAF] text-[16px]">
-              تابع آخر أخبار المجتمع وفرص التواصل المهني.
-            </div>
-          </a>
-          <a
-            href="https://t.me/aleppo_dev_community"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group bg-[#181818] border border-[#232323] rounded-2xl p-8 flex flex-col items-center text-center transition-all duration-300 hover:bg-[#232323] hover:shadow-lg cursor-pointer"
-          >
-            <FaTelegram className="text-4xl mb-4 text-[#229ED9] group-hover:text-primary transition-colors" />
-            <div className="text-xl font-semibold text-white mb-2">Telegram</div>
-            <div className="text-[#AFAFAF] text-[16px]">
-              انضم إلى قناتنا للنقاشات التقنية والإعلانات الهامة.
-            </div>
-          </a>
-          <a
-            href="https://www.facebook.com/AleppoDevCommunity/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group bg-[#181818] border border-[#232323] rounded-2xl p-8 flex flex-col items-center text-center transition-all duration-300 hover:bg-[#232323] hover:shadow-lg cursor-pointer"
-          >
-            <FaFacebook className="text-4xl mb-4 text-[#1877F3] group-hover:text-primary transition-colors" />
-            <div className="text-xl font-semibold text-white mb-2">Facebook</div>
-            <div className="text-[#AFAFAF] text-[16px]">
-              تابع فعالياتنا وتواصل مع أعضاء المجتمع.
-            </div>
-          </a>
-          <a
-            href="https://www.instagram.com/aleppo_dev_community"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group bg-[#181818] border border-[#232323] rounded-2xl p-8 flex flex-col items-center text-center transition-all duration-300 hover:bg-[#232323] hover:shadow-lg cursor-pointer"
-          >
-            <FaInstagram className="text-4xl mb-4 text-[#E1306C] group-hover:text-primary transition-colors" />
-            <div className="text-xl font-semibold text-white mb-2">Instagram</div>
-            <div className="text-[#AFAFAF] text-[16px]">
-              شاهد مقتطفات ولقطات من فعالياتنا التقنية.
-            </div>
-          </a>
+          {socialLinks
+            .filter((social) =>
+              ["linkedin", "telegram", "facebook", "instagram"].includes(social.platform),
+            )
+            .map((social) => (
+              <SocialCard key={social.platform} social={social} />
+            ))}
         </div>
       </section>
     </main>
