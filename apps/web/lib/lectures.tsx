@@ -1,5 +1,32 @@
 export const lectures = [
   {
+    id: "career-growth-2025-12",
+    title: "النمو المهني",
+    startDate: "2025/12/04 6:00 PM",
+    endDate: "2025/12/04 8:00 PM",
+    location: "غرفة التجارة في حلب، حلب",
+    instructor: {
+      name: "أسامة أبو حجر",
+      url: "https://www.linkedin.com/in/osamaabouhajar",
+      title: "Software Engineer II @ Microsoft",
+      image: "https://uploads.aleppo.dev/speakers/osama-abo-hajar.jpg",
+    },
+    registrationUrl: "",
+    registrationOpen: true,
+    image: "https://uploads.aleppo.dev/career-growth-2025-12/cover.png",
+    topics: [
+      "تحويل الإخفاقات إلى خطوات نحو شركات عالمية",
+      "تحسين أداء المقابلات والاستراتيجية المهنية",
+      'نظرية "الوصفة والمكوّنات"',
+      "أدوات وتقنيات الذكاء الاصطناعي لرفع الإنتاجية ونمو المسار المهني المبكر",
+    ],
+    tags: ["مهني"],
+    level: "كل المستويات",
+    requirements: [],
+    social: {},
+    gallery: [],
+  },
+  {
     id: "prompt-engineering-2025-10",
     title: "Prompt Engineering",
     startDate: "2025/10/18 3:00 PM",

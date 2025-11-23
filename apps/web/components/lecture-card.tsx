@@ -1,4 +1,5 @@
 import { Lecture } from "@/lib/lectures";
+import { cn } from "@workspace/ui/lib/utils";
 import dayjs from "dayjs";
 import { BookOpen, CalendarDays, Clock, User } from "lucide-react";
 import Image from "next/image";
@@ -14,11 +15,22 @@ function calculateIsUpcoming(startDate: string) {
 
   return lectureDate > now;
 }
-export function LectureCard({ lecture }: { lecture: Lecture }) {
+export function LectureCard({
+  lecture,
+  direction = "column",
+}: {
+  lecture: Lecture;
+  direction?: "row" | "column";
+}) {
   const isUpcoming = calculateIsUpcoming(lecture.startDate);
 
   return (
-    <div className="bg-gradient-to-br from-[#232323] to-[#181818] rounded-2xl relative shadow-lg border border-[#232323] flex flex-col overflow-hidden">
+    <div
+      className={cn(
+        "bg-gradient-to-br from-[#232323] to-[#181818] rounded-2xl relative shadow-lg border border-[#232323] flex overflow-hidden",
+        direction === "row" ? "flex-row" : "flex-col",
+      )}
+    >
       <Link href={`/learn/${lecture.id}`} className="w-full h-full absolute top-0 left-0 " />
 
       {isUpcoming && (
@@ -27,7 +39,12 @@ export function LectureCard({ lecture }: { lecture: Lecture }) {
         </div>
       )}
 
-      <div className="bg-[#181818] flex items-center justify-center">
+      <div
+        className={cn(
+          "bg-[#181818] flex items-center justify-center",
+          direction === "row" ? "w-72" : "",
+        )}
+      >
         <Image
           src={lecture.image}
           alt={lecture.title}

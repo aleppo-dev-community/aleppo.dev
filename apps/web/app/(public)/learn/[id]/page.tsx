@@ -1,3 +1,4 @@
+import { Registration } from "@/components/registration";
 import { lectures } from "@/lib/lectures";
 import { PageProps } from "@/types/next";
 import dayjs from "dayjs";
@@ -55,7 +56,7 @@ export default async function LecturePage({ params }: PageProps<{ id: string }>)
                 <img
                   src={lecture.instructor.image}
                   alt={``}
-                  className="w-16 h-16 rounded-full object-cover"
+                  className="size-20 rounded-full object-cover"
                 />
                 <div className="flex flex-col gap-1">
                   <p className="text-secondary-foreground underline">{lecture.instructor.name}</p>
@@ -66,7 +67,7 @@ export default async function LecturePage({ params }: PageProps<{ id: string }>)
               </div>
             </Link>
           </div>
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-2 my-4">
             {lecture.tags.map((tag: string) => (
               <span key={tag} className="bg-[#232323] text-sm px-3 py-1 rounded text-primary">
                 {tag}
@@ -136,35 +137,43 @@ export default async function LecturePage({ params }: PageProps<{ id: string }>)
             )}
           </div>
           {isUpcoming && lecture.registrationOpen && (
-            <section className="w-full relative overflow-hidden bg-gradient-to-r from-primary via-primary/90 to-primary/80 rounded-2xl p-8 my-4 shadow-2xl">
-              <div className="absolute inset-0 opacity-50">
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-                    backgroundSize: "20px 20px",
-                  }}
-                ></div>
-              </div>
+            <section className="w-full my-4">
+              {lecture.registrationUrl !== "" ? (
+                <div className="w-full relative overflow-hidden bg-gradient-to-r from-primary via-primary/90 to-primary/80 rounded-2xl p-8 shadow-2xl">
+                  <div className="absolute inset-0 opacity-50">
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+                        backgroundSize: "20px 20px",
+                      }}
+                    ></div>
+                  </div>
 
-              <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-                <div className="flex-1">
-                  <h2 className="text-xl md:text-2xl font-bold mb-3 text-foreground">
-                    أحجز مقعدك الآن
-                  </h2>
-                </div>
+                  <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                    <div className="flex-1">
+                      <h2 className="text-xl md:text-2xl font-bold mb-3 text-foreground">
+                        أحجز مقعدك الآن
+                      </h2>
+                    </div>
 
-                <div className="flex-shrink-0">
-                  <Link
-                    href={lecture.registrationUrl}
-                    target="_blank"
-                    className="group inline-flex items-center gap-3 bg-white hover:bg-white/90 text-primary px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-                  >
-                    <ExternalLink className="w-6 h-6" />
-                    تسجيل الآن
-                  </Link>
+                    <div className="flex-shrink-0">
+                      <Link
+                        href={lecture.registrationUrl}
+                        target="_blank"
+                        className="group inline-flex items-center gap-3 bg-white hover:bg-white/90 text-primary px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                      >
+                        <ExternalLink className="w-6 h-6" />
+                        تسجيل الآن
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="w-fit">
+                  <Registration slug={lecture.id} date={lecture.startDate} eventType="lecture" />
+                </div>
+              )}
             </section>
           )}
         </div>

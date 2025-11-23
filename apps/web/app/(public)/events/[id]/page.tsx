@@ -1,3 +1,4 @@
+import { Registration } from "@/components/registration";
 import { events } from "@/lib/events";
 import { PageProps } from "@/types/next";
 import { Button } from "@workspace/ui/components/button";
@@ -5,9 +6,7 @@ import { cn } from "@workspace/ui/lib/utils";
 import { CalendarDays, HeartHandshake, HelpCircle, ImageIcon, MapPin, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Suspense } from "react";
 import { FaLinkedin } from "react-icons/fa6";
-import { EventRegister } from "./event-register";
 
 export async function generateMetadata({ params }: PageProps<{ id: string }>) {
   const eventId = (await params).id;
@@ -55,9 +54,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
             </>
           )}
           <div className="flex items-center gap-2">
-            <Suspense>
-              <EventRegister />
-            </Suspense>
+            <Registration slug={eventId} date={event.date} eventType="event" />
           </div>
 
           <div className="flex flex-col gap-4 items-start w-full">
