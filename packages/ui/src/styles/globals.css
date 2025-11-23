@@ -124,4 +124,8 @@
   body {
     @apply bg-background text-foreground;
   }
+  a,
+  [class*="underline"] {
+    text-underline-offset: 0.3em;
+  }
 }
