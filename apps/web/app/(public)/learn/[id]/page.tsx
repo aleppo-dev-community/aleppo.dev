@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react";
 
 // Configure dayjs to use Arabic locale
 dayjs.locale("ar");
@@ -171,7 +172,9 @@ export default async function LecturePage({ params }: PageProps<{ id: string }>)
                 </div>
               ) : (
                 <div className="w-fit">
-                  <Registration slug={lecture.id} date={lecture.startDate} eventType="lecture" />
+                  <Suspense>
+                    <Registration slug={lecture.id} date={lecture.startDate} eventType="lecture" />
+                  </Suspense>
                 </div>
               )}
             </section>
