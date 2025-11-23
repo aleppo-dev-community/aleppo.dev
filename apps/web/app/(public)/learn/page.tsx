@@ -28,7 +28,7 @@ export default function Page() {
                   اكتشف فعالياتنا
                 </h3>
                 <p className="text-sm text-secondary-foreground/80">
-                  استكشف جميع الفعاليات والملتقيات التي نظمناها في مجتمع حلب للمطورين
+                  استكشف جميع الفعاليات والملتقيات التي نظمناها في مجتمع مطوري حلب
                 </p>
               </div>
               <div className="flex-shrink-0">

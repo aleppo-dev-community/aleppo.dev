@@ -28,7 +28,7 @@ export function LectureCard({
     <div
       className={cn(
         "bg-gradient-to-br from-[#232323] to-[#181818] rounded-2xl relative shadow-lg border border-[#232323] flex overflow-hidden",
-        direction === "row" ? "flex-row" : "flex-col",
+        direction === "row" ? "flex-col md:flex-row" : "flex-col",
       )}
     >
       <Link href={`/learn/${lecture.id}`} className="w-full h-full absolute top-0 left-0 " />
@@ -42,13 +42,13 @@ export function LectureCard({
       <div
         className={cn(
           "bg-[#181818] flex items-center justify-center",
-          direction === "row" ? "w-72" : "",
+          direction === "row" ? "w-full md:w-72" : "",
         )}
       >
         <Image
           src={lecture.image}
           alt={lecture.title}
-          className="object-cover aspect-video w-full h-full"
+          className="object-contain bg-white aspect-video w-full h-full"
           width={626}
           height={470}
         />

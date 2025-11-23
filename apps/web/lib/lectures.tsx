@@ -20,7 +20,7 @@ export const lectures = [
       'نظرية "الوصفة والمكوّنات"',
       "أدوات وتقنيات الذكاء الاصطناعي لرفع الإنتاجية ونمو المسار المهني المبكر",
     ],
-    tags: ["مهني"],
+    tags: ["محاضرة", "مهني"],
     level: "كل المستويات",
     requirements: [],
     social: {},
@@ -49,7 +49,7 @@ export const lectures = [
       "Iterative prompt development",
       "Advanced prompt engineering techniques",
     ],
-    tags: ["AI"],
+    tags: ["محاضرة", "AI"],
     level: "كل المستويات",
     requirements: [],
     social: {

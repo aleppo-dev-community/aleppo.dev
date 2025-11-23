@@ -70,9 +70,6 @@ export default function Page() {
               <Button asChild className="mt-10" size="lg">
                 <Link href="/events">عرض جميع الفعاليات</Link>
               </Button>
-              <Button asChild className="mt-10" size="lg">
-                <Link href="/learn">عرض جميع المحاضرات</Link>
-              </Button>
             </div>
           </div>
         </section>
