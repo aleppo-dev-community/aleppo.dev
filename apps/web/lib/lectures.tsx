@@ -23,8 +23,21 @@ export const lectures = [
     tags: ["محاضرة", "مهني"],
     level: "كل المستويات",
     requirements: [],
-    social: {},
-    gallery: [],
+    social: {
+      youtube: "https://www.youtube.com/embed/88tMjKcyXOo",
+    },
+    gallery: [
+      "https://uploads.aleppo.dev/career-growth-2025-12/photo_1_2025-12-06_10-49-03.jpg",
+      "https://uploads.aleppo.dev/career-growth-2025-12/photo_10_2025-12-06_10-49-03.jpg",
+      "https://uploads.aleppo.dev/career-growth-2025-12/photo_2_2025-12-06_10-49-03.jpg",
+      "https://uploads.aleppo.dev/career-growth-2025-12/photo_3_2025-12-06_10-49-03.jpg",
+      "https://uploads.aleppo.dev/career-growth-2025-12/photo_4_2025-12-06_10-49-03.jpg",
+      "https://uploads.aleppo.dev/career-growth-2025-12/photo_5_2025-12-06_10-49-03.jpg",
+      "https://uploads.aleppo.dev/career-growth-2025-12/photo_6_2025-12-06_10-49-03.jpg",
+      "https://uploads.aleppo.dev/career-growth-2025-12/photo_7_2025-12-06_10-49-03.jpg",
+      "https://uploads.aleppo.dev/career-growth-2025-12/photo_8_2025-12-06_10-49-03.jpg",
+      "https://uploads.aleppo.dev/career-growth-2025-12/photo_9_2025-12-06_10-49-03.jpg",
+    ],
   },
   {
     id: "prompt-engineering-2025-10",
