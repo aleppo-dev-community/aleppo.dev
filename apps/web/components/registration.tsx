@@ -2,7 +2,7 @@
 
 import { RegistrationFormDialog } from "@/app/(public)/events/[id]/registration-form-dialog";
 import { rpc } from "@/lib/rpc";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { registerEventSchema } from "@workspace/api/src/routes/events/dto/event-registration";
 import { Button } from "@workspace/ui/components/button";
 import { ConfirmDialog } from "@workspace/ui/components/confirm-dialog";
@@ -29,7 +29,7 @@ export function Registration({ slug, date, eventType = "event" }: RegistrationPr
   const [showCancelDialog, setShowCancelDialog] = useState(false);
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
   const isDatePassed = date && dayjs().isAfter(dayjs(date), "date");
-
+  const queryClient = useQueryClient();
   const query = useQuery({
     queryKey: ["event", "status", slug],
     queryFn: () => rpc.events[":eventSlug"].status.$get({ param: { eventSlug: slug } }),
@@ -50,6 +50,7 @@ export function Registration({ slug, date, eventType = "event" }: RegistrationPr
       setShowRegistrationForm(false);
       toast.success(`تم تسجيلك في ${itemName} بنجاح!`);
       query.refetch();
+      queryClient.invalidateQueries({ queryKey: ["dashboard"] });
     },
     onError: (error) => {
       toast.error(error.error.message);
@@ -63,6 +64,7 @@ export function Registration({ slug, date, eventType = "event" }: RegistrationPr
     onSuccess: () => {
       toast.success("تم إلغاء التسجيل بنجاح!");
       query.refetch();
+      queryClient.invalidateQueries({ queryKey: ["dashboard"] });
     },
     onError: (error) => {
       toast.error(error.error.message);

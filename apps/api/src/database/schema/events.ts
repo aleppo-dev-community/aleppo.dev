@@ -25,6 +25,7 @@ export const eventRegistrations = pgTable("event_registrations", {
   isAccepted: boolean("is_accepted"),
   cancelledAt: timestamp("cancelled_at"),
   attendanceCertainty: text("attendance_certainty").notNull().default("MAYBE"),
+  didAttend: boolean("did_attend"),
 });
 
 export const eventRelations = relations(events, ({ many }) => ({

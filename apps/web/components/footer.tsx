@@ -1,3 +1,4 @@
+import { cn } from "@workspace/ui/lib/utils";
 import {
   FaFacebook,
   FaGithub,
@@ -7,9 +8,14 @@ import {
   FaYoutube,
 } from "react-icons/fa6";
 
-export function Footer() {
+export function Footer({ className }: { className?: string }) {
   return (
-    <footer className="mt-6 py-12 text-[#AFAFAF] text-center text-[17.3px] border-t border-[#232323]">
+    <footer
+      className={cn(
+        "mt-6 py-12 text-[#AFAFAF] text-center text-[17.3px] border-t border-[#232323]",
+        className,
+      )}
+    >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 px-4">
         <div className="mb-4 md:mb-0">
           <div className="font-bold text-white text-xl mb-2">مجتمع مطوري حلب</div>
