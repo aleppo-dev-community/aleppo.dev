@@ -2,6 +2,60 @@ import Link from "next/link";
 
 export const events = [
   {
+    id: "flutter-meetup-2026-01",
+    title: "Flutter Meetup - كانون الثاني 2026",
+    date: "2026/01/10",
+    location: "سيحدد قريباً",
+    social: {
+      youtube: null,
+      linkedin: null,
+    },
+    image: "https://uploads.aleppo.dev/flutter-meetup-2026-01/cover.png",
+    description: "",
+    talks: [
+      {
+        title: "Flutter Beyond Mobile: Flutter For Web, Scalable Architecture",
+        speaker: {
+          name: "محمود طنطورة",
+          description: "Senior Flutter Developer",
+          image: "https://uploads.aleppo.dev/speakers/mahmoud-tantora.png",
+        },
+        description: "",
+      },
+      {
+        title: (
+          <div className="inline-flex items-center ">
+            <img
+              src="https://uploads.aleppo.dev/speakers/flutter-flash.png"
+              className="w-16 h-16 object-cover ml-2"
+              alt="Flutter Flash"
+            />
+            <span>Flutter Flash</span>
+          </div>
+        ),
+        speaker: {
+          name: null,
+          description: null,
+          image: null,
+        },
+        description: (
+          <div className="-mt-4">
+            <ul className="list-disc list-inside space-y-2">
+              <li>Flutter Platform Channels</li>
+              <li>Flutter Testing</li>
+              <li>Rendering in Flutter</li>
+              <li>Code Generators</li>
+              <li>+ والمزيد</li>
+            </ul>
+          </div>
+        ),
+      },
+    ],
+    tags: ["ملتقى", "Flutter"],
+    sponsors: [],
+    gallery: [],
+  },
+  {
     id: "aleppojs-2025-09",
     title: "AleppoJS - أيلول 2025",
     date: "2025/09/06 1:30 PM",
