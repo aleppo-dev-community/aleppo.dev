@@ -4,7 +4,7 @@ export const events = [
   {
     id: "flutter-meetup-2026-01",
     title: "Flutter Meetup - كانون الثاني 2026",
-    date: "سيحدد قريباً",
+    date: null,
     location: "سيحدد قريباً",
     social: {
       youtube: null,
