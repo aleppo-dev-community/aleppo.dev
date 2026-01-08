@@ -16,7 +16,7 @@ import { z } from "zod";
 
 interface RegistrationProps {
   slug: string;
-  date?: string;
+  date?: string | null;
   eventType: "event" | "lecture";
 }
 
