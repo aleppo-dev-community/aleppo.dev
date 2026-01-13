@@ -3,6 +3,7 @@ import { events } from "@/lib/events";
 import { PageProps } from "@/types/next";
 import { Button } from "@workspace/ui/components/button";
 import { cn } from "@workspace/ui/lib/utils";
+import dayjs from "dayjs";
 import { CalendarDays, HeartHandshake, HelpCircle, ImageIcon, MapPin, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -43,7 +44,10 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
             <CalendarDays className="w-5 h-5" />
             <span className="font-bold">التاريخ</span>
           </div>
-          <p className="mt-1 mb-4 text-secondary-foreground">{event.date || "سيحدد قريباً"}</p>
+          <p className="mt-1 mb-4 text-secondary-foreground text-right" dir="ltr">
+            {event.date || "سيحدد قريباً"}
+            {event.endDate ? ` ${dayjs(event.endDate).format("A hh:mm")}` : ""}
+          </p>
 
           {event.location && (
             <>
