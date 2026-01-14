@@ -42,11 +42,66 @@ export const events = [
         description: (
           <div className="-mt-4">
             <ul className="list-disc list-inside space-y-2">
-              <li>Flutter Platform Channels</li>
-              <li>Flutter Testing</li>
-              <li>Rendering in Flutter</li>
-              <li>Code Generators</li>
-              <li>+ والمزيد</li>
+              <li>
+                <strong>
+                  <Link
+                    href="https://www.linkedin.com/in/amjad-daher/"
+                    target="_blank"
+                    className="underline"
+                  >
+                    أمجد ضاهر
+                  </Link>
+                </strong>{" "}
+                - Flutter Platform Channels
+              </li>
+              <li>
+                <strong>
+                  <Link
+                    href="https://www.linkedin.com/in/ahmed-rajab-109272133/"
+                    target="_blank"
+                    className="underline"
+                  >
+                    أحمد رجب
+                  </Link>
+                </strong>{" "}
+                - Flutter Testing
+              </li>
+              <li>
+                <strong>
+                  <Link
+                    href="https://www.linkedin.com/in/mahmoodflutter/"
+                    target="_blank"
+                    className="underline"
+                  >
+                    محمود ريحانية
+                  </Link>
+                </strong>{" "}
+                - Rendering in Flutter
+              </li>
+              <li>
+                <strong>
+                  <Link
+                    href="https://www.linkedin.com/in/mouhamad-douba/"
+                    target="_blank"
+                    className="underline"
+                  >
+                    محمد دوبا
+                  </Link>
+                </strong>{" "}
+                - Flutter Hardware Connection
+              </li>
+              <li>
+                <strong>
+                  <Link
+                    href="https://www.linkedin.com/in/abdulkareemattar/"
+                    target="_blank"
+                    className="underline"
+                  >
+                    عبد الكريم عطّار
+                  </Link>
+                </strong>{" "}
+                - Code Generators
+              </li>
             </ul>
           </div>
         ),
@@ -57,7 +112,7 @@ export const events = [
       {
         name: "اتحاد الطلبة في محافظة حلب",
         website: "https://www.facebook.com/profile.php?id=61573542687856",
-        logo: "https://uploads.aleppo.dev/sponsors/student-bodies-union-aleppo.png",
+        logo: "https://uploads.aleppo.dev/sponsors/student-associations.png",
         description:
           "اتحاد الطلبة في جامعة حلب يعزز التواصل بين الطلاب وأعضاء الهيئة التدريسية والإدارة الجامعية. يقدم الاتحاد الدعم الأكاديمي والمساعدة في الدراسة، وينظم الفعاليات الثقافية والرياضية والاجتماعية. يهدف الاتحاد إلى تقديم المشورة والتوجيه للطلاب في المسائل الأكاديمية والمهنية، ودعم المشاريع الطلابية المبتكرة. يساهم الاتحاد في خلق بيئة جامعية محفزة ومتطورة للطلاب.",
       },
