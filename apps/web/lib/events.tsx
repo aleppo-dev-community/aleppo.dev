@@ -6,7 +6,7 @@ export const events = [
     title: "Flutter Meetup - كانون الثاني 2026",
     date: "2026/01/17 1:00 PM",
     endDate: "2026/01/17 4:00 PM",
-    location: "سيحدد قريباً",
+    location: "مدرج عبد القادر أبو حجر، كلية الهندسة الميكانيكية، جامعة حلب، حلب",
     social: {
       youtube: null,
       linkedin: null,
@@ -53,7 +53,15 @@ export const events = [
       },
     ],
     tags: ["ملتقى", "Flutter"],
-    sponsors: [],
+    sponsors: [
+      {
+        name: "اتحاد الطلبة في محافظة حلب",
+        website: "https://www.facebook.com/profile.php?id=61573542687856",
+        logo: "https://uploads.aleppo.dev/sponsors/student-bodies-union-aleppo.png",
+        description:
+          "اتحاد الطلبة في جامعة حلب يعزز التواصل بين الطلاب وأعضاء الهيئة التدريسية والإدارة الجامعية. يقدم الاتحاد الدعم الأكاديمي والمساعدة في الدراسة، وينظم الفعاليات الثقافية والرياضية والاجتماعية. يهدف الاتحاد إلى تقديم المشورة والتوجيه للطلاب في المسائل الأكاديمية والمهنية، ودعم المشاريع الطلابية المبتكرة. يساهم الاتحاد في خلق بيئة جامعية محفزة ومتطورة للطلاب.",
+      },
+    ],
     gallery: [],
   },
   {
