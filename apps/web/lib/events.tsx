@@ -15,7 +15,7 @@ export const events = [
     description: "",
     talks: [
       {
-        title: "Flutter Beyond Mobile: Flutter For Web, Scalable Architecture",
+        title: "Flutter Beyond Mobile: Flutter For Web, AI-Powered Development",
         speaker: {
           name: "محمود طنطورة",
           description: "Senior Flutter Developer",
