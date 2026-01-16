@@ -4,12 +4,13 @@ import { PageProps } from "@/types/next";
 import { Button } from "@workspace/ui/components/button";
 import { cn } from "@workspace/ui/lib/utils";
 import dayjs from "dayjs";
+import locale from "dayjs/locale/en";
 import { CalendarDays, HeartHandshake, HelpCircle, ImageIcon, MapPin, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 import { FaLinkedin } from "react-icons/fa6";
-
+dayjs.locale(locale);
 export async function generateMetadata({ params }: PageProps<{ id: string }>) {
   const eventId = (await params).id;
   const event = events.find((e) => e.id.toString() === eventId);
@@ -46,7 +47,7 @@ export default async function EventPage({ params }: PageProps<{ id: string }>) {
           </div>
           <p className="mt-1 mb-4 text-secondary-foreground text-right" dir="ltr">
             {event.date || "سيحدد قريباً"}
-            {event.endDate ? ` ${dayjs(event.endDate).format("A hh:mm")}` : ""}
+            {event.endDate ? `→ ${dayjs(event.endDate).format("hh:mm A")}` : ""}
           </p>
 
           {event.location && (
