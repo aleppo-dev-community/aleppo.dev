@@ -6,7 +6,7 @@ export const events = [
     title: "Flutter Meetup - كانون الثاني 2026",
     date: "2026/01/17 1:00 PM",
     endDate: "2026/01/17 4:00 PM",
-    location: "مدرج عبد القادر أبو حجر، كلية الهندسة الكهربائية، جامعة حلب، حلب",
+    location: " مدرج علي فارس، كلية الهندسة الميكانيكية، جامعة حلب، حلب",
     social: {
       youtube: null,
       linkedin: null,
