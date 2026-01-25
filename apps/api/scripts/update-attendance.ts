@@ -5,11 +5,12 @@ import { eventRegistrations } from "../src/database/schema";
 
 interface AttendanceRecord {
   id: string;
-  attended: boolean;
+  attended?: boolean;
   registered_at: string;
   attendance_certainty: string;
   fullname: string;
   email: string;
+  availableChairs: number;
 }
 
 async function main() {
@@ -29,17 +30,21 @@ async function main() {
 
     let updated = 0;
     let errors = 0;
-
+    let attended = 0;
     await db.transaction(async (tx) => {
       for (const record of records) {
         try {
+          const didAttend = record.attended ?? record.availableChairs !== 1;
+          if (didAttend) {
+            attended++;
+          }
           await tx
             .update(eventRegistrations)
-            .set({ didAttend: record.attended })
+            .set({ didAttend })
             .where(eq(eventRegistrations.id, record.id));
 
           updated++;
-          console.log(`✅ Updated ${record.id}: didAttend = ${record.attended}`);
+          console.log(`✅ Updated ${record.id}: didAttend = ${didAttend}`);
         } catch (error) {
           errors++;
           console.error(`❌ Error updating ${record.id}:`, error);
@@ -51,6 +56,7 @@ async function main() {
     console.log("\n📈 Summary:");
     console.log(`   ✅ Updated: ${updated}`);
     console.log(`   ❌ Errors: ${errors}`);
+    console.log(`   ✅ Attended: ${attended}`);
     console.log(`   📊 Total processed: ${records.length}`);
 
     process.exit(0);
