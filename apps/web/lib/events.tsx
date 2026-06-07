@@ -2,6 +2,76 @@ import Link from "next/link";
 
 export const events = [
   {
+    id: "dev-meetup-2026",
+    title: "ملتقى مطوري حلب 2026",
+    date: "2026/06/13",
+    location: "",
+    description:
+      "ملتقى مطوري حلب السنوي يجمع أفضل المواهب والخبراء من صناعة البرمجيات لمناقشة آخر التطورات والفرص الوظيفية العالمية",
+    tags: ["ملتقى", "All-Dev"],
+    social: {
+      youtube: null,
+      linkedin: null,
+    },
+    image: "https://uploads.aleppo.dev/dev-meetup-2026/cover.png",
+    talks: [
+      {
+        title: "The Global Software Engineering Job Market",
+        speaker: {
+          name: (
+            <Link href="https://www.linkedin.com/in/kudssi/" target="_blank">
+              عمرو القدسي
+            </Link>
+          ),
+          description: "VP of Software Engineering for Merchant & Payment",
+          image: "https://uploads.aleppo.dev/speakers/amro-kudssi.jpg",
+        },
+        description: (
+          <ul className="list-disc list-inside space-y-2">
+            <li>Software Industry overview</li>
+            <li>Types of hiring Companies</li>
+            <li>Software Job Market Comparison — USA vs Europe vs India</li>
+            <li>Hiring trends</li>
+            <li>The Must-Have Skills for Syrian Engineers</li>
+            <li>Top Skills in demand</li>
+            <li>Career Paths Syrian Graduates Should Target</li>
+            <li>AI impact & Future outlook</li>
+          </ul>
+        ),
+      },
+      {
+        title: "Mastering Job Interviews in Software Engineering",
+        speaker: {
+          name: (
+            <Link href="https://www.linkedin.com/in/abdulqader-qassab/" target="_blank">
+              عبد القادر قصّاب
+            </Link>
+          ),
+          description: "Builder at Constructor and former Senior engineer at Noon",
+          image: "https://uploads.aleppo.dev/speakers/abdulqader-qassab.jpg",
+        },
+        description: (
+          <ul className="list-disc list-inside space-y-2">
+            <li>Preparing for Interviews</li>
+            <li>Common Mistakes to Avoid in Interviews</li>
+            <li>The Role of Networking in Job Search</li>
+            <li>Utilizing LinkedIn effectively</li>
+          </ul>
+        ),
+      },
+    ],
+    sponsors: [
+      {
+        name: "اتحاد الطلبة في محافظة حلب",
+        website: "https://www.facebook.com/profile.php?id=61573542687856",
+        logo: "https://uploads.aleppo.dev/sponsors/student-associations.png",
+        description:
+          "اتحاد الطلبة في جامعة حلب يعزز التواصل بين الطلاب وأعضاء الهيئة التدريسية والإدارة الجامعية. يقدم الاتحاد الدعم الأكاديمي والمساعدة في الدراسة، وينظم الفعاليات الثقافية والرياضية والاجتماعية. يهدف الاتحاد إلى تقديم المشورة والتوجيه للطلاب في المسائل الأكاديمية والمهنية، ودعم المشاريع الطلابية المبتكرة. يساهم الاتحاد في خلق بيئة جامعية محفزة ومتطورة للطلاب.",
+      },
+    ],
+    gallery: [],
+  },
+  {
     id: "flutter-meetup-2026-01",
     title: "Flutter Meetup - كانون الثاني 2026",
     date: "2026/01/17 1:00 PM",
@@ -391,6 +461,7 @@ export const events = [
       "https://uploads.aleppo.dev/AI-meetup-2025-08/photo_12.jpg",
     ],
   },
+
   {
     id: "dev-meetup-2025-Q2",
     title: "ملتقى مطوري حلب - 2025 Q2",
