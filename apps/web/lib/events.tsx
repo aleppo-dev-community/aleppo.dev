@@ -4,8 +4,9 @@ export const events = [
   {
     id: "dev-meetup-2026",
     title: "ملتقى مطوري حلب 2026",
-    date: "2026/06/13",
-    location: "",
+    date: "2026/06/13 3:30 PM",
+    endDate: "2026/06/13 6:00 PM",
+    location: " مدرج النصر ، جامعة حلب، حلب",
     description:
       "ملتقى مطوري حلب السنوي يجمع أفضل المواهب والخبراء من صناعة البرمجيات لمناقشة آخر التطورات والفرص الوظيفية العالمية",
     tags: ["ملتقى", "All-Dev"],
@@ -67,6 +68,13 @@ export const events = [
         logo: "https://uploads.aleppo.dev/sponsors/student-associations.png",
         description:
           "اتحاد طلابي يُعنى بتنظيم العمل الطلابي، وتمثيل الطلبة، وتمكينهم علميًا وقيميًا ومجتمعيًا، بما يسهم في إعداد جيل جامعي فاعل ومؤثر.",
+      },
+      {
+        name: "Syrian American Engineering Association (SAEA)",
+        website: "https://saea-us.org/",
+        logo: "https://uploads.aleppo.dev/sponsors/saea.png",
+        description:
+          "Support and improve the Syrian American Engineers' abilities and skills through continuing educational and professional development to prosper, advance their knowledge and increase  their  value  to their family, community, and profession.",
       },
     ],
     gallery: [],
