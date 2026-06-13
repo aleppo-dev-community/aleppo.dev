@@ -57,8 +57,8 @@ export function Nav() {
           </Link>
         </li>
         <li>
-          <Link href="/blog" onClick={() => setOpen(false)}>
-            المدونة
+          <Link href="/team" onClick={() => setOpen(false)}>
+            الفريق
           </Link>
         </li>
         <li className="">

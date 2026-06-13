@@ -53,28 +53,43 @@ const frontendValidationSchema = userDetailsSchema
 
 type UserDetailsFormData = z.infer<typeof frontendValidationSchema>;
 
-export function ProfileForm() {
+type ProfileData =  Awaited<ReturnType<typeof rpc.profile.$get>>;
+
+export function ProfileForm({ initialData }: { initialData?: ProfileData | null }) {
   const router = useRouter();
   const queryClient = useQueryClient();
   const searchParams = useSearchParams();
   const redirect = searchParams.get("redirect");
 
+  const getInitialSpecialization = () => {
+    if (!initialData?.specialization) return "";
+    return VALID_SPECIALIZATIONS.includes(initialData.specialization)
+      ? initialData.specialization
+      : "Other";
+  };
+
+  const getInitialFaculty = () => {
+    if (!initialData?.faculty) return "";
+    return VALID_FACULTIES.includes(initialData.faculty) ? initialData.faculty : "أخرى";
+  };
+
   const form = useForm<UserDetailsFormData>({
     resolver: zodResolver(frontendValidationSchema),
     defaultValues: {
-      fullName: "",
-      phone: "",
-      telegramId: "",
-      yearOfBirth: new Date().getFullYear() - 25,
-      specialization: "",
-      faculty: "",
-      customSpecialization: "",
-      customFaculty: "",
-      yearsOfExperience: 0,
-      linkedinUrl: "",
-      githubUrl: "",
-      websiteUrl: "",
-      acceptsDataSharing: false,
+      fullName: initialData?.fullName || "",
+      phone: initialData?.phone || "",
+      telegramId: initialData?.telegramId || "",
+      yearOfBirth: initialData?.yearOfBirth || new Date().getFullYear() - 25,
+      specialization: getInitialSpecialization(),
+      faculty: getInitialFaculty(),
+      customSpecialization:
+        getInitialSpecialization() === "Other" ? initialData?.specialization || "" : "",
+      customFaculty: getInitialFaculty() === "أخرى" ? initialData?.faculty || "" : "",
+      yearsOfExperience: initialData?.yearsOfExperience || 0,
+      linkedinUrl: initialData?.linkedinUrl || "",
+      githubUrl: initialData?.githubUrl || "",
+      websiteUrl: initialData?.websiteUrl || "",
+      acceptsDataSharing: !!initialData,
     },
   });
   const watchedSpecialization = form.watch("specialization");
@@ -97,6 +112,7 @@ export function ProfileForm() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["profile"] });
       queryClient.invalidateQueries({ queryKey: ["event", "status"] });
+      queryClient.refetchQueries({ queryKey: ["dashboard"] });
       router.push(redirect ?? "/");
     },
   });
@@ -118,8 +134,8 @@ export function ProfileForm() {
   return (
     <div className="max-w-4xl mx-auto p-6 space-y-8">
       <div className="text-center space-y-2 mb-8">
-        <h1 className="text-3xl font-bold text-foreground">إكمال الملف الشخصي</h1>
-        <p className="text-muted-foreground">يرجى تعبئة المعلومات التالية لإكمال ملفك الشخصي</p>
+        <h1 className="text-3xl font-bold text-foreground">{initialData ? "تعديل الملف الشخصي" : "إكمال الملف الشخصي"}</h1>
+        {!initialData && <p className="text-muted-foreground">يرجى تعبئة المعلومات التالية لإكمال ملفك الشخصي</p>}
       </div>
 
       <Form {...form}>

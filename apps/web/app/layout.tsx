@@ -1,4 +1,4 @@
-import { Cairo } from "next/font/google";
+import { Cairo, Amiri } from "next/font/google";
 
 import { Providers } from "@/components/providers";
 import "@workspace/ui/globals.css";
@@ -12,6 +12,13 @@ const fontSans = Cairo({
 const fontMono = Cairo({
   subsets: ["arabic", "latin"],
   variable: "--font-mono",
+});
+
+const amiri = Amiri({
+  subsets: ["arabic"],
+  weight: ["700"],
+  display: "swap",
+  variable: "--font-amiri",
 });
 
 export const metadata: Metadata = {
@@ -45,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" suppressHydrationWarning translate="no">
+    <html lang="ar" dir="rtl" suppressHydrationWarning translate="no" className={amiri.variable}>
       <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased  `}>
         <Providers>{children}</Providers>
         {process.env.NODE_ENV === "production" && (
