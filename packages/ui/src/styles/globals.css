@@ -129,3 +129,49 @@
     text-underline-offset: 0.3em;
   }
 }
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes card-entrance {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes card-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.carousel-card {
+  animation: card-entrance 0.5s ease-out;
+}
+
+.gradient-border-animate {
+  background: linear-gradient(
+    90deg,
+    var(--color-from),
+    var(--color-to),
+    white,
+    var(--color-to),
+    var(--color-from)
+  );
+  background-size: 300% 100%;
+  animation: gradient-flow 3s linear infinite;
+}
