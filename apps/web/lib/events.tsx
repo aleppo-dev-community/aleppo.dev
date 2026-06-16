@@ -11,8 +11,8 @@ export const events = [
       "ملتقى مطوري حلب السنوي يجمع أفضل المواهب والخبراء من صناعة البرمجيات لمناقشة آخر التطورات والفرص الوظيفية العالمية",
     tags: ["ملتقى", "All-Dev"],
     social: {
-      youtube: null,
-      linkedin: null,
+      youtube: "https://www.youtube.com/embed/bNpZZDn9xZc",
+      linkedin: "https://www.linkedin.com/feed/update/urn:li:activity:7472242596774572033",
     },
     image: "https://uploads.aleppo.dev/dev-meetup-2026/cover.png",
     talks: [
@@ -77,7 +77,18 @@ export const events = [
           "Support and improve the Syrian American Engineers' abilities and skills through continuing educational and professional development to prosper, advance their knowledge and increase  their  value  to their family, community, and profession.",
       },
     ],
-    gallery: [],
+    gallery: [
+      "https://uploads.aleppo.dev/dev-meetup-2026/photo_5_2026-06-16_18-39-53.jpg",
+      "https://uploads.aleppo.dev/dev-meetup-2026/photo_10_2026-06-16_18-39-53.jpg",
+      "https://uploads.aleppo.dev/dev-meetup-2026/photo_3_2026-06-16_18-39-53.jpg",
+      "https://uploads.aleppo.dev/dev-meetup-2026/photo_4_2026-06-16_18-39-53.jpg",
+      "https://uploads.aleppo.dev/dev-meetup-2026/photo_9_2026-06-16_18-39-53.jpg",
+      "https://uploads.aleppo.dev/dev-meetup-2026/photo_1_2026-06-16_18-39-53.jpg",
+      "https://uploads.aleppo.dev/dev-meetup-2026/photo_8_2026-06-16_18-39-53.jpg",
+      "https://uploads.aleppo.dev/dev-meetup-2026/photo_2_2026-06-16_18-39-53.jpg",
+      "https://uploads.aleppo.dev/dev-meetup-2026/photo_6_2026-06-16_18-39-53.jpg",
+      "https://uploads.aleppo.dev/dev-meetup-2026/photo_7_2026-06-16_18-39-53.jpg",
+    ],
   },
   {
     id: "flutter-meetup-2026-01",
