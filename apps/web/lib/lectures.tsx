@@ -1,5 +1,32 @@
 export const lectures = [
   {
+    id: "ai-coding-2026-10",
+    title: "The Present and Future of AI for Coding: Practical Examples",
+    startDate: "2026/10/07 5:00 PM",
+    endDate: "2026/10/07 7:00 PM",
+    location: "",
+    instructor: {
+      name: "Farhad Noorzay",
+      url: "https://www.linkedin.com/in/farhadnoorzay",
+      title: "Technical Staff at OpenAI, Founder at Hoopfit",
+      image: "https://uploads.aleppo.dev/speakers/farhad-noorzay.jpeg",
+    },
+    registrationUrl: "",
+    registrationOpen: true,
+    image: "https://uploads.aleppo.dev/ai-coding-2026-10/cover.jpg",
+    topics: [
+      "The present and future of AI for coding",
+      "Practical examples of AI-powered development workflows",
+    ],
+    tags: ["محاضرة", "AI"],
+    level: "متوسط/متقدم",
+    requirements: [],
+    social: {
+      youtube: "",
+    },
+    gallery: [],
+  },
+  {
     id: "career-growth-2025-12",
     title: "النمو المهني",
     startDate: "2025/12/04 6:00 PM",
