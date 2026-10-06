@@ -18,7 +18,7 @@ export const lectures = [
       "The present and future of AI for coding",
       "Practical examples of AI-powered development workflows",
     ],
-    tags: ["محاضرة", "AI"],
+    tags: ["ورشة", "AI"],
     level: "متوسط/متقدم",
     requirements: [],
     social: {
