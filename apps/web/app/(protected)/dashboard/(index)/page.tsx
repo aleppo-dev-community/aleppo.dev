@@ -8,9 +8,8 @@ import { rpc } from "@/lib/rpc";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Button } from "@workspace/ui/components/button";
 import { Card, CardContent } from "@workspace/ui/components/card";
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "@workspace/ui/components/hover-card";
 import dayjs from "dayjs";
-import { Calendar, CheckCircle2, Edit, Globe, Home, Info, LogOutIcon, Users } from "lucide-react";
+import { Calendar, Edit, Globe, Home, LogOutIcon, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -46,7 +45,6 @@ export default function Page() {
 
   const totalRegistrations = data?.totalRegistrations ?? 0;
   const activeRegistrations = data?.activeRegistrations ?? [];
-  const attendedRegistrations = data?.attendedRegistrations ?? [];
   const getTelegramLink = (telegramId: string) => {
     const username = telegramId.startsWith("@") ? telegramId.slice(1) : telegramId;
     return `https://t.me/${username}`;
@@ -111,22 +109,26 @@ export default function Page() {
                 <Link href="/dashboard/profile/edit?mode=edit&redirect=/dashboard">
                   <Edit className="w-4 h-4" />
                   <span className="hidden sm:inline">تعديل الملف الشخصي</span>
-              </Link>
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => logout.mutate()}
-              isLoading={logout.isPending}
-              className="gap-2"
-            >
-              <LogOutIcon className="w-4 h-4" />
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => logout.mutate()}
+                isLoading={logout.isPending}
+                className="gap-2"
+              >
+                <LogOutIcon className="w-4 h-4" />
                 <span className="hidden sm:inline">تسجيل الخروج</span>
               </Button>
             </div>
           </div>
           <div className="w-full flex flex-col sm:flex-row items-center sm:items-start gap-3">
-            <QRScanner onScan={async (userId) => { await addFriend.mutateAsync(userId); }} />
+            <QRScanner
+              onScan={async (userId) => {
+                await addFriend.mutateAsync(userId);
+              }}
+            />
             <Button asChild variant="outline" size="lg" className="gap-2">
               <Link href="/dashboard/friends">
                 <Users className="w-5 h-5" />
@@ -144,7 +146,10 @@ export default function Page() {
                   <div className="absolute inset-0 opacity-5">
                     <div className="grid grid-cols-8 gap-4 h-full w-full p-4">
                       {Array.from({ length: 64 }).map((_, i) => (
-                        <div key={i} className="w-full h-full border border-yellow-400/20 rounded"></div>
+                        <div
+                          key={i}
+                          className="w-full h-full border border-yellow-400/20 rounded"
+                        ></div>
                       ))}
                     </div>
                   </div>
@@ -153,9 +158,17 @@ export default function Page() {
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0 mb-2 sm:mb-3">
                       <div className="flex items-center gap-2 sm:gap-3">
                         <div className="w-8 h-8 sm:w-10 sm:h-10 bg-yellow-400 rounded flex items-center justify-center flex-shrink-0">
-                          <Image src="/logo.svg" alt="Logo" width={32} height={32} className="invert w-5 h-5 sm:w-6 sm:h-6" />
+                          <Image
+                            src="/logo.svg"
+                            alt="Logo"
+                            width={32}
+                            height={32}
+                            className="invert w-5 h-5 sm:w-6 sm:h-6"
+                          />
                         </div>
-                        <span className="text-white font-semibold text-sm sm:text-base">مجتمع مطوري حلب</span>
+                        <span className="text-white font-semibold text-sm sm:text-base">
+                          مجتمع مطوري حلب
+                        </span>
                       </div>
                       <div className="text-yellow-400 font-mono font-bold text-base sm:text-lg">
                         #{data.userId.slice(-5).padStart(5, "0")}
@@ -236,18 +249,7 @@ export default function Page() {
           )}
 
           {isLoading ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="h-4 w-24 bg-muted rounded mb-3 animate-pulse"></div>
-                      <div className="h-10 w-16 bg-muted rounded animate-pulse"></div>
-                    </div>
-                    <div className="w-12 h-12 rounded-lg bg-muted animate-pulse"></div>
-                  </div>
-                </CardContent>
-              </Card>
+            <div className="grid grid-cols-1 gap-4">
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between">
@@ -261,7 +263,7 @@ export default function Page() {
               </Card>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4">
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between">
@@ -277,69 +279,6 @@ export default function Page() {
                   </div>
                 </CardContent>
               </Card>
-
-              {attendedRegistrations.length > 0 ? (
-                <Card>
-                  <CardContent className="p-6">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <p className="text-secondary-foreground text-sm">الفعاليات التي حضرتها</p>
-                          <HoverCard>
-                            <HoverCardTrigger asChild>
-                              <button className="text-secondary-foreground hover:text-foreground transition-colors">
-                                <Info className="w-4 h-4" />
-                              </button>
-                            </HoverCardTrigger>
-                            <HoverCardContent className="w-64">
-                              <p className="text-sm text-foreground">
-                                هذا العدد يعتمد على عمليات مسح QR Code ضمن الفعاليات.
-                              </p>
-                            </HoverCardContent>
-                          </HoverCard>
-                        </div>
-                        <p className="text-3xl font-bold text-primary">
-                          {attendedRegistrations.length}
-                        </p>
-                      </div>
-                      <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center flex-shrink-0">
-                        <CheckCircle2 className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ) : (
-                <Card className="opacity-60">
-                  <CardContent className="p-6">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <p className="text-secondary-foreground text-sm">الفعاليات التي حضرتها</p>
-                          <HoverCard>
-                            <HoverCardTrigger asChild>
-                              <button className="text-secondary-foreground hover:text-foreground transition-colors">
-                                <Info className="w-4 h-4" />
-                              </button>
-                            </HoverCardTrigger>
-                            <HoverCardContent className="w-64">
-                              <p className="text-sm text-foreground">
-                                هذا العدد يعتمد على عمليات مسح QR Code ضمن الفعاليات.
-                              </p>
-                            </HoverCardContent>
-                          </HoverCard>
-                        </div>
-                        <p className="text-2xl font-bold text-secondary-foreground">-</p>
-                        <p className="text-xs text-secondary-foreground mt-1">
-                          لا توجد بيانات حضور
-                        </p>
-                      </div>
-                      <div className="w-12 h-12 rounded-lg bg-muted flex items-center justify-center flex-shrink-0">
-                        <CheckCircle2 className="w-6 h-6 text-secondary-foreground" />
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
             </div>
           )}
 
@@ -387,7 +326,9 @@ export default function Page() {
                                 <Calendar className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" />
                               </div>
                               <div className="flex-1 min-w-0">
-                                <h3 className="text-base sm:text-lg font-semibold mb-2 break-words">{event.title}</h3>
+                                <h3 className="text-base sm:text-lg font-semibold mb-2 break-words">
+                                  {event.title}
+                                </h3>
                                 {event.date && (
                                   <p className="text-secondary-foreground text-sm mb-2">
                                     {dayjs(event.date).format("YYYY/MM/DD")}
