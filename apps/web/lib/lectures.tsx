@@ -22,7 +22,7 @@ export const lectures = [
     level: "متوسط/متقدم",
     requirements: [],
     social: {
-      youtube: "",
+      youtube: "https://www.youtube.com/embed/cHiw-Y9S0lM",
     },
     gallery: [],
   },
